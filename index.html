@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Divejikan</title>
+    <meta name="description" content="Next-generation interactive portfolio featuring 3D visuals and immersive design.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">MISTER<span class="accent">.</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+ 
+    <canvas id="bg-canvas"></canvas>
+
+    <main>
+   
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-glass-panel fade-in">
+                        <span class="eyebrow reveal-text" style="animation-delay: 0.2s;">Hello, I am</span>
+                        <h1 class="reveal-text" style="animation-delay: 0.3s; font-size: 3.5rem; margin-bottom: 1rem;">
+                            Yuvarajah Divejikan</h1>
+                        <h2 class="reveal-text"
+                            style="animation-delay: 0.4s; font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 2rem; font-weight: 500; min-height: 1.8rem;">
+                            <span id="typewriter"></span><span class="type-cursor">|</span>
+                        </h2>
+
+                        <style>
+                            .type-cursor {
+                                opacity: 1;
+                                animation: blink-cursor 0.8s infinite;
+                                margin-left: 4px;
+                                font-weight: 300;
+                            }
+
+                            @keyframes blink-cursor {
+
+                                0%,
+                                100% {
+                                    opacity: 1;
+                                }
+
+                                50% {
+                                    opacity: 0;
+                                }
+                            }
+                        </style>
+
+                        <script>
+                            const typewriterElement = document.getElementById('typewriter');
+                            const roles = [
+                                "Aspiring AI Software Engineer",
+                                "AI & ML Enthusiast",
+                                "Entrepreneur"
+                            ];
+
+                            let roleIdx = 0;
+                            let charIdx = 0;
+                            let isDeleting = false;
+                            let typingSpeed = 150;
+
+                            function playTypewriter() {
+                                const currentRole = roles[roleIdx];
+
+                                if (isDeleting) {
+                                    typewriterElement.textContent = currentRole.substring(0, charIdx - 1);
+                                    charIdx--;
+                                    typingSpeed = 75;
+                                } else {
+                                    typewriterElement.textContent = currentRole.substring(0, charIdx + 1);
+                                    charIdx++;
+                                    typingSpeed = 150;
+                                }
+
+                                if (!isDeleting && charIdx === currentRole.length) {
+                                    isDeleting = true;
+                                    typingSpeed = 3000;
+                                } else if (isDeleting && charIdx === 0) {
+                                    isDeleting = false;
+                                    roleIdx = (roleIdx + 1) % roles.length;
+                                    typingSpeed = 800;
+                                }
+
+                                setTimeout(playTypewriter, typingSpeed);
+                            }
+
+                            window.addEventListener('DOMContentLoaded', () => {
+                                setTimeout(playTypewriter, 1200);
+                            });
+                        </script>
+                        <div class="hero-btns reveal-text" style="animation-delay: 0.5s;">
+                            <a href="images/My_CV.pdf" class="btn btn-primary" download>📄 Download CV</a>
+                            <a href="#contact" class="btn btn-primary">📬 Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <div class="image-wrapper">
+              
+                        <div class="ambient-glow"></div>
+                        <div class="signal-pulse"></div>
+                        <div class="liquid-halo"></div>
+                        <div class="orbit-particles">
+                            <span class="particle p1"></span>
+                            <span class="particle p2"></span>
+                            <span class="particle p3"></span>
+                            <span class="particle p4"></span>
+                            <span class="particle p5"></span>
+                        </div>
+
+                        <img src="images/profile_new.jpeg" alt="Yuvarajah Divejikan"
+                            onerror="this.src='https://via.placeholder.com/400x400/111827/00E5FF?text=USER'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content-centered">
+                    <div class="about-text glass-card fade-in">
+                        <h3>Who Am I?</h3>
+                        <p>I’m a passionate and curious learner who loves building things with technology. I enjoy
+                            turning ideas into real projects using code and creativity. I’m interested in software
+                            development, full-stack development, and emerging technologies like AI and data science. I
+                            believe learning never stops, and I’m always excited to explore new tools, frameworks,new ideas and
+                            concepts that help me grow as a Software Developer.</p>
+                        <p>I enjoy solving problems, writing clean code, and continuously improving my skills. Whether
+                            it’s creating a simple website, working on a backend system, or learning a new programming
+                            concept, I give my best to every task. My goal is to become a skilled developer who builds
+                            meaningful, user-friendly, and impactful applications. When I’m not coding, I like learning
+                            new tech trends, improving myself, and thinking about ideas that can make life easier
+                            through technology.</p>
+                        <div class="tech-badges">
+                            <span class="badge">Aspiring Data Engineer</span>
+                            <span class="badge">AI & ML Enthusiast</span>
+                            <span class="badge">Software Developer</span>
+                            <span class="badge">Entrepreneur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+
+                <div class="skills-filter-bar fade-in">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="languages">Programming & Web Development</button>
+                    <button class="filter-btn" data-filter="databases">Databases & Analytics</button>
+                    <button class="filter-btn" data-filter="design">Design & UI/UX</button>
+                    <button class="filter-btn" data-filter="tools">Tools & Version Control</button>
+                </div>
+
+                <div class="skills-grid-modern">
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                                <line x1="6" y1="1" x2="6" y2="4" />
+                                <line x1="10" y1="1" x2="10" y2="4" />
+                                <line x1="14" y1="1" x2="14" y2="4" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Java</h3>
+                            <span class="skill-desc">OOP, JavaFX</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">03 Projects</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
+                                <path d="M12 14v8" />
+                                <path d="M8 17h8" />
+                                <path d="M12 14a5 5 0 0 0-5-5H6" />
+                                <path d="M12 14a5 5 0 0 1 5-5h1" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Python</h3>
+                            <span class="skill-desc">Data Analysis, Scripting</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Intermediate</span>
+                            <span class="skill-usage">2+ Projects</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M10 20h4" />
+                                <path d="M12 20v-6" />
+                                <path d="M6 20V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>JavaScript</h3>
+                            <span class="skill-desc">ES6+, DOM, Async</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">Daily Use</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <ellipse cx="12" cy="12" rx="10" ry="6" />
+                                <path d="M12 6v12" />
+                                <path d="M7 12h10" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>PHP</h3>
+                            <span class="skill-desc">Backend Development</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Intermediate</span>
+                            <span class="skill-usage">Web Apps</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M4 7l8-4 8 4v10l-8 4-8-4V7z" />
+                                <path d="M12 3v18" />
+                                <path d="M4 7h16" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>HTML5</h3>
+                            <span class="skill-desc">Semantic Structure</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Expert</span>
+                            <span class="skill-usage">Foundational</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M20 7l-8-4-8 4v10l8 4 8-4V7z" />
+                                <path d="M12 21V11" />
+                                <path d="M12 3v18" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>CSS3</h3>
+                            <span class="skill-desc">Flexbox, Grid, Animations</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">Styling</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="languages">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Three.js</h3>
+                            <span class="skill-desc">3D Graphics, WebGL</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Intermediate</span>
+                            <span class="skill-usage">8 Projects</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="databases">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>MySQL</h3>
+                            <span class="skill-desc">Relational DB, Queries</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">Production</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="databases">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <rect x="3" y="10" width="4" height="11" />
+                                <rect x="10" y="7" width="4" height="14" />
+                                <rect x="17" y="4" width="4" height="17" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Power BI</h3>
+                            <span class="skill-desc">Data Visualization</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Intermediate</span>
+                            <span class="skill-usage">Analytics</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="design">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
+                                <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
+                                <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
+                                <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
+                                <path d="M12 9h3.5a3.5 3.5 0 1 1 0 7H12V9z" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Figma</h3>
+                            <span class="skill-desc">UI/UX Design</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">Prototyping</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="tools">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path d="M15 22V2l7 5v10l-7 5z" />
+                                <path d="M15 12L2 20V4l13 8z" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>VS Code</h3>
+                            <span class="skill-desc">Primary Editor</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Expert</span>
+                            <span class="skill-usage">Daily</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="tools">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <rect x="2" y="2" width="20" height="20" rx="2" />
+                                <path d="M7 10l5 5 5-5" />
+                                <path d="M7 14h10" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>IntelliJ IDEA</h3>
+                            <span class="skill-desc">Java Development</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">IDE</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="tools">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <circle cx="12" cy="12" r="4" />
+                                <line x1="12" y1="8" x2="12" y2="3" />
+                                <line x1="12" y1="21" x2="12" y2="16" />
+                                <line x1="21" y1="12" x2="16" y2="12" />
+                                <line x1="8" y1="12" x2="3" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Git</h3>
+                            <span class="skill-desc">Distributed VC</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">CLI</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-modern fade-in" data-category="tools">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1.5"
+                                fill="none">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>GitHub</h3>
+                            <span class="skill-desc">Collab & Hosting</span>
+                        </div>
+                        <div class="skill-meta">
+                            <span class="skill-level">Advanced</span>
+                            <span class="skill-usage">Daily Use</span>
+                        </div>
+                        <div class="skill-progress-wrapper">
+                            <div class="skill-progress-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    
+        <section id="projects" class="projects-section">
+            <style>
+        
+                .project-image-container {
+                    width: 80%;
+                    margin: 1.5rem auto 0;
+                    aspect-ratio: 16 / 9;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .project-image-container img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .project-card {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            </style>
+
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/Jarvex.png" alt="JARVEX AI Assistant"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/fbbf24?text=JARVEX+AI'">
+                        </div>
+                        <div class="project-content">
+                            <h3>JARVEX: AI Chat Assistant</h3>
+                            <div class="project-meta">
+                                <span>Role: Java Developer</span>
+                                <span>Tech: JavaFX, Perplexity AI</span>
+                            </div>
+                            <p>Modern desktop chatbot focusing on performance and real-world AI integration.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href="https://github.com/divejikan-yuvarajah/Jarvex-JavaFXBased-ChatBot.git" class="btn btn-primary"
+                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/StockFlow.png" alt="StockFlow"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/3b82f6?text=StockFlow'">
+                        </div>
+                        <div class="project-content">
+                            <h3>StockFlow: Inventory System</h3>
+                            <div class="project-meta">
+                                <span>Role: Java/DB Developer</span>
+                                <span>Tech: JavaFX, MySQL</span>
+                            </div>
+                            <p>Desktop Inventory Management System to streamline business operations.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href="https://github.com/divejikan-yuvarajah/StockFlow-InventoryManagementSystem.git" class="btn btn-primary"
+                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in">
+    <div class="project-image-container">
+        <img src="images/FocusFlow.png" alt="FocusFlow Productivity Tracker"
+            onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=FocusFlow+App'">
+    </div>
+
+    <div class="project-content">
+        <h3>FocusFlow – Personal Productivity Tracker</h3>
+
+        <div class="project-meta">
+            <span>Role: Frontend Developer</span>
+            <span>Tech: React, JS, Recharts</span>
+        </div>
+
+        <p>
+            React-based productivity tracking app to manage daily tasks, monitor progress,
+            track productivity scores, and visualize performance with interactive analytics.
+        </p>
+
+        <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+            <a href="https://github.com/divejikan-yuvarajah/FocusFlow-ProductivityTracker.git" class="btn btn-primary"
+                style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+
+            <a href="https://focusflow-coral.vercel.app/" class="btn btn-primary"
+                style="padding: 8px 16px; font-size: 0.8rem;">Live Demo</a>
+        </div>
+    </div>
+</article>
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/ReNova.png" alt="ReNova"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/fbbf24?text=ReNova+UX'">
+                        </div>
+                        <div class="project-content">
+                            <h3>ReNova: Sustainability App</h3>
+                            <div class="project-meta">
+                                <span>Role: Team Leader & UI/UX Designer</span>
+                                <span>Tech: Figma</span>
+                            </div>
+                            <p>Mobile application transforming environmental tracking into a motivating experience.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href=" https://www.figma.com/design/vDmqoetjl9h96beeFBc49x/NeuraForm---ReNova?node-id=0-1&t=w2sz1XTi3InIKnsG-1"
+                                    class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Figma</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in"> <div class="project-image-container"> <img src="images/NextGPA.png" alt="NextGPA+" onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=NextGPA+'"> </div> <div class="project-content"> <h3>NextGPA+ Academic Planner</h3> <div class="project-meta"> <span>Role: Web Developer</span> <span>Tech: JS, HTML, CSS</span> </div> <p>Interactive GPA Management Web App to track and forecast performance.</p> <div class="hero-btns" style="gap: 10px; margin-top: 1rem;"> <a href="https://github.com/divejikan-yuvarajah/NextGPA-_Smart-GPA-tracking-Web-App.git" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a> </div> </div> </article>
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/data_analysis.png" alt="Data Analysis"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Data+Analysis'">
+                        </div>
+                        <div class="project-content">
+                            <h3>Sri Lanka Accident Analysis</h3>
+                            <div class="project-meta">
+                                <span>Role: Data Analyst</span>
+                                <span>Tech: Python, Pandas</span>
+                            </div>
+                            <p>Analyzes road accident data to identify patterns in severity and location.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href="https://github.com/divejikan-yuvarajah/SriLanka_Road_Accident_Analysis_Project.git" class="btn btn-primary"
+                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/JackSparrow.png" alt="Barbershop"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/3b82f6?text=Barber+Website'">
+                        </div>
+                        <div class="project-content">
+                            <h3>Jack Sparrow: The Barber</h3>
+                            <div class="project-meta">
+                                <span>Role: Frontend Developer</span>
+                                <span>Tech: HTML, CSS, JS</span>
+                            </div>
+                            <p>Modern online presence for a local barbershop with an online booking system.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href="https://divejikan-yuvarajah.github.io/Barbershop-Website/"
+                                    class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Live
+                                    Demo</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in">
+                        <div class="project-image-container">
+                            <img src="images/porfolio.png" alt="Portfolio Website"
+                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Portfolio+Website'">
+                        </div>
+                        <div class="project-content">
+                            <h3>Interactive 3D Portfolio</h3>
+                            <div class="project-meta">
+                                <span>Role: Frontend Developer</span>
+                                <span>Tech: Three.js, JS (ES6)</span>
+                            </div>
+                            <p>A high-performance personal portfolio featuring immersive 3D elements and smooth UX
+                                design.</p>
+                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+                                <a href="YOUR_GITHUB_LINK" class="btn btn-primary"
+                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in">
+    <div class="project-image-container">
+        <img src="images/ResQNet.png" alt="Community Disaster Response Platform"
+            onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Disaster+Response+Platform'">
+    </div>
+
+    <div class="project-content">
+        <h3>ResQNet: Disaster Response Platform</h3>
+
+        <div class="project-meta">
+            <span>Role: Team Leader & UX Designer</span>
+            <span>Tools: Figma, FigJam</span>
+        </div>
+
+        <p>
+            Designed a disaster response platform connecting affected people, volunteers, donors, and authorities with real-time alerts, SOS sharing, and emergency maps.
+        </p>
+
+        <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
+            <a href="https://www.figma.com/design/DafVHCipHe7M9BkJyuMe9C/Untitled?node-id=0-1&t=O0eQU5gUfS08Nx6v-1" class="btn btn-primary"
+                style="padding: 8px 16px; font-size: 0.8rem;">View Design</a>
+        </div>
+    </div>
+</article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jan 2026 - Present</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Software Developer</h3>
+                            <h4>Freelance (Fiverr, UpWork)</h4>
+                            <p>Delivering custom software solutions, web applications, and interactive experiences for
+                                global clients. Focused on modernizing business workflows through clean code and
+                                interactive 3D frontend designs.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">April 2023 - Present</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Founder Member & Head of Finance</h3>
+                            <h4>Technologists Association of Trincomalee District (TATD)</h4>
+                            <p>Leading financial strategies and organizational growth for a regional technology
+                                association. Managing budgets for tech events and fostering community engagement among
+                                local tech enthusiasts.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Sep 2023 - July 2024</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Internship Banking Trainee</h3>
+                            <h4>Hatton National Bank PLC</h4>
+                            <p>Gained hands-on experience in financial operations, customer service, and digital banking
+                                transitions. Developed strong professional ethics and attention to detail within a
+                                corporate environment.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Aug 2024 - Sep 2024</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Data Entry Clerk</h3>
+                            <h4>AARNA EASTERN LANKA (PVT) LTD</h4>
+                            <p>Managed high-volume data migration and inventory records with accuracy. Streamlined data
+                                organization processes to support operational efficiency during a key project phase.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+      
+        <section id="education" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Oct 2024 - Present</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Bachelor of Information and Communication Technology (Hons)</h3>
+                            <h4>South Eastern University of Sri Lanka (SEUSL)</h4>
+                            <p>Specializing in Software Engineering. Actively developing expertise in full-stack
+                                development, software architecture, and advanced database management.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Aug 2023 - Jan 2024</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Diploma in Cyber Security</h3>
+                            <h4>London School of Business and Social Sciences (LSBSS)</h4>
+                            <p>Completed intensive training in securing digital infrastructures. Key focus areas
+                                included:</p>
+                            <ul
+                                style="list-style: disc; margin-left: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                                <li>Network Security & Cryptography</li>
+                                <li>Ethical Hacking & Vulnerability Assessment</li>
+                                <li>Digital Forensics and Incident Response</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="services-section">
+            <style>
+                
+                .cert-grid-layout {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 15px;
+                    max-width: 950px;
+                    margin: 0 auto;
+                }
+
+                .cert-card-compact {
+                    padding: 1.2rem !important;
+                    min-height: auto !important;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .cert-card-compact h3 {
+                    font-size: 1.1rem;
+                    margin: 0.5rem 0;
+                }
+
+
+                @media (max-width: 600px) {
+                    .cert-grid-layout {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="cert-grid-layout">
+
+                    <div class="skill-card cert-card-compact fade-in">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 20V10M12 20V4M6 20v-6"></path>
+                            </svg>
+                        </div>
+                        <h3>Google Analytics Certification</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.2rem;">Google Digital
+                            Academy • 2025</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">ID: 151448795</p>
+                        <a href="#" class="btn-primary"
+                            style="padding: 5px 10px; font-size: 0.75rem; margin-top: 8px; display: inline-block;">Verify</a>
+                    </div>
+
+                    <div class="skill-card cert-card-compact fade-in">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
+                                </path>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <h3>Google AI Essentials</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.2rem;">Google • Mar
+                            2025</p>
+                        <a href="#" class="btn-primary"
+                            style="padding: 5px 10px; font-size: 0.75rem; margin-top: 8px; display: inline-block;">Verify</a>
+                    </div>
+
+                    <div class="skill-card cert-card-compact fade-in">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3>Azure & Web Development</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.2rem;">Microsoft</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Python, Frontend, Git</p>
+                        <a href="#" class="btn-primary"
+                            style="padding: 5px 10px; font-size: 0.75rem; margin-top: 8px; display: inline-block;">Verify</a>
+                    </div>
+
+                    <div class="skill-card cert-card-compact fade-in">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Diploma in Cyber Security</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.2rem;">LSBSS • Feb 2024
+                        </p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">ID: 4a71e9a</p>
+                        <a href="#" class="btn-primary"
+                            style="padding: 5px 10px; font-size: 0.75rem; margin-top: 8px; display: inline-block;">Verify</a>
+                    </div>
+
+                    <div class="skill-card cert-card-compact fade-in">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>DataScience, ML & SQL</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.2rem;">DataCamp</p>
+                        <a href="#" class="btn-primary"
+                            style="padding: 5px 10px; font-size: 0.75rem; margin-top: 8px; display: inline-block;">Verify</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info fade-in">
+                        <h3>Let's Talk</h3>
+                        <p>Have a project in mind or want to collaborate..? Feel free to reach out me.</p>
+                        <div class="skills-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                            <a href="mailto:divejuthe@gmail.com" class="skill-card"
+                                style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                                <span class="icon" style="font-size: 1.5rem;">📧</span>
+                                <div>
+                                    <h4 style="margin: 0; color: var(--text-main);">Email</h4>
+                                    <span
+                                        style="color: var(--text-muted); font-size: 0.9rem;">divejuthe@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/divejikan-yuvarajah/" target="_blank"
+                                class="skill-card"
+                                style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                                <span class="icon" style="font-size: 1.5rem;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 style="margin: 0; color: var(--text-main);">LinkedIn</h4>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Connect
+                                        professionally</span>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/divejikan-yuvarajah" target="_blank" class="skill-card"
+                                style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                                <span class="icon" style="font-size: 1.5rem;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.412-4.041-1.412-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 style="margin: 0; color: var(--text-main);">GitHub</h4>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Check my code</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form glass-card fade-in">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 @ Yuvarajah Divejikan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
