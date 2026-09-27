@@ -109,8 +109,88 @@ Keep the existing HTML-authored content as the source of truth initially. If rep
 
 ## Porcelain Arctic token direction
 
-Use centralized CSS custom properties aligned to the requested palette: page `#F8FAFC`, secondary surface `#F5F4F0`, primary text `#0F172A`, primary accent `#2563EB`, secondary accent `#60A5FA`, and border `#E2E8F0`. Load Manrope and Inter for interface/display roles and JetBrains Mono for technical metadata; retain a system-font fallback. Define semantic surface/text/accent tokens so components do not depend on literal colors. Recheck contrast for text, controls, focus indicators, and muted text against their actual backgrounds.
+Planning-only token proposal for a later task (no token/theme/font changes were made in Task 01):
+
+| Token | Proposed value | Intended use |
+|---|---|---|
+| Main background | `#F8FAFC` | Main canvas |
+| Porcelain surface | `#F5F4F0` | Alternating sections |
+| Card | `#FFFFFF` | Elevated content surfaces |
+| Heading | `#0F172A` | Headlines/emphasis |
+| Body | `#475569` | Supporting prose |
+| Primary cobalt | `#2563EB` | Main CTA, links, selection |
+| Arctic blue | `#60A5FA` | Secondary accents |
+| Light highlight | `#DBEAFE` | Chips/hover backgrounds |
+| Border | `#E2E8F0` | Dividers/outlines |
+| Primary hover | `#1D4ED8` | CTA hover |
+
+Typography proposal: Manrope headings, Inter body, JetBrains Mono technical labels, each with sensible system fallback. Do not add or replace font dependencies in Task 01. Future design principles: editorial hierarchy and readable content widths; distinctive engineering/founder character; restrained, purposeful motion; evidence-led project storytelling; avoid generic dashboard styling, excessive cards, unbounded 3D, and neon effects. Recheck contrast for text, controls, focus indicators, and muted text against actual surfaces when implementing.
 
 ## Audit limits
 
 The audit was based on repository files and local static inspection. It did not verify external URLs, open the site in a browser, validate behavior on real devices, inspect PDF content, or run assistive-technology checks. Those checks belong in implementation and release review after the redesign is built.
+
+## Current dependency and loading map (observed)
+
+```mermaid
+flowchart TD
+  HTML[index.html] --> CSS[css/style.css]
+  HTML --> IMPORT[Inline import map: three → unpkg Three.js 0.160.0]
+  HTML --> MAIN[js/main.js as type=module]
+  HTML --> FONTS[Google Fonts request]
+  MAIN --> SCENE[js/three-scene.js]
+  MAIN --> ANIM[js/animations.js]
+  MAIN --> SKILLS[js/skills.js]
+  SCENE --> THREE[three module from unpkg]
+  HTML --> ASSETS[images/* portrait, project art, CV]
+```
+
+`three/addons/` is also mapped by the import map but no addon import was observed. No npm-managed package dependency exists in the working tree. The small ES modules are loaded natively by a browser, so the source should be served over HTTP(S); the local Python server smoke check confirmed static requests but was not a browser runtime execution.
+
+## Hosting and deployment assumptions
+
+- **Observed:** there is no Vercel configuration, build script, workflow, or deployment file in the working tree. The site is plain static files and relative local asset paths.
+- **Compatible in principle:** any static host that serves `index.html`, CSS, JS, and `images/` at their relative paths should serve the current page. Module MIME types and remote access to unpkg/Google Fonts must be available.
+- **Unverified:** whether Vercel is actually used, whether a build/output directory is configured remotely, and whether production security headers/CSP exist outside this repository. No live deployment was inspected or changed.
+
+## Separation-of-concerns assessment
+
+The code has a reasonable small-module starting point: `main.js` coordinates startup; skills, animations, and Three.js each have separate module files. However, the page content, typewriter state/logic, import map, and section-specific CSS are coupled in `index.html`; `style.css` owns all global and section styles; HTML embeds substantial presentation as inline style attributes. Repeated entries are duplicated markup rather than shared component/data patterns. This remains manageable at current size but makes large cross-page change risky. The contact feature is only a form shell, not an integrated service.
+
+## V2 architecture options (proposal pending owner approval)
+
+| Option | Advantages | Costs/risks | Migration effort |
+|---|---|---|---|
+| **A. Improved vanilla HTML/CSS/JS** | No framework/toolchain; preserves static hosting and native modules; minimal deployment change; semantic HTML and progressive enhancement can serve all current sections | Repeated content still authored manually unless small data modules are added; route-based case studies require hand-authored pages or a small static generation approach | **Low–moderate**: organize existing page, move CSS/behavior, preserve all content and module URLs |
+| **B. React + TypeScript + Vite** | Reusable typed components; data-driven project cards/case studies; mature local dev/build pipeline; easier UI/state growth if multiple routes or collaborators arise | Adds dependencies, build output/configuration, package/lockfile maintenance, migration risk and possible hosting changes; risks a wholesale rewrite if done too early | **Moderate–high**: establish build pipeline, convert semantic content and interactions incrementally, verify static hosting and preserve routes/assets |
+
+**Recommendation:** Start with Option A. The current page is static, single-page, and has no demonstrated need for a framework; the existing project already uses native ES modules. Extract only repeated collections into local modules if that provides measurable authoring consistency. Revisit Option B at an explicit migration decision gate if owner-confirmed case-study routing, content scale, or team workflow makes framework overhead worthwhile. This is a proposal only; no framework choice has been approved or implemented.
+
+## Proposed V2 data/content model and component boundaries
+
+Keep semantic content visible and accessible. If repeating entries are moved to data modules, use local plain objects with owner-confirmed fields rather than adding a CMS:
+
+```text
+siteProfile: name, headline, summary, portrait, cvPath, contactLinks
+projects[]: id, title, status, role, summary, contributions[], stack[], image, repositoryUrl?, demoUrl?, designUrl?
+experience[]: id, role, organization, startDate, endDate?, summary, evidence/source
+education[]: id, qualification, institution, startDate, endDate?, details[]
+certifications[]: id, title, issuer, date?, verificationUrl?, status
+skills[]: name, group, evidence/context (avoid unsupported numeric ratings)
+```
+
+Candidate boundaries after content approval: `SiteHeader/Navigation`, `Hero`, `SectionHeading`, `ProjectCard` and optional `ProjectCaseStudy`, `SkillGroup/SkillFilter`, `TimelineEntry`, `CredentialCard`, `ContactLinks/ContactForm`, `SiteFooter`, and optional `BackgroundCanvas`. In vanilla, these are CSS/markup conventions and focused modules rather than framework components. Build content fields only from supplied evidence; unknown values remain `Needs owner confirmation`.
+
+## Proposed V2 information order (planning only)
+
+1. Hero — owner-confirmed Software Engineer (AI/ML) and founder positioning.
+2. About — concise bio and current technical focus.
+3. Featured projects — evidence-rich role-specific case studies.
+4. Experience & ventures — possible Zatroz and Softora roles plus verified prior work.
+5. Technical expertise — grouped, supportable technologies.
+6. Achievements — documented awards/competition milestones.
+7. Leadership & community — verified university/community roles.
+8. Education & certifications.
+9. Contact and confirmed professional links.
+
+This order and all proposed ventures, achievements, roles, and projects are planning inputs, not verified content. See the owner-confirmation section in `CONTENT_ASSET_INVENTORY.md`.

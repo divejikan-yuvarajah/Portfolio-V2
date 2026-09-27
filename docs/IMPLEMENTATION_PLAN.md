@@ -76,3 +76,39 @@
 - Certificate verification links: all five currently point to `#`.
 - External destination validity: GitHub, Figma, demo, LinkedIn, and email destinations have not been live-checked.
 - Three.js loading strategy: the current import map uses a CDN. Keep the dependency optional or select a locally hosted strategy only if deployment constraints require it.
+
+## Future workstreams and gates (planning only; do not execute in Task 01)
+
+Sequence dependencies intentionally: Task 01 evidence and owner inputs gate content claims; Task 02 establishes shared design primitives; section tasks then consume approved content and foundations. Tasks 14–17 should happen after core page structure exists. Accessibility and responsive review are cross-cutting and should also inform each earlier task, not wait until the end.
+
+| Task | Inputs / dependencies | Key deliverables | Acceptance gate | Explicit non-goals |
+|---|---|---|---|---|
+| **01 — Repository audit and migration foundation** | Existing copied source; owner-confirmed working repository | Five audit docs, baseline, risks, migration proposal | Evidence-based docs; original files/assets untouched; checks recorded; commit on `task/01-repository-audit` | Redesign, framework migration, content changes |
+| **02 — Porcelain Arctic design tokens and foundations** | Task 01 audit; approved type/color direction | Semantic tokens, base typography, reset/focus/motion foundations | Palette and fonts wired centrally; contrast reviewed; existing page still works | Rebuilding sections or changing content |
+| **03 — Navbar and responsive navigation** | Task 02 tokens; confirmed section order | Accessible desktop/mobile nav and anchor behavior | Keyboard/Touch operation, expanded state, focus and Escape behavior work | Rewriting hero or adding routes |
+| **04 — Premium hero** | Tasks 02–03; confirmed title, portrait, CV | Hero layout, primary CTA, optional restrained motion | Responsive, semantic, reduced-motion-safe hero; CV path verified | Inventing roles/claims; changing CV without approval |
+| **05 — About section** | Task 02; approved bio | Concise biography and current focus | Owner-approved copy and readable responsive layout | Adding unverified achievements |
+| **06 — Technical expertise** | Task 02; verified skill list | Skill groups and accessible filter or taxonomy | Names/categories verified; keyboard/screen-reader state works | Fabricated ratings or technologies |
+| **07 — Featured project gallery** | Task 02; confirmed project content/assets/links | Featured cards and archive policy for older work | Every retained card has approved status, media, and real link labels/destinations | Deleting legacy work silently; inventing project metrics |
+| **08 — Project detail/case-study pages** | Task 07; owner-approved contribution/evidence | Case study pages or equivalent detail views | Each case study has approved problem, role, process, result, media and navigation | Claims without owner-provided evidence; framework migration by default |
+| **09 — Ventures and experience** | Task 01 confirmation list; verified CV/venture dates | Current venture and work timeline | Titles, dates, descriptions and active status confirmed | Asserting Zatroz/Softora scope or dates without confirmation |
+| **10 — Achievements** | Documentary evidence and owner-approved wording | Awards, competition, milestone entries | Exact award/rank/result and evidence verified | Inflating outcomes or inventing metrics |
+| **11 — Leadership/community** | Verified role and activity history | Leadership/community section | Organization, title, dates and description approved | Duplicating stale role claims as current |
+| **12 — Education and certifications** | Verified institutions, dates, certificate names and URLs | Education/credential layout and working verification links | No placeholder `#`; all credential claims approved | Inventing credentials or publishing unconfirmed IDs |
+| **13 — Contact/social integration** | Owner-selected links and form destination/privacy approach | Contact channels; optionally a tested submission integration | Each channel verified; form delivers to an approved endpoint with clear feedback or is omitted | Adding a backend/service without approval; claiming delivery before tests |
+| **14 — Motion and GSAP interactions** | Completed sections; reduced-motion/accessibility requirements; dependency decision | Restrained transitions and optional enhanced motion | Reduced-motion path, fallback, CPU/GPU behavior checked; GSAP used only if justified/approved | Unbounded animation or adding GSAP solely for novelty |
+| **15 — Responsive polish** | Core sections 03–13 implemented | Layout refinements at mobile/tablet/desktop widths | 375/768/1440 checks recorded; no unintended overflow; touch targets usable | New content or new component system |
+| **16 — SEO, accessibility and performance** | Stable content, approved public domain and assets | Metadata, social preview, accessibility fixes, image/performance optimization | Keyboard/AT/contrast/reflow/metadata/local asset checks recorded; measured performance where tooling permits | Publishing unconfirmed public details or optimizing from estimates alone |
+| **17 — End-to-end test, regression and deployment** | All feature tasks complete; deployment ownership/settings known | Regression record, release candidate, deployment review | Existing functionality/content verified; owner approves deployment; rollback path documented | Automatic merge, publish, or deployment without required approval |
+
+## Migration decision gate before tools/framework changes
+
+Before adding React, TypeScript, Vite, GSAP, a CMS, or another runtime/tool dependency, document the concrete requirement that existing static modules cannot satisfy, the hosting/deployment implications, dependency/security/maintenance costs, content migration plan, accessible fallback, and a reversible staged approach. Obtain owner approval before introducing the migration. Do not change the remote or live deployment as part of that decision.
+
+## Branch, review, commit, and cleanup process for future tasks
+
+For each future workstream, start from the approved current base and create a separate branch such as `task/02-design-foundations`, `task/03-responsive-navigation`, continuing with a task-specific slug. Confirm `git status`, branch, remote, and recent commit before switching; never discard unrelated work. Keep commits scoped and descriptive. Before commit, inspect `git diff --check`, status, stat, and full diff; run that task's available checks and document not-run checks honestly. Push only the feature branch when authorized/available, request review, and wait for approval before merge. After approved merge, update the local base with fast-forward only, delete local/remote feature branches only after confirming merge and preserving work, then begin the next task. Never force-push or deploy by default.
+
+## Planned content order and confirmation reminder
+
+Potential featured project sequence for later review: FlowPilot AI, CORTEX, MediGuardian AI, INFRAOS (mark in development only after confirmation), InvoiceX AI, JevFlow (verify status and URLs), Thinky, HireQueue, PowerGuard IoT (confirm academic project stage), followed by an archive for JARVEX, StockFlow, FocusFlow, and other retained older work. Do not add these project entries until screenshots, status, role, stack, repository/demo links, and accurate outcome language are confirmed by the owner. The plan also depends on updated CV, startup dates, current venture descriptions, competition result wording, verified links, and media supplied or approved by the owner.
