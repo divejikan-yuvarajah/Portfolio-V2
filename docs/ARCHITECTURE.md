@@ -10,7 +10,8 @@ This audit covers the repository as found for Task 01. The site is a single-page
 Portfolio_V2/
 ├── index.html                 # Entire page, content, import map, and inline typewriter code
 ├── css/
-│   └── style.css              # Global theme, components, effects, and responsive rules
+│   ├── tokens.css              # Porcelain Arctic primitives, semantic tokens, base and a11y defaults
+│   └── style.css               # Legacy section styling, token-based primitives, effects and breakpoints
 ├── js/
 │   ├── main.js                # Startup and mobile navigation toggle
 │   ├── animations.js          # Custom pointer and IntersectionObserver reveals
@@ -44,11 +45,11 @@ No other application pages were found. `index.html` contains eight top-level sec
 
 - `index.html` is about 1,010 lines and combines content, presentation, and behavior. Typewriter logic and CSS are embedded in the document; project and certification styles are embedded in their sections.
 - There are 64 inline `style` attributes in addition to the two inline style blocks. Project card actions repeat the same inline spacing and font settings. Extract these to named component classes during redesign.
-- `style.css` contains global tokens, general components, legacy-looking unused styles, multiple generations of section styling, and responsive rules in one file. `.skill-icon` is declared twice, and mobile breakpoints are split across 992, 900, 768, and 480 pixels (plus a certification-specific 600-pixel rule).
+- Task 01 observed `style.css` owning theme values and shared/section rules. Task 02 introduced `tokens.css` as the palette/scale source of truth and left section styling in `style.css`; legacy names remain as compatibility aliases. `.skill-icon` is still declared twice, and breakpoints remain distributed across 992, 900, 768, 600, and 480 pixels.
 - Several selectors appear to be leftovers or overlap current structures, including `.skill-card`, `.skill-list`, `.services-grid`, `.project-image`, and `.project-overlay`; verify actual usage before removal.
 - Content is hardcoded in markup. This is acceptable for the current static scale, but makes repeated project, skill, and certification entries harder to maintain consistently.
 - Some markup is inconsistently indented or compressed into single lines, especially project cards.
-- Design tokens currently describe a dark navy/cyan/violet theme. The requested Porcelain Arctic tokens should be introduced centrally rather than applied as scattered color overrides. The design direction specifies Manrope, Inter, and JetBrains Mono; currently the site loads Inter and JetBrains Mono as well as Montserrat and Poppins.
+- At the Task 01 baseline, design variables described a dark navy/cyan/violet theme and Google Fonts requested Inter, JetBrains Mono, Montserrat and Poppins. Task 02 now centralizes Porcelain Arctic colors, type/spacing scales and semantic states in `css/tokens.css`; Google Fonts requests Manrope, Inter and JetBrains Mono with swap behavior and system fallbacks.
 
 ### Functionality and reference checks
 
@@ -60,18 +61,18 @@ No other application pages were found. `index.html` contains eight top-level sec
 - The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
 - External profile links use `target="_blank"` without an explicit `rel="noopener noreferrer"`.
 - The import map pins Three.js to version 0.160.0, but depends on CDN availability and network access. `three-scene.js` creates a WebGL renderer without handling unsupported WebGL or reduced-motion settings. `targetX`, `targetY`, and a `THREE.Clock` are unused. A dense all-pairs particle distance check runs every animation frame.
-- The mobile navigation is implemented with a `div`, without button semantics, accessible name, expanded state, or keyboard behavior. It does not manage focus or Escape dismissal.
-- The custom cursor is always present in markup and has no touch-device or reduced-motion adaptation. The reveal observer has no fallback if `IntersectionObserver` is unavailable and leaves elements hidden unless the observer runs.
+- The mobile navigation is implemented with a `div`, without button semantics, accessible name, expanded state, or keyboard behavior. It does not manage focus or Escape dismissal (Task 03).
+- Task 02 added visible `:focus-visible` styles and CSS/Three.js reduced-motion behavior; no browser/assistive-technology run has confirmed the result. The reveal observer still has no fallback if `IntersectionObserver` is unavailable and can leave elements hidden unless the observer runs.
 
 ### Responsiveness and accessibility risks
 
 - Existing media queries cover tablet and narrow viewports, but no browser/device layout audit was run. The hero, project grid, contact columns, and mobile navigation need visual checks at narrow and wide widths during redesign.
-- No skip link or explicit main navigation landmark label is present. The canvas is not marked decorative for assistive technology.
+- No skip link or explicit main navigation landmark label is present. Task 02 marked the decorative canvas `aria-hidden` and retained pointer-event passthrough styling.
 - The skills filters are buttons but do not expose selected state (such as `aria-pressed`), and filtering updates inline styles without announcing result changes.
 - Inline SVG icons and emoji are used; their accessible names/decorative status should be reviewed. Image alternative text is present, though some descriptions are generic (e.g. “StockFlow”, “Data Analysis”).
 - The contact fields have associated visible labels and `required`, which is a useful base, but no `name` fields or form destination exist. Keyboard focus styles, contrast, zoom, and screen-reader behavior were not measured.
-- Animations and smooth scrolling do not honor `prefers-reduced-motion`; the cursor and Three.js scene also add motion and processing cost.
-- CSS references `var(--text-secondary)` in the education and certification markup, but this custom property is not defined in the current stylesheet.
+- Task 02 honors `prefers-reduced-motion` in CSS and the Three.js initializer, and hides the custom cursor on coarse/touch pointers. The scene's normal-motion continuous loop and CPU/GPU cost remain; no performance profile was run.
+- Task 01 found undefined `var(--text-secondary)` references. Task 02 now supplies this legacy compatibility alias through `tokens.css`.
 
 ## Reuse inventory
 
@@ -88,8 +89,8 @@ For the first redesign iteration, retain a static site and native modules. Make 
 Portfolio_V2/
 ├── index.html                 # Semantic landmarks and section mount/content structure
 ├── css/
-│   ├── style.css              # Entry stylesheet with ordered imports (or consolidated file)
-│   ├── tokens.css             # Porcelain Arctic color, type, spacing, and motion tokens
+│   ├── tokens.css             # Porcelain Arctic token/base layer (implemented in Task 02)
+│   ├── style.css              # Existing responsive sections and compatible shared primitives
 │   ├── base.css               # Reset, typography, focus, and accessibility defaults
 │   ├── layout.css             # Containers, grids, section spacing, breakpoints
 │   └── components.css         # Navigation, buttons, cards, timeline, forms, effects
@@ -109,7 +110,7 @@ Keep the existing HTML-authored content as the source of truth initially. If rep
 
 ## Porcelain Arctic token direction
 
-Use centralized CSS custom properties aligned to the requested palette: page `#F8FAFC`, secondary surface `#F5F4F0`, primary text `#0F172A`, primary accent `#2563EB`, secondary accent `#60A5FA`, and border `#E2E8F0`. Load Manrope and Inter for interface/display roles and JetBrains Mono for technical metadata; retain a system-font fallback. Define semantic surface/text/accent tokens so components do not depend on literal colors. Recheck contrast for text, controls, focus indicators, and muted text against their actual backgrounds.
+The Task 01 palette proposal is implemented as the foundation in Task 02. The current single source of truth, semantic tokens, typography, scales, component utilities, accessibility rules, examples, and contrast notes are documented in [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md). New styles should use semantic custom properties from `css/tokens.css`; old aliases remain temporarily for existing inline and legacy rules.
 
 ## Audit limits
 
