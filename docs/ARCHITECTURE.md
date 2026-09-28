@@ -17,7 +17,18 @@ Portfolio_V2/
 │   ├── navigation.js          # Accessible menu behavior and active section state (Task 03)
 │   ├── animations.js          # Custom pointer and IntersectionObserver reveals
 │   ├── projects.js            # Progressive category filtering for HTML project cards (Task 07)
+│   ├── case-study.js          # Reuses shared navigation on standalone project pages (Task 08)
 │   └── three-scene.js         # Three.js particle field and resize/mouse interaction
+├── data/
+│   └── case-studies.json      # Unique long-form case-study details and evidence notes
+├── scripts/
+│   └── generate_case_studies.py # Static page generator; gallery remains shared-content source
+├── projects/                  # Four directly loadable static case-study routes
+│   ├── flowpilot-ai/index.html
+│   ├── cortex/index.html
+│   ├── mediguardian-ai/index.html
+│   └── infraos/index.html
+├── 404.html                   # Static fallback for unknown paths
 ├── images/
 │   ├── My_CV.pdf              # Downloadable CV
 │   ├── profile_new.jpeg       # Hero portrait
@@ -107,6 +118,10 @@ Portfolio_V2/
 ```
 
 Keep the existing HTML-authored content as the source of truth initially. If repeated data needs separation after the visual hierarchy settles, move only repeatable collections (projects, skills, credentials) into small local ES modules and render semantic markup. Avoid adopting a component framework, router, CMS, or package dependency without a specific requirement. Keep the Three.js import optional and isolated so the core page remains useful if the CDN or WebGL is unavailable.
+
+### Task 08 static detail pages
+
+The repository now includes four static, refresh-safe case-study pages generated from the featured project articles in `index.html` plus the unique long-form content in `data/case-studies.json`. The generator is `scripts/generate_case_studies.py`; its `--check` mode verifies generated files are current without writing them. Each output is an ordinary `projects/<slug>/index.html` document with its own metadata and links back to the single-page portfolio. `css/case-studies.css` scopes the detail-page presentation, and `js/case-study.js` initializes the existing shared navigation module. `404.html` provides a static site fallback. There is no client-side router, framework, added runtime dependency, or change to the existing Three.js scene. See [PROJECT_CASE_STUDIES.md](PROJECT_CASE_STUDIES.md).
 
 ## Porcelain Arctic token direction
 

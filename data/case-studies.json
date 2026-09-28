@@ -1,0 +1,212 @@
+{
+  "flowpilot-ai": {
+    "metaDescription": "A fact-checked case study of FlowPilot AI's SME finance workflows, sandbox integrations and my reported team contribution.",
+    "projectType": "Team buildathon project",
+    "role": {
+      "label": "My reported contribution",
+      "text": "The supplied portfolio brief identifies my role as team lead with product and architecture input and frontend work around the AI CFO dashboard. The public repository's team table uses placeholder names, so I cannot map its module list to me independently."
+    },
+    "problem": "Small businesses often use separate bank apps and spreadsheets to follow cash position, overdue invoices and short-term risk. FlowPilot's project brief frames the problem as bringing those signals into one financial workflow for Sri Lankan SMEs.",
+    "goals": [
+      "Bring cash position, runway and receivables into one view.",
+      "Help an owner review overdue-payment risk and prepare a follow-up.",
+      "Explore cash-flow scenarios before a short-term decision."
+    ],
+    "features": [
+      {
+        "title": "Cash-flow overview",
+        "text": "The public README describes a dashboard for cash position, runway and a 30-day cash-flow view. This portfolio records those as repository-described features; it does not make independent accuracy or financial-outcome claims."
+      },
+      {
+        "title": "Receivables and recovery workflow",
+        "text": "The repository describes overdue-invoice risk ordering and AI-drafted follow-up messages. Sending payments or contacting customers is not represented here as an independently verified live action."
+      },
+      {
+        "title": "Scenario testing",
+        "text": "The README documents controls for exploring client-default, expense and revenue scenarios. No forecast-accuracy or business-impact metric is claimed."
+      },
+      {
+        "title": "Daily financial brief",
+        "text": "The project documentation describes a generated brief with prioritized actions. The language model name is intentionally omitted because the public project page and repository materials do not agree on model providers."
+      }
+    ],
+    "architecture": {
+      "intro": "The project README describes a Next.js application with server routes, Supabase/PostgreSQL and external financial/AI services. This is a summary of the team documentation, not a code-level audit of every path.",
+      "steps": [
+        "A user opens the financial overview and selects a receivables or scenario workflow.",
+        "The application server coordinates data access and documented analysis services.",
+        "Supabase/PostgreSQL is listed for application records and authentication; external banking connections are described as sandbox integrations.",
+        "The interface presents the resulting financial context and suggested follow-up for human review."
+      ],
+      "stack": ["Next.js (README-listed)", "TypeScript (README-listed)", "Supabase / PostgreSQL (README-listed)"],
+      "note": "The README distinguishes live sandbox API calls from simulated payment rails. No production banking connection or named model provider is claimed here."
+    },
+    "decisions": [],
+    "outcomes": [
+      "A public project page and source repository are available.",
+      "The repository identifies FlowPilot as a Cursor Colombo 24H Buildathon project. The public materials disagree on the year and do not provide reliable individual module attribution, so no year, placement or award is published here."
+    ],
+    "limitations": [
+      "The accessible public URL is a project/marketing page; this audit did not authenticate into or independently exercise the financial application.",
+      "Banking functionality described by the repository is sandbox-oriented; it should not be read as access to production bank accounts.",
+      "No authorized product screenshot is available in this portfolio repository. The hero art below is explicitly typographic, not a screenshot."
+    ],
+    "relatedSlugs": ["cortex", "mediguardian-ai"],
+    "evidence": [
+      {"claim": "Team lead; product/architecture and frontend/AI CFO dashboard contribution", "source": "Owner-supplied Task 08 project brief; public README team names are placeholders", "verified": "Owner-provided; not independently attributed", "published": "Qualified as reported contribution; specific module ownership is not inferred."},
+      {"claim": "Cash-flow, receivables, scenario and financial brief workflows", "source": "Public FlowPilot README", "verified": "Documented by project team; not independently exercised", "published": "Described as repository-documented features."},
+      {"claim": "Bank API sandbox/simulation distinction", "source": "Public FlowPilot README API status table", "verified": "README distinguishes sandbox calls and simulator-backed rails", "published": "Explicitly labeled sandbox/demo integration."},
+      {"claim": "Public page and repository availability", "source": "FlowPilot demo and GitHub repository", "verified": "Opened 2026-09-29", "published": "Links provided; no metrics or recognition claim."},
+      {"claim": "Competition year and award", "source": "Task brief and public project page disagree on year; no corroborating placement source found", "verified": "No", "published": "Omitted."},
+      {"claim": "Product screenshots", "source": "Current portfolio repository asset inventory", "verified": "No approved FlowPilot screenshot present", "published": "Labeled typographic illustration used."}
+    ]
+  },
+  "cortex": {
+    "metaDescription": "A case study of CORTEX, the collaborator team's AI business operating system, with verified links and clear contribution boundaries.",
+    "projectType": "Collaborator/team product",
+    "role": {
+      "label": "Contribution boundary",
+      "text": "CORTEX is represented by a public repository owned by collaborator Abdul Basith and a team preview. The materials available for this audit do not assign specific modules to me, so this case study describes the documented team system without claiming individual feature ownership."
+    },
+    "problem": "The project repository describes teams moving between separate inventory, CRM, finance and operations tools to answer routine business questions. CORTEX proposes a shared operating system for those workflows.",
+    "goals": [
+      "Bring business records and operational areas into a shared workspace.",
+      "Support natural-language questions and actions across business modules.",
+      "Keep workflows, analytics and knowledge features within one application."
+    ],
+    "features": [
+      {
+        "title": "Business modules",
+        "text": "The team README lists areas including inventory, CRM, sales, finance and HR. The list reflects the repository's product documentation and is not an independent feature-by-feature acceptance test."
+      },
+      {
+        "title": "Assistant and analytics",
+        "text": "The repository documents a natural-language assistant, analytics and predictive-intelligence areas. No customer results or forecast quality is asserted."
+      },
+      {
+        "title": "Workflows and knowledge",
+        "text": "The documented scope includes workflow automation and a business knowledge graph. The case study avoids implying each integration or module is in production."
+      }
+    ],
+    "architecture": {
+      "intro": "The collaborator-owned README describes a Next.js App Router application with API routes, PostgreSQL/Supabase, Prisma, optional Redis/BullMQ workers and external LLM providers. These are repository-listed components; my personal implementation contribution is not established by that source.",
+      "steps": [
+        "A browser client uses the Next.js application and its API routes.",
+        "The API layer is documented as coordinating tenant-scoped application data and authentication.",
+        "PostgreSQL/Supabase is paired with Prisma; pgvector is listed for vector storage.",
+        "Optional background workers use Redis/BullMQ, while AI calls use a configured external provider."
+      ],
+      "stack": ["Next.js 16 (README-listed)", "TypeScript 5 (README-listed)", "PostgreSQL / Supabase", "Prisma 6", "pgvector", "Redis / BullMQ (optional)"],
+      "note": "The stack and architecture are taken from a public collaborator repository README, not independently checked against the repository's source files in this audit."
+    },
+    "decisions": [],
+    "outcomes": [
+      "The collaborator repository and a public preview are available.",
+      "The repository describes the product as live. The preview contains promotional metrics, logos and testimonials that were not independently substantiated; none are repeated in this portfolio."
+    ],
+    "limitations": [
+      "The source repository belongs to collaborator Abdul Basith; this page does not represent it as Divejikan's individual repository.",
+      "Public preview access confirms that a page loads, not that its listed claims, integrations or customer results have been independently validated.",
+      "No approved CORTEX screenshot is available in this portfolio repository. The hero art below is typographic and is not a product capture."
+    ],
+    "relatedSlugs": ["flowpilot-ai", "infraos"],
+    "evidence": [
+      {"claim": "Business-management product, modules, current status and declared stack", "source": "Public collaborator README at github.com/abdullllbasith/Cortex", "verified": "Repository page and README opened 2026-09-29; implementation not independently inspected", "published": "Explicitly attributed to collaborator/team repository."},
+      {"claim": "Public preview is reachable", "source": "cortex-gamma-teal.vercel.app", "verified": "Opened 2026-09-29", "published": "Linked as a team preview, not as proof of customer adoption."},
+      {"claim": "Divejikan's module-level contribution", "source": "No individual contribution evidence found in the available public README", "verified": "No", "published": "No individual modules assigned."},
+      {"claim": "Promotional customer/usage/security metrics shown by preview", "source": "Public team preview", "verified": "No independent substantiation", "published": "Omitted."},
+      {"claim": "Product screenshots", "source": "Current portfolio repository asset inventory", "verified": "No approved screenshot present", "published": "Labeled typographic illustration used."}
+    ]
+  },
+  "mediguardian-ai": {
+    "metaDescription": "A qualified case study of MediGuardian AI, a health-memory competition prototype—not a diagnostic service or verified clinical product.",
+    "projectType": "Competition prototype (owner-supplied brief)",
+    "role": {
+      "label": "Reported team role",
+      "text": "The supplied project brief identifies me as team lead with primary AI-architecture responsibility. No accessible source repository was available to validate specific code ownership, so this remains a qualified, owner-provided attribution."
+    },
+    "problem": "The owner-provided brief describes medical records spread across uploaded documents and patient history as the design problem. The proposed prototype explores making those records easier to review and query; this is not a claim that it improves clinical outcomes.",
+    "goals": [
+      "Explore extraction of structured information from uploaded medical documents.",
+      "Make record-grounded questions easier to ask and review with source references.",
+      "Keep prototype output clearly separate from diagnosis or clinician decision-making."
+    ],
+    "features": [
+      {
+        "title": "Document extraction concept",
+        "text": "The project brief describes turning uploaded medical documents into structured information. The implementation and supported file types could not be verified from accessible code."
+      },
+      {
+        "title": "Record-grounded questions",
+        "text": "The brief describes retrieval-augmented questions with source references. This page does not claim clinical accuracy, complete records or safe medication recommendations."
+      }
+    ],
+    "architecture": {
+      "intro": "No accessible source repository or working demo was available to verify a system diagram or implementation stack. The public page therefore omits a speculative technical architecture.",
+      "steps": [],
+      "stack": [],
+      "note": "The owner-provided brief mentions document extraction and retrieval-augmented questions; model, database, hosting and integration choices are not published as verified facts."
+    },
+    "decisions": [],
+    "outcomes": [
+      "The work is presented as a competition prototype based on the owner-supplied project brief.",
+      "The supplied deployment URL could not be confirmed as accessible during this audit, so there is no live demo link."
+    ],
+    "limitations": [
+      "This project is not a diagnostic service, certified medical device or replacement for a licensed clinician.",
+      "No private patient records or test data are used on this page.",
+      "The Guardian Connect referral concept and any safety-check behavior were not independently verified and are not presented as shipped features.",
+      "No approved product screenshot is present in this portfolio repository. The hero art below is typographic, not a screenshot."
+    ],
+    "relatedSlugs": ["flowpilot-ai", "cortex"],
+    "evidence": [
+      {"claim": "Problem framing, prototype workflow and reported team role", "source": "Owner-supplied Task 08 brief", "verified": "Owner-provided only; no accessible implementation source", "published": "Qualified as brief-described prototype scope and reported role."},
+      {"claim": "Demo URL", "source": "Previously supplied Vercel URL", "verified": "Not accessible to web inspection on 2026-09-29", "published": "No demo CTA."},
+      {"claim": "Technology stack, clinical safety, referral module and code-level contribution", "source": "No accessible repository or implementation evidence", "verified": "No", "published": "Omitted or labeled unverified."},
+      {"claim": "Product screenshots", "source": "Current portfolio repository asset inventory", "verified": "No approved screenshot present", "published": "Labeled typographic illustration used."}
+    ]
+  },
+  "infraos": {
+    "metaDescription": "INFRAOS is an in-development university project concept for infrastructure coordination; implementation details remain unverified.",
+    "projectType": "University project · in development (owner-supplied brief)",
+    "role": {
+      "label": "Contribution evidence",
+      "text": "The supplied brief identifies INFRAOS as a university project in development but does not establish my individual module ownership. The repository URL could not be retrieved for this audit, so no feature is attributed to me as completed work."
+    },
+    "problem": "Infrastructure works can be planned by separate organizations, making it difficult to spot schedule conflicts or see a shared status. INFRAOS is a project concept for coordinating that information; it is not an official government system or an operating national service.",
+    "goals": [
+      "Explore a shared view of infrastructure project status and schedules.",
+      "Make cross-agency coordination and potential work conflicts visible.",
+      "Consider mapping and document-risk information as future product areas."
+    ],
+    "features": [],
+    "architecture": {
+      "intro": "The repository URL supplied in the brief could not be retrieved. No implemented stack or data flow could be checked, so no built architecture is claimed.",
+      "steps": [],
+      "stack": [],
+      "note": "The project brief mentions GIS, roadworks, document intelligence and risk as areas of the concept. These remain planned or under exploration rather than verified shipped modules."
+    },
+    "decisions": [],
+    "planned": [
+      "Shared project tracking and status visibility.",
+      "Interagency schedule coordination for infrastructure work.",
+      "GIS mapping and risk/document intelligence exploration."
+    ],
+    "outcomes": [
+      "The available project brief frames INFRAOS as an in-development university project.",
+      "No running government service, public-sector adoption or completed feature set is claimed."
+    ],
+    "limitations": [
+      "Implementation progress and individual code contribution require confirmation from the project repository or team records.",
+      "The supplied repository URL was not retrievable during this audit; no repository CTA is shown.",
+      "No approved product screenshot is present in this portfolio repository. The hero art below is typographic, not a screenshot."
+    ],
+    "relatedSlugs": ["cortex", "mediguardian-ai"],
+    "evidence": [
+      {"claim": "Project concept, university context and in-development state", "source": "Owner-supplied Task 08 project brief", "verified": "Owner-provided; no code source retrieved", "published": "Clearly labeled concept/in development."},
+      {"claim": "Repository and technical implementation", "source": "https://github.com/divejikan-yuvarajah/InfraOS", "verified": "Not retrievable to web inspection on 2026-09-29", "published": "No repository link or implementation-stack claim."},
+      {"claim": "GIS, coordination and document/risk modules", "source": "Owner-supplied project brief", "verified": "Proposed concepts only", "published": "Listed separately as planned direction."},
+      {"claim": "Product screenshots", "source": "Current portfolio repository asset inventory", "verified": "No approved screenshot present", "published": "Labeled typographic illustration used."}
+    ]
+  }
+}
