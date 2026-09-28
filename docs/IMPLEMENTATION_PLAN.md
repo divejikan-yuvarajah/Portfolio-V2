@@ -25,7 +25,7 @@
 
 ## Phase 2 — Design foundation and page structure
 
-1. Define semantic color, type, spacing, radius, elevation, and motion tokens in CSS. Apply the Porcelain Arctic palette centrally.
+1. **Foundation completed in Task 02:** define semantic color, type, spacing, radius, elevation, and motion tokens in `css/tokens.css`; load before `style.css`; document usage in `docs/DESIGN_SYSTEM.md`. Section-level design implementation remains future work.
 2. Establish a responsive page grid, readable text widths, consistent section spacing, and a clear type scale.
 3. Improve semantic structure: skip link, labeled navigation, one page `h1`, logical heading order, section landmarks, and decorative canvas semantics.
 4. Replace embedded and inline styles with named CSS classes. Remove old styles only after confirming their selectors are unused.

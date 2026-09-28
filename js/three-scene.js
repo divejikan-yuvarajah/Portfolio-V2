@@ -23,7 +23,12 @@ export function initThreeScene() {
     const connectDistance = 6;  
     const particleSpeed = 0.05; 
     const interactionRadius = 8; 
-    const colorPrimary = 0x00E5FF; 
+    const colorPrimary = getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-action-primary')
+        .trim();
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = motionPreference.matches;
+    let animationFrameId = null;
 
  
     const particlesGeometry = new THREE.BufferGeometry();
@@ -90,7 +95,13 @@ export function initThreeScene() {
     const clock = new THREE.Clock();
 
     function animate() {
-        requestAnimationFrame(animate);
+        if (prefersReducedMotion) {
+            animationFrameId = null;
+            renderer.render(scene, camera);
+            return;
+        }
+
+        animationFrameId = requestAnimationFrame(animate);
 
         const vector = new THREE.Vector3(mouseX, mouseY, 0.5);
         vector.unproject(camera);
@@ -157,9 +168,22 @@ export function initThreeScene() {
 
     animate();
 
+    motionPreference.addEventListener('change', (event) => {
+        prefersReducedMotion = event.matches;
+
+        if (prefersReducedMotion && animationFrameId !== null) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+            renderer.render(scene, camera);
+        } else if (!prefersReducedMotion && animationFrameId === null) {
+            animate();
+        }
+    });
+
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        if (prefersReducedMotion) renderer.render(scene, camera);
     });
 }

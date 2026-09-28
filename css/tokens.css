@@ -1,0 +1,210 @@
+/* Porcelain Arctic design tokens. Keep palette values centralized here. */
+:root {
+    color-scheme: light;
+
+    /* Primitive palette */
+    --porcelain-50: #F8FAFC;
+    --porcelain-warm: #F5F4F0;
+    --white: #FFFFFF;
+    --navy-950: #0F172A;
+    --slate-800: #1E293B;
+    --slate-600: #475569;
+    --slate-500: #64748B;
+    --cobalt-600: #2563EB;
+    --cobalt-700: #1D4ED8;
+    --arctic-400: #60A5FA;
+    --arctic-100: #DBEAFE;
+    --slate-200: #E2E8F0;
+    --green-700: #15803D;
+    --amber-800: #92400E;
+    --red-700: #B91C1C;
+
+    /* Palette channels support translucent decorative treatments. */
+    --rgb-surface: 255 255 255;
+    --rgb-page: 248 250 252;
+    --rgb-text-primary: 15 23 42;
+    --rgb-action-primary: 37 99 235;
+    --rgb-arctic: 96 165 250;
+    --rgb-border: 226 232 240;
+
+    /* Semantic colors */
+    --color-bg-page: var(--porcelain-50);
+    --color-bg-alt: var(--porcelain-warm);
+    --color-surface: var(--white);
+    --color-surface-elevated: var(--white);
+    --color-surface-subtle: #F1F5F9;
+    --color-surface-highlight: var(--arctic-100);
+    --color-text-primary: var(--navy-950);
+    --color-text-secondary: var(--slate-800);
+    --color-text-body: var(--slate-600);
+    --color-text-subtle: var(--slate-500);
+    --color-text-inverse: var(--white);
+    --color-action-primary: var(--cobalt-600);
+    --color-action-hover: var(--cobalt-700);
+    --color-action-pressed: #1E40AF;
+    --color-action-text: var(--white);
+    --color-accent-arctic: var(--arctic-400);
+    --color-accent-soft: var(--arctic-100);
+    --color-border: var(--slate-200);
+    --color-border-strong: var(--slate-500);
+    --color-border-subtle: #F1F5F9;
+    --color-focus-ring: var(--cobalt-600);
+    --color-success: var(--green-700);
+    --color-warning: var(--amber-800);
+    --color-danger: var(--red-700);
+    --color-overlay: rgb(15 23 42 / 0.84);
+    --color-surface-glass: rgb(255 255 255 / 0.92);
+    --color-accent-wash: rgb(37 99 235 / 0.08);
+
+    /* Typography */
+    --font-heading: "Manrope", "Inter", Arial, sans-serif;
+    --font-body: "Inter", "Aptos", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-display: clamp(2.5rem, 6vw, 4.5rem);
+    --line-height-tight: 1.15;
+    --line-height-body: 1.6;
+    --line-height-loose: 1.75;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* 4px-based spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    /* Layout and geometry */
+    --layout-container: 75rem;
+    --layout-reading-measure: 72ch;
+    --layout-gutter: clamp(1rem, 4vw, 2rem);
+    --section-padding-block: clamp(4rem, 8vw, 6.25rem);
+    --section-padding: var(--section-padding-block) 0;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --radius-pill: 999px;
+    --border-width: 1px;
+    --border-width-strong: 2px;
+
+    /* Elevation and motion */
+    --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+    --shadow-md: 0 8px 24px rgb(15 23 42 / 0.08);
+    --shadow-lg: 0 16px 40px rgb(15 23 42 / 0.12);
+    --shadow-focus: 0 0 0 3px rgb(37 99 235 / 0.24);
+    --glow-cyan: 0 0 18px rgb(37 99 235 / 0.16);
+    --glow-violet: 0 0 18px rgb(96 165 250 / 0.16);
+    --duration-fast: 150ms;
+    --duration-base: 220ms;
+    --duration-slow: 350ms;
+    --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    /* Layer scale */
+    --z-background: -1;
+    --z-base: 0;
+    --z-content: 1;
+    --z-sticky: 10;
+    --z-navigation: 20;
+    --z-overlay: 30;
+    --z-cursor: 100;
+
+    /* Compatibility aliases for existing markup and styles. */
+    --bg-primary: var(--color-bg-page);
+    --bg-secondary: var(--color-surface);
+    --accent-cyan: var(--color-action-primary);
+    --accent-violet: var(--color-accent-arctic);
+    --text-main: var(--color-text-primary);
+    --text-muted: var(--color-text-body);
+    --text-secondary: var(--color-text-subtle);
+    --border-color: var(--color-border);
+    --container-width: var(--layout-container);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    min-width: 320px;
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+::selection {
+    color: var(--color-text-primary);
+    background: var(--color-accent-soft);
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 3px;
+    box-shadow: var(--shadow-focus);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .fade-in,
+    .reveal-text,
+    .hero-image {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
