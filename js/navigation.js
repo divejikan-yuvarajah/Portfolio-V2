@@ -68,7 +68,7 @@ export function initNavigation() {
         if (link) {
             const target = getHashTarget(link);
             if (target) setActiveLink(target.id);
-            setMenuOpen(false, menu.contains(document.activeElement));
+            setMenuOpen(false, mobileQuery.matches && menu.contains(document.activeElement));
         }
     });
 
