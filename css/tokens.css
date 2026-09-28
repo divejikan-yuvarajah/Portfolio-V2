@@ -203,9 +203,7 @@ select {
         transition-delay: 0ms !important;
     }
 
-    .fade-in,
-    .reveal-text,
-    .hero-image {
+    .fade-in {
         opacity: 1 !important;
         transform: none !important;
     }

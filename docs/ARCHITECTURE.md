@@ -29,23 +29,23 @@ No other application pages were found. `index.html` contains eight top-level sec
 
 ## Existing behavior and dependencies
 
-- Hero: animated role/typewriter text, portrait, in-page contact link, and a download link to `images/My_CV.pdf`.
-- Navigation: anchor links and a CSS-driven mobile menu toggled by `main.js`.
+- Hero: stable role copy, local portrait, project/contact links, and a tertiary download link to `images/My_CV.pdf` (Hero details in [HERO.md](HERO.md)).
+- Navigation: semantic anchor links and a responsive accessible mobile menu managed by `navigation.js`.
 - About: biography and four profile/interest badges.
 - Skills: manually authored skill cards and category filters driven by `skills.js`.
 - Projects: nine manually authored project cards with local thumbnails and GitHub, demo, or Figma links.
 - Experience and Education: manually authored timeline entries.
 - Certifications: five cards with verification links.
 - Contact: email, LinkedIn, and GitHub links plus a form with required fields.
-- Visual behavior: CSS reveal effects, custom pointer, hero image effects, and a canvas-backed Three.js particle network.
+- Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.
 - JavaScript dependencies: Three.js 0.160.0 is loaded as an ES module from `unpkg.com` through an inline import map. The page also requests Google Fonts remotely. There are no installed project dependencies.
 
 ## Findings
 
 ### Content, styles, and maintainability
 
-- `index.html` is about 1,010 lines and combines content, presentation, and behavior. Typewriter logic and CSS are embedded in the document; project and certification styles are embedded in their sections.
-- There are 64 inline `style` attributes in addition to the two inline style blocks. Project card actions repeat the same inline spacing and font settings. Extract these to named component classes during redesign.
+- At the Task 01 baseline, `index.html` was about 1,010 lines and combined content, presentation, and behavior; the Hero typewriter code and CSS were inline. Task 04 replaced that Hero behavior with static accessible copy and moved its presentation into shared styles. Project and certification styles remain embedded in their sections.
+- The document still has many inline style attributes (Task 01 counted 64) and project card actions repeat spacing/font declarations. Continue extracting these only as their sections are implemented.
 - Task 01 observed `style.css` owning theme values and shared/section rules. Task 02 introduced `tokens.css` as the palette/scale source of truth and left section styling in `style.css`; legacy names remain as compatibility aliases. `.skill-icon` is still declared twice, and breakpoints remain distributed across 992, 900, 768, 600, and 480 pixels.
 - Several selectors appear to be leftovers or overlap current structures, including `.skill-card`, `.skill-list`, `.services-grid`, `.project-image`, and `.project-overlay`; verify actual usage before removal.
 - Content is hardcoded in markup. This is acceptable for the current static scale, but makes repeated project, skill, and certification entries harder to maintain consistently.
@@ -55,13 +55,13 @@ No other application pages were found. `index.html` contains eight top-level sec
 ### Functionality and reference checks
 
 - The CV target exists in the repository and its anchor uses the `download` attribute. This static audit did not open the PDF in a browser.
-- The image sources in the page correspond to local files in `images/`. Each image has a remote `via.placeholder.com` inline fallback; this introduces an external dependency when an image fails and embeds fallback behavior in content markup.
+- The image sources in the page correspond to local files in `images/`. Non-Hero images retain remote `via.placeholder.com` inline fallbacks; the Hero now uses the local portrait directly without a remote fallback.
 - There is a leading space in the ReNova Figma `href`, and the portfolio project points to the literal `YOUR_GITHUB_LINK` placeholder.
 - All five certification “Verify” links use `href="#"`, so they do not identify verification destinations.
 - The project links are hardcoded external GitHub/Figma/demo URLs. Their live availability and ownership were not verified over the network.
 - The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
 - External profile links use `target="_blank"` without an explicit `rel="noopener noreferrer"`.
-- The import map pins Three.js to version 0.160.0, but depends on CDN availability and network access. `three-scene.js` creates a WebGL renderer without handling unsupported WebGL or reduced-motion settings. `targetX`, `targetY`, and a `THREE.Clock` are unused. A dense all-pairs particle distance check runs every animation frame.
+- The import map pins Three.js to version 0.160.0 and depends on CDN availability/network access. Task 02 added a reduced-motion static-render path; unsupported WebGL is still not handled. `targetX`, `targetY`, and a `THREE.Clock` are unused. A dense all-pairs particle distance check runs every animation frame.
 - Task 01 baseline finding (resolved in Task 03): the mobile toggle was a clickable `div` without button semantics or keyboard behavior. Current navigation details and verification limits are in [NAVIGATION.md](NAVIGATION.md).
 - Task 02 added visible `:focus-visible` styles and CSS/Three.js reduced-motion behavior; no browser/assistive-technology run has confirmed the result. The reveal observer still has no fallback if `IntersectionObserver` is unavailable and can leave elements hidden unless the observer runs.
 

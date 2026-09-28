@@ -53,104 +53,41 @@
 
     <main id="main-content" tabindex="-1">
    
-        <section id="hero" class="hero-section">
-            <div class="container hero-container">
+        <section id="hero" class="hero-section" aria-labelledby="hero-title">
+            <div class="container hero-layout">
                 <div class="hero-content">
-                    <div class="hero-glass-panel fade-in">
-                        <span class="eyebrow reveal-text" style="animation-delay: 0.2s;">Hello, I am</span>
-                        <h1 class="reveal-text" style="animation-delay: 0.3s; margin-bottom: 1rem;">
-                            Yuvarajah Divejikan</h1>
-                        <h2 class="reveal-text"
-                            style="animation-delay: 0.4s; font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 2rem; font-weight: 500; min-height: 1.8rem;">
-                            <span id="typewriter"></span><span class="type-cursor">|</span>
-                        </h2>
-
-                        <style>
-                            .type-cursor {
-                                opacity: 1;
-                                animation: blink-cursor 0.8s infinite;
-                                margin-left: 4px;
-                                font-weight: 300;
-                            }
-
-                            @keyframes blink-cursor {
-
-                                0%,
-                                100% {
-                                    opacity: 1;
-                                }
-
-                                50% {
-                                    opacity: 0;
-                                }
-                            }
-                        </style>
-
-                        <script>
-                            const typewriterElement = document.getElementById('typewriter');
-                            const roles = [
-                                "Aspiring AI Software Engineer",
-                                "AI & ML Enthusiast",
-                                "Entrepreneur"
-                            ];
-
-                            let roleIdx = 0;
-                            let charIdx = 0;
-                            let isDeleting = false;
-                            let typingSpeed = 150;
-
-                            function playTypewriter() {
-                                const currentRole = roles[roleIdx];
-
-                                if (isDeleting) {
-                                    typewriterElement.textContent = currentRole.substring(0, charIdx - 1);
-                                    charIdx--;
-                                    typingSpeed = 75;
-                                } else {
-                                    typewriterElement.textContent = currentRole.substring(0, charIdx + 1);
-                                    charIdx++;
-                                    typingSpeed = 150;
-                                }
-
-                                if (!isDeleting && charIdx === currentRole.length) {
-                                    isDeleting = true;
-                                    typingSpeed = 3000;
-                                } else if (isDeleting && charIdx === 0) {
-                                    isDeleting = false;
-                                    roleIdx = (roleIdx + 1) % roles.length;
-                                    typingSpeed = 800;
-                                }
-
-                                setTimeout(playTypewriter, typingSpeed);
-                            }
-
-                            window.addEventListener('DOMContentLoaded', () => {
-                                setTimeout(playTypewriter, 1200);
-                            });
-                        </script>
-                        <div class="hero-btns reveal-text" style="animation-delay: 0.5s;">
-                            <a href="images/My_CV.pdf" class="btn btn-primary" download>📄 Download CV</a>
-                            <a href="#contact" class="btn btn-primary">📬 Contact Me</a>
-                        </div>
+                    <p class="hero-eyebrow"><span aria-hidden="true"></span>Hello, I'm Divejikan</p>
+                    <h1 class="hero-title" id="hero-title">Yuvarajah <span>Divejikan</span></h1>
+                    <h2 class="hero-role">AI/ML-Focused Software Developer <span aria-hidden="true">&amp;</span> Tech Founder</h2>
+                    <p class="hero-summary">
+                        I build intelligent software and practical AI-powered products, turning real-world problems into
+                        clear digital solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="hero-action hero-action-primary" href="#projects">Explore My Projects
+                            <span aria-hidden="true">↗</span></a>
+                        <a class="hero-action hero-action-secondary" href="#contact">Let's Connect</a>
                     </div>
+                    <a class="hero-cv-link" href="images/My_CV.pdf" download
+                        aria-label="Download Yuvarajah Divejikan's CV as a PDF">
+                        Download CV <span aria-hidden="true">↓</span>
+                    </a>
+                    <p class="hero-context">
+                        <span>Founder &amp; CEO at Zatroz</span>
+                        <span class="hero-context-divider" aria-hidden="true">·</span>
+                        <span>Co-Founder &amp; Technical Lead at Softora</span>
+                        <span class="hero-context-divider" aria-hidden="true">·</span>
+                        <span>BICT (Hons) undergraduate, SEUSL</span>
+                    </p>
                 </div>
-                <div class="hero-image fade-in">
-                    <div class="image-wrapper">
-              
-                        <div class="ambient-glow"></div>
-                        <div class="signal-pulse"></div>
-                        <div class="liquid-halo"></div>
-                        <div class="orbit-particles">
-                            <span class="particle p1"></span>
-                            <span class="particle p2"></span>
-                            <span class="particle p3"></span>
-                            <span class="particle p4"></span>
-                            <span class="particle p5"></span>
-                        </div>
 
-                        <img src="images/profile_new.jpeg" alt="Yuvarajah Divejikan"
-                            onerror="this.src='https://via.placeholder.com/400x400/111827/00E5FF?text=USER'">
-                    </div>
+                <div class="hero-visual">
+                    <div class="hero-visual-halo" aria-hidden="true"></div>
+                    <figure class="hero-portrait">
+                        <img src="images/profile_new.jpeg" alt="Portrait of Yuvarajah Divejikan"
+                            width="3081" height="3072" fetchpriority="high" decoding="async">
+                    </figure>
+                    <span class="hero-visual-label" aria-hidden="true">Software <span>·</span> AI/ML</span>
                 </div>
             </div>
         </section>
