@@ -19,20 +19,23 @@ export function initAnimations() {
         });
     }
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+    if (!('IntersectionObserver' in window) || reducedMotion) {
+        fadeElements.forEach((element) => element.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, activeObserver) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                activeObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
+    document.documentElement.classList.add('motion-effects-enabled');
+    fadeElements.forEach((element) => observer.observe(element));
 }

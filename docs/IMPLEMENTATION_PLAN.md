@@ -18,7 +18,7 @@
 ## Phase 1 — Content and behavior validation
 
 1. Review the existing biography, skills, experience, education, certifications, and all nine projects with the portfolio owner.
-2. Confirm each GitHub, demo, Figma, and certificate verification URL. Replace `YOUR_GITHUB_LINK` and `href="#"` only with confirmed destinations; fix the leading space in the ReNova URL.
+2. Confirm each GitHub, demo, Figma, and certificate verification URL. Task 07 replaced the portfolio repository placeholder and omitted an unverified ReNova URL. The five certificate links still need approved verification destinations; keep them clearly unavailable until the owner supplies those URLs.
 3. Confirm whether contact should remain direct email/social links or submit through a named service/backend. Do not imply form delivery until an endpoint exists.
 4. Confirm CV freshness and portrait/project image choices. Preserve the current PDF download path unless the CV is intentionally replaced.
 5. Make a content checklist so no project or timeline item disappears during layout changes.
@@ -34,11 +34,11 @@
 ## Phase 3 — Progressive enhancement and accessibility
 
 1. **Navigation foundation completed in Task 03:** convert the mobile menu toggle into a keyboard-operable button with an accessible name, `aria-expanded`, and `aria-controls`; support Escape, focus visibility, outside dismissal, breakpoint reset, and closing after navigation. See [NAVIGATION.md](NAVIGATION.md). Further assistive-technology/browser validation remains in Phase 5.
-2. Keep the core content and navigation usable without JavaScript. Add safe behavior for reveal animations when `IntersectionObserver` is unavailable.
+2. Keep the core content and navigation usable without JavaScript. Cross-task hardening leaves reveal content visible by default and uses IntersectionObserver only as an enhancement.
 3. Add keyboard-visible focus states and honor `prefers-reduced-motion` for scrolling, transitions, typewriter animation, pointer effects, and Three.js.
 4. Make skill filter state perceivable and announce filter results where appropriate.
 5. Review image alt text, SVG accessibility, touch targets, contrast, text resizing, and keyboard navigation.
-6. Isolate Three.js setup; avoid starting it when WebGL is unavailable or motion is reduced, and ensure resize behavior and resource cleanup are safe.
+6. Isolate Three.js setup; it is now dynamically loaded after core interactions initialize, and setup/CDN failures remove only the decorative canvas. The scene still needs browser performance/resource-lifecycle review.
 
 ## Phase 4 — Content organization and asset performance
 
@@ -76,10 +76,10 @@
 - The legacy filter bar and numeric proficiency displays were removed. Six semantic categories are visible by default, so the content remains available without JavaScript and needs no filter-state interaction.
 - Technology labels are curated from the existing skill inventory, project metadata, and the portfolio's own Three.js/WebGL implementation. Unsupported ratings and unverified candidate technologies are omitted. See [TECHNICAL_EXPERTISE.md](TECHNICAL_EXPERTISE.md) for the evidence map and update guidance.
 
-## Known decisions and blockers to resolve before relevant implementation
+## Known decisions and outstanding items
 
-- Contact form delivery: no backend or form service is configured in the current repository.
-- Portfolio repository link: one project has a literal `YOUR_GITHUB_LINK` placeholder.
-- Certificate verification links: all five currently point to `#`.
-- External destination validity: GitHub, Figma, demo, LinkedIn, and email destinations have not been live-checked.
-- Three.js loading strategy: the current import map uses a CDN. Keep the dependency optional or select a locally hosted strategy only if deployment constraints require it.
+- Contact form delivery: the current form has no submit handler or delivery endpoint. Email and social contact links remain available; implement a form destination only after the owner selects one.
+- Certificate verification links: no destinations were available. Cross-task review removed the dead `#` actions and shows an explicit unavailable note; provide and verify real URLs before restoring links.
+- External destination validity: some project links were checked and recorded in `PROJECTS_GALLERY.md` and `PROJECT_CASE_STUDIES.md`; that is not a complete live audit of every profile, certificate, or older project destination.
+- Three.js continues to use a CDN import map. It is now optional to core page operation, but CDN availability is still required for the decorative scene.
+- CV freshness and browser-level responsive/accessibility behavior remain release checks; see [HERO.md](HERO.md) and the task-specific verification notes.
