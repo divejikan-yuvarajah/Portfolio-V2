@@ -200,210 +200,109 @@
             </div>
         </section>
     
-        <section id="projects" class="projects-section">
-            <style>
-        
-                .project-image-container {
-                    width: 80%;
-                    margin: 1.5rem auto 0;
-                    aspect-ratio: 16 / 9;
-                    overflow: hidden;
-                    border-radius: 12px;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                }
-
-                .project-image-container img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                }
-
-                .project-card {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                }
-            </style>
-
+        <section id="projects" class="projects-section" aria-labelledby="projects-title">
             <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
+                <header class="projects-heading">
+                    <p class="projects-eyebrow">SELECTED WORK</p>
+                    <h2 id="projects-title" class="section-title">Projects I've Built</h2>
+                    <p>Applied AI, full-stack products and practical tools shaped around real problems.</p>
+                </header>
 
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/Jarvex.png" alt="JARVEX AI Assistant"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/fbbf24?text=JARVEX+AI'">
-                        </div>
-                        <div class="project-content">
-                            <h3>JARVEX: AI Chat Assistant</h3>
-                            <div class="project-meta">
-                                <span>Role: Java Developer</span>
-                                <span>Tech: JavaFX, Perplexity AI</span>
+                <div class="projects-filter" role="group" aria-label="Filter projects" hidden>
+                    <button class="project-filter-button" type="button" data-filter="all" aria-pressed="true">All projects</button>
+                    <button class="project-filter-button" type="button" data-filter="ai" aria-pressed="false">AI &amp; ML</button>
+                    <button class="project-filter-button" type="button" data-filter="fullstack" aria-pressed="false">Full-stack</button>
+                    <button class="project-filter-button" type="button" data-filter="automation" aria-pressed="false">Automation</button>
+                    <button class="project-filter-button" type="button" data-filter="finance" aria-pressed="false">FinTech</button>
+                    <button class="project-filter-button" type="button" data-filter="civic" aria-pressed="false">CivicTech</button>
+                    <button class="project-filter-button" type="button" data-filter="data" aria-pressed="false">Data</button>
+                    <button class="project-filter-button" type="button" data-filter="design" aria-pressed="false">Design</button>
+                    <button class="project-filter-button" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+                    <button class="project-filter-button" type="button" data-filter="web" aria-pressed="false">Web</button>
+                </div>
+                <p class="projects-results" role="status" aria-live="polite">Showing all projects</p>
+
+                <div class="project-group" data-project-group>
+                    <h3 class="project-group-title">Featured projects</h3>
+                    <div class="projects-featured-grid">
+                        <article class="project-card project-card--featured project-card--wide" data-project-card data-categories="ai finance fullstack web">
+                            <div class="project-illustration project-illustration--flowpilot">
+                                <span>SELECTED PROJECT · FINTECH</span><strong aria-hidden="true">FlowPilot<span> AI</span></strong><small>Cash-flow intelligence for SMEs</small><em>Typographic illustration · not a product screenshot</em>
                             </div>
-                            <p>Modern desktop chatbot focusing on performance and real-world AI integration.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href="https://github.com/divejikan-yuvarajah/Jarvex-JavaFXBased-ChatBot.git" class="btn btn-primary"
-                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            <div class="project-content">
+                                <p class="project-status">Built · Buildathon project</p><h4>FlowPilot AI</h4>
+                                <p>Financial health and cash-flow intelligence for Sri Lankan SMEs, including stress testing and payment-recovery workflows.</p>
+                                <ul class="project-tags" aria-label="FlowPilot AI technologies and focus"><li>AI</li><li>FinTech</li><li>Full-stack</li><li>Seylan APIs</li></ul>
+                                <div class="project-actions"><a class="project-link" href="https://flowpilotai-opal.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open FlowPilot AI live demo (opens in a new tab)">Live demo <span aria-hidden="true">↗</span></a><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/FlowPilotAI" target="_blank" rel="noopener noreferrer" aria-label="View FlowPilot AI source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div>
                             </div>
-                        </div>
-                    </article>
-
-                    
-
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/StockFlow.png" alt="StockFlow"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/3b82f6?text=StockFlow'">
-                        </div>
-                        <div class="project-content">
-                            <h3>StockFlow: Inventory System</h3>
-                            <div class="project-meta">
-                                <span>Role: Java/DB Developer</span>
-                                <span>Tech: JavaFX, MySQL</span>
+                        </article>
+                        <article class="project-card project-card--featured" data-project-card data-categories="ai fullstack web">
+                            <div class="project-illustration project-illustration--cortex">
+                                <span>PRODUCT SYSTEM · ENTERPRISE</span><strong aria-hidden="true">CORTEX</strong><small>Business management OS</small><em>Typographic illustration · not a product screenshot</em>
                             </div>
-                            <p>Desktop Inventory Management System to streamline business operations.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href="https://github.com/divejikan-yuvarajah/StockFlow-InventoryManagementSystem.git" class="btn btn-primary"
-                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            <div class="project-content">
+                                <p class="project-status">Availability unverified</p><h4>CORTEX</h4>
+                                <p>An AI-powered enterprise business management system under Zatroz. Public source belongs to collaborator Abdul Basith; current product state needs confirmation.</p>
+                                <ul class="project-tags" aria-label="CORTEX technologies and focus"><li>AI</li><li>Enterprise</li><li>Full-stack</li></ul>
+                                <p class="project-source-note">Collaborator repository; current product state needs confirmation.</p>
+                                <div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/abdullllbasith/Cortex" target="_blank" rel="noopener noreferrer" aria-label="View collaborator's CORTEX repository (opens in a new tab)">Collaborator source <span aria-hidden="true">↗</span></a></div>
                             </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card fade-in">
-    <div class="project-image-container">
-        <img src="images/FocusFlow.png" alt="FocusFlow Productivity Tracker"
-            onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=FocusFlow+App'">
-    </div>
-
-    <div class="project-content">
-        <h3>FocusFlow – Personal Productivity Tracker</h3>
-
-        <div class="project-meta">
-            <span>Role: Frontend Developer</span>
-            <span>Tech: React, JS, Recharts</span>
-        </div>
-
-        <p>
-            React-based productivity tracking app to manage daily tasks, monitor progress,
-            track productivity scores, and visualize performance with interactive analytics.
-        </p>
-
-        <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-            <a href="https://github.com/divejikan-yuvarajah/FocusFlow-ProductivityTracker.git" class="btn btn-primary"
-                style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
-
-            <a href="https://focusflow-coral.vercel.app/" class="btn btn-primary"
-                style="padding: 8px 16px; font-size: 0.8rem;">Live Demo</a>
-        </div>
-    </div>
-</article>
-
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/ReNova.png" alt="ReNova"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/fbbf24?text=ReNova+UX'">
-                        </div>
-                        <div class="project-content">
-                            <h3>ReNova: Sustainability App</h3>
-                            <div class="project-meta">
-                                <span>Role: Team Leader & UI/UX Designer</span>
-                                <span>Tech: Figma</span>
+                        </article>
+                        <article class="project-card project-card--featured" data-project-card data-categories="ai fullstack web">
+                            <div class="project-illustration project-illustration--mediguardian">
+                                <span>HEALTHTECH · PROTOTYPE</span><strong aria-hidden="true">MediGuardian</strong><small>AI health memory &amp; safety</small><em>Typographic illustration · not a product screenshot</em>
                             </div>
-                            <p>Mobile application transforming environmental tracking into a motivating experience.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href=" https://www.figma.com/design/vDmqoetjl9h96beeFBc49x/NeuraForm---ReNova?node-id=0-1&t=w2sz1XTi3InIKnsG-1"
-                                    class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Figma</a>
+                            <div class="project-content">
+                                <p class="project-status">Prototype · availability unverified</p><h4>MediGuardian AI</h4>
+                                <p>A health-memory prototype for extracting medical documents, asking questions with source references and supporting doctor referrals.</p>
+                                <ul class="project-tags" aria-label="MediGuardian AI technologies and focus"><li>AI</li><li>HealthTech</li><li>RAG</li></ul>
+                                <p class="project-disclaimer">A project prototype, not a diagnostic service or substitute for professional care.</p>
                             </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card fade-in"> <div class="project-image-container"> <img src="images/NextGPA.png" alt="NextGPA+" onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=NextGPA+'"> </div> <div class="project-content"> <h3>NextGPA+ Academic Planner</h3> <div class="project-meta"> <span>Role: Web Developer</span> <span>Tech: JS, HTML, CSS</span> </div> <p>Interactive GPA Management Web App to track and forecast performance.</p> <div class="hero-btns" style="gap: 10px; margin-top: 1rem;"> <a href="https://github.com/divejikan-yuvarajah/NextGPA-_Smart-GPA-tracking-Web-App.git" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a> </div> </div> </article>
-
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/data_analysis.png" alt="Data Analysis"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Data+Analysis'">
-                        </div>
-                        <div class="project-content">
-                            <h3>Sri Lanka Accident Analysis</h3>
-                            <div class="project-meta">
-                                <span>Role: Data Analyst</span>
-                                <span>Tech: Python, Pandas</span>
+                        </article>
+                        <article class="project-card project-card--featured project-card--wide" data-project-card data-categories="ai fullstack civic web">
+                            <div class="project-illustration project-illustration--infraos">
+                                <span>IN DEVELOPMENT · CIVICTECH</span><strong aria-hidden="true">INFRAOS</strong><small>Infrastructure intelligence &amp; coordination</small><em>Typographic illustration · not a product screenshot</em>
                             </div>
-                            <p>Analyzes road accident data to identify patterns in severity and location.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href="https://github.com/divejikan-yuvarajah/SriLanka_Road_Accident_Analysis_Project.git" class="btn btn-primary"
-                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
+                            <div class="project-content">
+                                <p class="project-status">In development</p><h4>INFRAOS</h4>
+                                <p>A national infrastructure coordination platform concept focused on shared project visibility and interagency planning. Capabilities remain in development.</p>
+                                <ul class="project-tags" aria-label="INFRAOS technologies and focus"><li>Full-stack</li><li>CivicTech</li><li>AI concept</li></ul>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
+                </div>
 
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/JackSparrow.png" alt="Barbershop"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/3b82f6?text=Barber+Website'">
-                        </div>
-                        <div class="project-content">
-                            <h3>Jack Sparrow: The Barber</h3>
-                            <div class="project-meta">
-                                <span>Role: Frontend Developer</span>
-                                <span>Tech: HTML, CSS, JS</span>
-                            </div>
-                            <p>Modern online presence for a local barbershop with an online booking system.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href="https://divejikan-yuvarajah.github.io/Barbershop-Website/"
-                                    class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Live
-                                    Demo</a>
-                            </div>
-                        </div>
-                    </article>
+                <div class="project-group" data-project-group>
+                    <h3 class="project-group-title">More recent work</h3>
+                    <div class="projects-compact-grid">
+                        <article class="project-card project-card--compact" data-project-card data-categories="ai automation">
+                            <div class="project-content"><p class="project-status">Prototype</p><h4>InvoiceX AI</h4><p>Invoice-processing workflow combining OCR and AI extraction with validation, Supabase storage and Telegram alerts.</p><ul class="project-tags" aria-label="InvoiceX AI technologies"><li>n8n</li><li>OCR</li><li>Supabase</li></ul></div>
+                        </article>
+                        <article class="project-card project-card--compact" data-project-card data-categories="ai developer web">
+                            <div class="project-content"><p class="project-status">Local MVP · no hosted service</p><h4>JevFlow</h4><p>Confidence-aware GitHub issue triage that routes uncertain decisions for human review instead of silently guessing.</p><ul class="project-tags" aria-label="JevFlow focus"><li>Developer tools</li><li>AI workflow</li><li>Human review</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/JevFlow" target="_blank" rel="noopener noreferrer" aria-label="View JevFlow source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div>
+                        </article>
+                        <article class="project-card project-card--compact" data-project-card data-categories="ai web">
+                            <div class="project-content"><p class="project-status">Built</p><h4>Thinky</h4><p>A Chrome study assistant concept for explaining webpages and creating study materials, with data kept in browser storage.</p><ul class="project-tags" aria-label="Thinky technologies"><li>Chrome extension</li><li>Manifest V3</li><li>JavaScript</li></ul></div>
+                        </article>
+                        <article class="project-card project-card--compact" data-project-card data-categories="fullstack web">
+                            <div class="project-content"><p class="project-status">Built · rules-based scoring</p><h4>HireQueue</h4><p>A hiring platform prototype that scores and ranks applicants with configurable rules, not an AI inference classifier.</p><ul class="project-tags" aria-label="HireQueue technologies"><li>Next.js</li><li>Supabase</li><li>Tailwind</li></ul><div class="project-actions"><a class="project-link" href="https://v0-hirequeue-job-platform.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open HireQueue live demo (opens in a new tab)">Live demo <span aria-hidden="true">↗</span></a></div></div>
+                        </article>
+                    </div>
+                </div>
 
-                    <article class="project-card fade-in">
-                        <div class="project-image-container">
-                            <img src="images/porfolio.png" alt="Portfolio Website"
-                                onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Portfolio+Website'">
-                        </div>
-                        <div class="project-content">
-                            <h3>Interactive 3D Portfolio</h3>
-                            <div class="project-meta">
-                                <span>Role: Frontend Developer</span>
-                                <span>Tech: Three.js, JS (ES6)</span>
-                            </div>
-                            <p>A high-performance personal portfolio featuring immersive 3D elements and smooth UX
-                                design.</p>
-                            <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-                                <a href="YOUR_GITHUB_LINK" class="btn btn-primary"
-                                    style="padding: 8px 16px; font-size: 0.8rem;">GitHub</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card fade-in">
-    <div class="project-image-container">
-        <img src="images/ResQNet.png" alt="Community Disaster Response Platform"
-            onerror="this.src='https://via.placeholder.com/600x338/0a1f1a/10b981?text=Disaster+Response+Platform'">
-    </div>
-
-    <div class="project-content">
-        <h3>ResQNet: Disaster Response Platform</h3>
-
-        <div class="project-meta">
-            <span>Role: Team Leader & UX Designer</span>
-            <span>Tools: Figma, FigJam</span>
-        </div>
-
-        <p>
-            Designed a disaster response platform connecting affected people, volunteers, donors, and authorities with real-time alerts, SOS sharing, and emergency maps.
-        </p>
-
-        <div class="hero-btns" style="gap: 10px; margin-top: 1rem;">
-            <a href="https://www.figma.com/design/DafVHCipHe7M9BkJyuMe9C/Untitled?node-id=0-1&t=O0eQU5gUfS08Nx6v-1" class="btn btn-primary"
-                style="padding: 8px 16px; font-size: 0.8rem;">View Design</a>
-        </div>
-    </div>
-</article>
-
+                <div class="project-group" data-project-group>
+                    <h3 class="project-group-title">Earlier projects</h3>
+                    <div class="projects-archive-grid">
+                        <article class="project-card project-card--archive" data-project-card data-categories="ai desktop"><div class="project-image-container"><img src="images/Jarvex.png" width="1517" height="887" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Desktop application</p><h4>JARVEX: AI Chat Assistant</h4><p>A Java desktop chatbot integrating an external AI service in a JavaFX interface.</p><ul class="project-tags" aria-label="JARVEX technologies"><li>JavaFX</li><li>Java</li><li>AI integration</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/Jarvex-JavaFXBased-ChatBot" target="_blank" rel="noopener noreferrer" aria-label="View JARVEX source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="fullstack desktop"><div class="project-image-container"><img src="images/StockFlow.png" width="1765" height="981" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Desktop application</p><h4>StockFlow: Inventory System</h4><p>A JavaFX inventory-management application backed by a MySQL database.</p><ul class="project-tags" aria-label="StockFlow technologies"><li>JavaFX</li><li>MySQL</li><li>Java</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/StockFlow-InventoryManagementSystem" target="_blank" rel="noopener noreferrer" aria-label="View StockFlow source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="fullstack web"><div class="project-image-container"><img src="images/FocusFlow.png" width="1920" height="1536" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Earlier project</p><h4>FocusFlow</h4><p>A productivity tracker for tasks and progress, with charts to explore personal work patterns.</p><ul class="project-tags" aria-label="FocusFlow technologies"><li>React</li><li>JavaScript</li><li>Recharts</li></ul></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="design"><div class="project-image-container"><img src="images/ReNova.png" width="1241" height="537" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Product design</p><h4>ReNova: Sustainability App</h4><p>A mobile product design concept for making environmental tracking more engaging.</p><ul class="project-tags" aria-label="ReNova tools"><li>Figma</li><li>UI/UX</li></ul></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="web"><div class="project-image-container"><img src="images/NextGPA.png" width="1894" height="872" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Web application</p><h4>NextGPA+ Academic Planner</h4><p>A browser-based GPA tracker for reviewing academic performance and exploring forecasts.</p><ul class="project-tags" aria-label="NextGPA technologies"><li>JavaScript</li><li>HTML</li><li>CSS</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/NextGPA-_Smart-GPA-tracking-Web-App" target="_blank" rel="noopener noreferrer" aria-label="View NextGPA+ source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="data"><div class="project-image-container"><img src="images/data_analysis.png" width="800" height="600" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Data analysis</p><h4>Sri Lanka Accident Analysis</h4><p>An analysis project exploring road-accident patterns by severity and location.</p><ul class="project-tags" aria-label="Accident analysis technologies"><li>Python</li><li>Pandas</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/SriLanka_Road_Accident_Analysis_Project" target="_blank" rel="noopener noreferrer" aria-label="View Sri Lanka Accident Analysis source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="web"><div class="project-image-container"><img src="images/JackSparrow.png" width="1910" height="874" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Live demo</p><h4>Jack Sparrow: The Barber</h4><p>A local barbershop website with service information and an online booking flow.</p><ul class="project-tags" aria-label="Barbershop technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul><div class="project-actions"><a class="project-link" href="https://divejikan-yuvarajah.github.io/Barbershop-Website/" target="_blank" rel="noopener noreferrer" aria-label="Open Jack Sparrow: The Barber live demo (opens in a new tab)">Live demo <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="web"><div class="project-image-container"><img src="images/porfolio.png" width="1900" height="906" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Portfolio</p><h4>Interactive 3D Portfolio</h4><p>A portfolio experiment using Three.js to create an interactive particle scene.</p><ul class="project-tags" aria-label="Portfolio technologies"><li>Three.js</li><li>JavaScript</li></ul><div class="project-actions"><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/Portfolio-V2" target="_blank" rel="noopener noreferrer" aria-label="View this portfolio source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div></div></article>
+                        <article class="project-card project-card--archive" data-project-card data-categories="design civic"><div class="project-image-container"><img src="images/ResQNet.png" width="591" height="561" loading="lazy" decoding="async" alt=""></div><div class="project-content"><p class="project-status">Product design</p><h4>ResQNet: Disaster Response Platform</h4><p>A design concept connecting affected communities with volunteers, donors and authorities.</p><ul class="project-tags" aria-label="ResQNet tools"><li>Figma</li><li>FigJam</li><li>CivicTech</li></ul></div></article>
+                    </div>
                 </div>
             </div>
         </section>

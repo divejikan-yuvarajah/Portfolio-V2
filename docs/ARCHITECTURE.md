@@ -16,6 +16,7 @@ Portfolio_V2/
 │   ├── main.js                # Startup boundary for current modules
 │   ├── navigation.js          # Accessible menu behavior and active section state (Task 03)
 │   ├── animations.js          # Custom pointer and IntersectionObserver reveals
+│   ├── projects.js            # Progressive category filtering for HTML project cards (Task 07)
 │   └── three-scene.js         # Three.js particle field and resize/mouse interaction
 ├── images/
 │   ├── My_CV.pdf              # Downloadable CV
@@ -24,7 +25,7 @@ Portfolio_V2/
 └── docs/                      # Audit and migration documents (added in this task)
 ```
 
-No other application pages were found. `index.html` contains eight top-level sections: Hero, About, Skills, Projects, Experience, Education, Certifications, and Contact. The Projects section has nine cards. Skills, experience, education, certifications, navigation, contact links, and footer are all authored directly in HTML.
+No other application pages were found. `index.html` contains eight top-level sections: Hero, About, Skills, Projects, Experience, Education, Certifications, and Contact. The Projects section now has a four-card featured collection, four recent compact cards, and nine retained archive cards. Project copy, links, categories, status, and order are authored once in HTML; the small `projects.js` module adds category filtering without rendering duplicate data. Skills, experience, education, certifications, navigation, contact links, and footer are also authored directly in HTML.
 
 ## Existing behavior and dependencies
 
@@ -32,7 +33,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 - Navigation: semantic anchor links and a responsive accessible mobile menu managed by `navigation.js`.
 - About: biography and four profile/interest badges.
 - Skills: six manually authored, always-visible technology groups in `index.html`; Task 06 removed the unsupported rating bars and the obsolete filter module.
-- Projects: nine manually authored project cards with local thumbnails and GitHub, demo, or Figma links.
+- Projects: 17 manually authored cards in featured, recent, and archive groups, with category filters, four typographic illustrations, retained local archive previews, and selectively verified external destinations. The filtering enhancement is documented in [PROJECTS_GALLERY.md](PROJECTS_GALLERY.md).
 - Experience and Education: manually authored timeline entries.
 - Certifications: five cards with verification links.
 - Contact: email, LinkedIn, and GitHub links plus a form with required fields.
@@ -54,8 +55,8 @@ No other application pages were found. `index.html` contains eight top-level sec
 ### Functionality and reference checks
 
 - The CV target exists in the repository and its anchor uses the `download` attribute. This static audit did not open the PDF in a browser.
-- The image sources in the page correspond to local files in `images/`. Non-Hero images retain remote `via.placeholder.com` inline fallbacks; the Hero now uses the local portrait directly without a remote fallback.
-- There is a leading space in the ReNova Figma `href`, and the portfolio project points to the literal `YOUR_GITHUB_LINK` placeholder.
+- Task 01 found that project image failures requested remote `via.placeholder.com` fallbacks. Task 07 removed those requests and retained the nine local gallery previews; new flagship projects use labelled typographic illustrations.
+- Task 01 found a leading space in the ReNova Figma `href` and a `YOUR_GITHUB_LINK` placeholder. Task 07 omits unavailable ReNova destinations and replaces the portfolio placeholder with the current repository origin.
 - All five certification “Verify” links use `href="#"`, so they do not identify verification destinations.
 - The project links are hardcoded external GitHub/Figma/demo URLs. Their live availability and ownership were not verified over the network.
 - The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
@@ -76,7 +77,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 
 ## Reuse inventory
 
-- Preserve the content and intent of all eight sections, all nine project entries, timeline records, credentials, contact destinations, and downloadable CV.
+- Preserve the content and intent of all eight sections, the original nine archived project entries and their available local media, timeline records, credentials, contact destinations, and downloadable CV.
 - Reuse the existing portrait, project images, CV, project copy, and existing URLs after validating and correcting incomplete destinations with the owner.
 - Preserve the grouped skills content, mobile navigation, scroll reveal, and optional Three.js particle visual; the skills section uses no filter interaction.
 - Keep the static, no-build approach unless the redesign demonstrates a concrete need for a bundler or framework. No additional dependency is required for the proposed information architecture.
