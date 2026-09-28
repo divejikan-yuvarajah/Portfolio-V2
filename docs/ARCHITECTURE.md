@@ -13,7 +13,8 @@ Portfolio_V2/
 │   ├── tokens.css              # Porcelain Arctic primitives, semantic tokens, base and a11y defaults
 │   └── style.css               # Legacy section styling, token-based primitives, effects and breakpoints
 ├── js/
-│   ├── main.js                # Startup and mobile navigation toggle
+│   ├── main.js                # Startup boundary for current modules
+│   ├── navigation.js          # Accessible menu behavior and active section state (Task 03)
 │   ├── animations.js          # Custom pointer and IntersectionObserver reveals
 │   ├── skills.js              # Skill category filtering
 │   └── three-scene.js         # Three.js particle field and resize/mouse interaction
@@ -61,13 +62,13 @@ No other application pages were found. `index.html` contains eight top-level sec
 - The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
 - External profile links use `target="_blank"` without an explicit `rel="noopener noreferrer"`.
 - The import map pins Three.js to version 0.160.0, but depends on CDN availability and network access. `three-scene.js` creates a WebGL renderer without handling unsupported WebGL or reduced-motion settings. `targetX`, `targetY`, and a `THREE.Clock` are unused. A dense all-pairs particle distance check runs every animation frame.
-- The mobile navigation is implemented with a `div`, without button semantics, accessible name, expanded state, or keyboard behavior. It does not manage focus or Escape dismissal (Task 03).
+- Task 01 baseline finding (resolved in Task 03): the mobile toggle was a clickable `div` without button semantics or keyboard behavior. Current navigation details and verification limits are in [NAVIGATION.md](NAVIGATION.md).
 - Task 02 added visible `:focus-visible` styles and CSS/Three.js reduced-motion behavior; no browser/assistive-technology run has confirmed the result. The reveal observer still has no fallback if `IntersectionObserver` is unavailable and can leave elements hidden unless the observer runs.
 
 ### Responsiveness and accessibility risks
 
-- Existing media queries cover tablet and narrow viewports, but no browser/device layout audit was run. The hero, project grid, contact columns, and mobile navigation need visual checks at narrow and wide widths during redesign.
-- No skip link or explicit main navigation landmark label is present. Task 02 marked the decorative canvas `aria-hidden` and retained pointer-event passthrough styling.
+- Task 01 baseline finding (resolved in Task 03): there was no skip link or explicit main navigation landmark label. The current skip link, responsive menu, section offsets, and unrun browser checks are documented in [NAVIGATION.md](NAVIGATION.md).
+- No browser/device layout audit has yet confirmed the hero, project grid, contact columns, or the Task 03 mobile navigation at the target viewport widths. Task 02 marked the decorative canvas `aria-hidden` and retained pointer-event passthrough styling.
 - The skills filters are buttons but do not expose selected state (such as `aria-pressed`), and filtering updates inline styles without announcing result changes.
 - Inline SVG icons and emoji are used; their accessible names/decorative status should be reviewed. Image alternative text is present, though some descriptions are generic (e.g. “StockFlow”, “Data Analysis”).
 - The contact fields have associated visible labels and `required`, which is a useful base, but no `name` fields or form destination exist. Keyboard focus styles, contrast, zoom, and screen-reader behavior were not measured.

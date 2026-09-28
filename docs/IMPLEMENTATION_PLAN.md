@@ -33,7 +33,7 @@
 
 ## Phase 3 — Progressive enhancement and accessibility
 
-1. Convert the mobile menu toggle into a keyboard-operable button with an accessible name, `aria-expanded`, and `aria-controls`; support Escape, focus visibility, and closing after navigation.
+1. **Navigation foundation completed in Task 03:** convert the mobile menu toggle into a keyboard-operable button with an accessible name, `aria-expanded`, and `aria-controls`; support Escape, focus visibility, outside dismissal, breakpoint reset, and closing after navigation. See [NAVIGATION.md](NAVIGATION.md). Further assistive-technology/browser validation remains in Phase 5.
 2. Keep the core content and navigation usable without JavaScript. Add safe behavior for reveal animations when `IntersectionObserver` is unavailable.
 3. Add keyboard-visible focus states and honor `prefers-reduced-motion` for scrolling, transitions, typewriter animation, pointer effects, and Three.js.
 4. Make skill filter state perceivable and announce filter results where appropriate.
