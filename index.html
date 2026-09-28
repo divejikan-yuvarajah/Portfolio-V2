@@ -20,34 +20,38 @@
 
 <body>
 
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">MISTER<span class="accent">.</span></a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <div class="container">
+                <a href="#hero" class="logo" aria-label="Divejikan, home">Divejikan<span class="accent" aria-hidden="true">.</span></a>
+                <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Open navigation menu"
+                    aria-expanded="false" aria-controls="nav-links">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact" class="btn-nav">Contact</a></li>
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact" class="btn-nav">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
  
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <main>
+    <main id="main-content" tabindex="-1">
    
         <section id="hero" class="hero-section">
             <div class="container hero-container">
