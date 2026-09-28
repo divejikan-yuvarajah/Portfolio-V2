@@ -61,13 +61,20 @@
 
 - All eight existing content areas and the nine project records are retained unless the owner explicitly approves a content change.
 - The CV remains downloadable from a working local path.
-- Skills filtering and mobile navigation remain functional and become keyboard/screen-reader accessible.
+- Skills remain readable without JavaScript in grouped categories; any future filter controls must provide keyboard and screen-reader state. Mobile navigation remains interactive.
 - Contact channels remain available; any form submission behavior has a confirmed destination and clear success/error feedback.
 - The Porcelain Arctic palette and requested type families are applied through shared tokens.
 - Layout adapts without horizontal overflow at narrow viewports, and primary actions remain usable with keyboard and touch.
 - Motion respects reduced-motion preferences; Three.js failure does not prevent access to portfolio content.
 - No placeholder links or unverified replacement content remain without an explicit owner decision.
 - The final change set contains no unrequested framework or runtime dependency.
+
+## Completed task decisions
+
+### Task 06 — Technical Expertise
+
+- The legacy filter bar and numeric proficiency displays were removed. Six semantic categories are visible by default, so the content remains available without JavaScript and needs no filter-state interaction.
+- Technology labels are curated from the existing skill inventory, project metadata, and the portfolio's own Three.js/WebGL implementation. Unsupported ratings and unverified candidate technologies are omitted. See [TECHNICAL_EXPERTISE.md](TECHNICAL_EXPERTISE.md) for the evidence map and update guidance.
 
 ## Known decisions and blockers to resolve before relevant implementation
 
