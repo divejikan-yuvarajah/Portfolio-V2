@@ -16,7 +16,6 @@ Portfolio_V2/
 │   ├── main.js                # Startup boundary for current modules
 │   ├── navigation.js          # Accessible menu behavior and active section state (Task 03)
 │   ├── animations.js          # Custom pointer and IntersectionObserver reveals
-│   ├── skills.js              # Skill category filtering
 │   └── three-scene.js         # Three.js particle field and resize/mouse interaction
 ├── images/
 │   ├── My_CV.pdf              # Downloadable CV
@@ -32,7 +31,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 - Hero: stable role copy, local portrait, project/contact links, and a tertiary download link to `images/My_CV.pdf` (Hero details in [HERO.md](HERO.md)).
 - Navigation: semantic anchor links and a responsive accessible mobile menu managed by `navigation.js`.
 - About: biography and four profile/interest badges.
-- Skills: manually authored skill cards and category filters driven by `skills.js`.
+- Skills: six manually authored, always-visible technology groups in `index.html`; Task 06 removed the unsupported rating bars and the obsolete filter module.
 - Projects: nine manually authored project cards with local thumbnails and GitHub, demo, or Figma links.
 - Experience and Education: manually authored timeline entries.
 - Certifications: five cards with verification links.
@@ -69,7 +68,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 
 - Task 01 baseline finding (resolved in Task 03): there was no skip link or explicit main navigation landmark label. The current skip link, responsive menu, section offsets, and unrun browser checks are documented in [NAVIGATION.md](NAVIGATION.md).
 - No browser/device layout audit has yet confirmed the hero, project grid, contact columns, or the Task 03 mobile navigation at the target viewport widths. Task 02 marked the decorative canvas `aria-hidden` and retained pointer-event passthrough styling.
-- The skills filters are buttons but do not expose selected state (such as `aria-pressed`), and filtering updates inline styles without announcing result changes.
+- Task 01 found that the legacy skills filters lacked selected-state semantics and hid entries with inline styles. Task 06 replaced them with static, semantic categories so all listed items are available without JavaScript.
 - Inline SVG icons and emoji are used; their accessible names/decorative status should be reviewed. Image alternative text is present, though some descriptions are generic (e.g. “StockFlow”, “Data Analysis”).
 - The contact fields have associated visible labels and `required`, which is a useful base, but no `name` fields or form destination exist. Keyboard focus styles, contrast, zoom, and screen-reader behavior were not measured.
 - Task 02 honors `prefers-reduced-motion` in CSS and the Three.js initializer, and hides the custom cursor on coarse/touch pointers. The scene's normal-motion continuous loop and CPU/GPU cost remain; no performance profile was run.
@@ -79,7 +78,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 
 - Preserve the content and intent of all eight sections, all nine project entries, timeline records, credentials, contact destinations, and downloadable CV.
 - Reuse the existing portrait, project images, CV, project copy, and existing URLs after validating and correcting incomplete destinations with the owner.
-- Reuse the skills filter interaction, mobile navigation intent, scroll reveal, and optional Three.js particle visual as enhancements with accessible and non-WebGL fallbacks.
+- Preserve the grouped skills content, mobile navigation, scroll reveal, and optional Three.js particle visual; the skills section uses no filter interaction.
 - Keep the static, no-build approach unless the redesign demonstrates a concrete need for a bundler or framework. No additional dependency is required for the proposed information architecture.
 
 ## Proposed maintainable structure
@@ -98,7 +97,6 @@ Portfolio_V2/
 ├── js/
 │   ├── main.js                # Small initialization boundary and shared behaviors
 │   ├── navigation.js          # Accessible menu behavior
-│   ├── skills.js              # Filter behavior and state announcements
 │   ├── animations.js          # Progressive reveal and reduced-motion handling
 │   └── three-scene.js         # Optional, isolated decorative enhancement
 ├── images/                    # Existing optimized/reviewed image assets and CV
