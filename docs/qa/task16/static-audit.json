@@ -1,0 +1,162 @@
+{
+  "pages": [
+    {
+      "path": "index.html",
+      "title": "Yuvarajah Divejikan | AI/ML Software Developer & Tech Founder",
+      "description": "Explore the software, applied AI projects, technical interests, and experience of Yuvarajah Divejikan, an AI/ML-focused software developer and tech founder.",
+      "robots": "indexable (default)",
+      "canonical": [],
+      "og": {
+        "og:title": "Yuvarajah Divejikan | AI/ML Software Developer & Tech Founder",
+        "og:description": "Explore the software, applied AI projects, technical interests, and experience of Yuvarajah Divejikan, an AI/ML-focused software developer and tech founder.",
+        "og:type": "website"
+      },
+      "twitter_card": "summary",
+      "h1_count": 1,
+      "image_count": 10,
+      "local_references_checked": 23,
+      "jsonld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Yuvarajah Divejikan",
+          "jobTitle": "AI/ML-focused software developer and tech entrepreneur",
+          "sameAs": [
+            "https://github.com/divejikan-yuvarajah",
+            "https://www.linkedin.com/in/divejikan-yuvarajah-401526279/"
+          ]
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "projects/flowpilot-ai/index.html",
+      "title": "FlowPilot AI — Project case study | Yuvarajah Divejikan",
+      "description": "A fact-checked case study of FlowPilot AI's SME finance workflows, sandbox integrations and my reported team contribution.",
+      "robots": "indexable (default)",
+      "canonical": [],
+      "og": {
+        "og:title": "FlowPilot AI — Project case study",
+        "og:description": "A fact-checked case study of FlowPilot AI's SME finance workflows, sandbox integrations and my reported team contribution.",
+        "og:type": "article"
+      },
+      "twitter_card": "summary",
+      "h1_count": 1,
+      "image_count": 0,
+      "local_references_checked": 20,
+      "jsonld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "FlowPilot AI — Project case study",
+          "description": "A fact-checked case study of FlowPilot AI's SME finance workflows, sandbox integrations and my reported team contribution."
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "projects/cortex/index.html",
+      "title": "CORTEX — Project case study | Yuvarajah Divejikan",
+      "description": "A case study of CORTEX, the collaborator team's AI business operating system, with verified links and clear contribution boundaries.",
+      "robots": "indexable (default)",
+      "canonical": [],
+      "og": {
+        "og:title": "CORTEX — Project case study",
+        "og:description": "A case study of CORTEX, the collaborator team's AI business operating system, with verified links and clear contribution boundaries.",
+        "og:type": "article"
+      },
+      "twitter_card": "summary",
+      "h1_count": 1,
+      "image_count": 0,
+      "local_references_checked": 20,
+      "jsonld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "CORTEX — Project case study",
+          "description": "A case study of CORTEX, the collaborator team's AI business operating system, with verified links and clear contribution boundaries."
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "projects/mediguardian-ai/index.html",
+      "title": "MediGuardian AI — Project case study | Yuvarajah Divejikan",
+      "description": "A qualified case study of MediGuardian AI, a health-memory competition prototype—not a diagnostic service or verified clinical product.",
+      "robots": "indexable (default)",
+      "canonical": [],
+      "og": {
+        "og:title": "MediGuardian AI — Project case study",
+        "og:description": "A qualified case study of MediGuardian AI, a health-memory competition prototype—not a diagnostic service or verified clinical product.",
+        "og:type": "article"
+      },
+      "twitter_card": "summary",
+      "h1_count": 1,
+      "image_count": 0,
+      "local_references_checked": 20,
+      "jsonld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "MediGuardian AI — Project case study",
+          "description": "A qualified case study of MediGuardian AI, a health-memory competition prototype—not a diagnostic service or verified clinical product."
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "projects/infraos/index.html",
+      "title": "INFRAOS — Project case study | Yuvarajah Divejikan",
+      "description": "INFRAOS is an in-development university project concept for infrastructure coordination; implementation details remain unverified.",
+      "robots": "indexable (default)",
+      "canonical": [],
+      "og": {
+        "og:title": "INFRAOS — Project case study",
+        "og:description": "INFRAOS is an in-development university project concept for infrastructure coordination; implementation details remain unverified.",
+        "og:type": "article"
+      },
+      "twitter_card": "summary",
+      "h1_count": 1,
+      "image_count": 0,
+      "local_references_checked": 20,
+      "jsonld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "INFRAOS — Project case study",
+          "description": "INFRAOS is an in-development university project concept for infrastructure coordination; implementation details remain unverified."
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "404.html",
+      "title": "Page not found | Yuvarajah Divejikan",
+      "description": "This portfolio page could not be found. Return to the project gallery to browse available work.",
+      "robots": "noindex",
+      "canonical": [],
+      "og": {
+        "og:title": "",
+        "og:description": "",
+        "og:type": ""
+      },
+      "twitter_card": "",
+      "h1_count": 1,
+      "image_count": 0,
+      "local_references_checked": 4,
+      "jsonld": [],
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "pdf_signature_valid": true,
+  "page_count": 6,
+  "local_module_imports_checked": 2,
+  "errors": 0,
+  "warnings": 0
+}
