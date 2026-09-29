@@ -114,14 +114,12 @@ ul {
 
 
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.motion-effects-enabled .fade-in:not(.visible) {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .cursor-blink {
@@ -2588,6 +2586,40 @@ footer {
     border-top: var(--border-width) solid var(--color-border);
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+/* Certification cards are authored in HTML and stay readable without JS. */
+.cert-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    max-width: 59.375rem;
+    margin-inline: auto;
+}
+
+.cert-card-compact {
+    min-height: 0;
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cert-card-compact h3 {
+    margin: var(--space-2) 0;
+    font-size: var(--font-size-lg);
+}
+
+.certificate-verification-note {
+    margin-top: var(--space-2);
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-xs);
+}
+
+@media (max-width: 600px) {
+    .cert-grid-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* Custom Cursor */
