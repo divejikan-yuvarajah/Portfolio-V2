@@ -113,33 +113,6 @@ ul {
 }
 
 
-.fade-in {
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.motion-effects-enabled .fade-in:not(.visible) {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.cursor-blink {
-    animation: blink 1s step-end infinite;
-    color: var(--accent-cyan);
-    font-weight: 100;
-}
-
-@keyframes blink {
-
-    from,
-    to {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
 /* Canvas styling */
 #bg-canvas {
     position: fixed;
@@ -768,7 +741,6 @@ section[id] {
     background: var(--color-bg-alt);
     border-block: var(--border-width) solid var(--color-border);
 }
-
 .about-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
@@ -2875,31 +2847,6 @@ section[id] {
     }
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: var(--z-cursor);
-    pointer-events: none;
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent-cyan);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: var(--border-width) solid var(--color-border-strong);
-    transition: width 0.2s, height 0.2s;
-}
-
 /* Shared light-surface foundations retained by the current section markup. */
 .glass-card,
 .skill-card,
@@ -3130,12 +3077,5 @@ select:focus-visible,
 
     .section-title {
         margin-bottom: var(--space-12);
-    }
-}
-
-@media (hover: none), (pointer: coarse) {
-    .cursor-dot,
-    .cursor-outline {
-        display: none;
     }
 }

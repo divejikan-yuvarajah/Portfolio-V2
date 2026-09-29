@@ -203,8 +203,4 @@ select {
         transition-delay: 0ms !important;
     }
 
-    .fade-in {
-        opacity: 1 !important;
-        transform: none !important;
-    }
 }

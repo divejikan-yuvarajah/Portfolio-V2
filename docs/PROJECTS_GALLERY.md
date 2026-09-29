@@ -2,6 +2,8 @@
 
 Task 07 replaces the former nine-card Projects grid with a 17-project editorial gallery. The gallery preserves `#projects` for navigation and leaves the rest of the single-page portfolio, including the existing Three.js scene, untouched.
 
+Task 14 adds one-shot motion to the heading and the featured/recent grid containers; archive cards remain static. Cards keep their native `hidden` state and do not receive individual ScrollTriggers. `projects.js` still owns filtering; after each filter application it dispatches `portfolio:projects-filtered` so the optional motion module can refresh positions without changing filter state.
+
 ## Content source and ordering
 
 `index.html` is the gallery's single source of truth. Project cards are semantic HTML articles with stable `data-project-card` markers and space-separated `data-categories` keys. `js/projects.js` reads those attributes to filter; it does not repeat project copy, links, or category assignments. Keep each project's order in the markup so filtering never reorders results.
