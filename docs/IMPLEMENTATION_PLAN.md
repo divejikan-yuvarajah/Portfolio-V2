@@ -18,7 +18,7 @@
 ## Phase 1 — Content and behavior validation
 
 1. Review the existing biography, skills, experience, education, certifications, and all nine projects with the portfolio owner.
-2. Confirm each GitHub, demo, Figma, and certificate verification URL. Replace `YOUR_GITHUB_LINK` and `href="#"` only with confirmed destinations; fix the leading space in the ReNova URL.
+2. Confirm each GitHub, demo, Figma, and certificate verification URL. Task 07 replaced the portfolio repository placeholder and omitted an unverified ReNova URL. The five certificate links still need approved verification destinations; keep them clearly unavailable until the owner supplies those URLs.
 3. Confirm whether contact should remain direct email/social links or submit through a named service/backend. Do not imply form delivery until an endpoint exists.
 4. Confirm CV freshness and portrait/project image choices. Preserve the current PDF download path unless the CV is intentionally replaced.
 5. Make a content checklist so no project or timeline item disappears during layout changes.
@@ -34,11 +34,11 @@
 ## Phase 3 — Progressive enhancement and accessibility
 
 1. **Navigation foundation completed in Task 03:** convert the mobile menu toggle into a keyboard-operable button with an accessible name, `aria-expanded`, and `aria-controls`; support Escape, focus visibility, outside dismissal, breakpoint reset, and closing after navigation. See [NAVIGATION.md](NAVIGATION.md). Further assistive-technology/browser validation remains in Phase 5.
-2. Keep the core content and navigation usable without JavaScript. Add safe behavior for reveal animations when `IntersectionObserver` is unavailable.
+2. Keep the core content and navigation usable without JavaScript. Cross-task hardening leaves reveal content visible by default and uses IntersectionObserver only as an enhancement.
 3. Add keyboard-visible focus states and honor `prefers-reduced-motion` for scrolling, transitions, typewriter animation, pointer effects, and Three.js.
 4. Make skill filter state perceivable and announce filter results where appropriate.
 5. Review image alt text, SVG accessibility, touch targets, contrast, text resizing, and keyboard navigation.
-6. Isolate Three.js setup; avoid starting it when WebGL is unavailable or motion is reduced, and ensure resize behavior and resource cleanup are safe.
+6. Isolate Three.js setup; it is now dynamically loaded after core interactions initialize, and setup/CDN failures remove only the decorative canvas. The scene still needs browser performance/resource-lifecycle review.
 
 ## Phase 4 — Content organization and asset performance
 
@@ -85,14 +85,14 @@
 
 ### Task 13 — Contact & Social Integration
 
-- The contact area now uses a collaboration-focused layout and the existing Porcelain Arctic tokens. Direct email, LinkedIn and GitHub links work without JavaScript; the optional form becomes visible only when its mailto handoff handler initializes.
+- The contact area uses a collaboration-focused layout and the existing Porcelain Arctic tokens. Direct email, LinkedIn and GitHub links work without JavaScript; the optional form appears only when its mailto handoff handler initializes.
 - The form prepares an email for the visitor to review and send in their mail application. It does not deliver, store or track messages. A long encoded handoff is rejected with a direct-email fallback instead of silently truncating the message.
-- The footer provides the portfolio identity and compact Home, Projects, Contact and Back to top anchors. Detailed behaviour and verification limits are in [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
+- The footer provides the portfolio identity and compact Home, Projects, Contact and Back to top anchors. Detailed behavior and verification limits are in [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
 
-## Known decisions and blockers to resolve before relevant implementation
+## Known decisions and outstanding items
 
-- Contact form delivery: no backend or form service is configured. The current form is an explicitly labelled email-app handoff, not site-mediated delivery.
-- Portfolio repository link: one project has a literal `YOUR_GITHUB_LINK` placeholder.
-- Credential verification: Task 12 removed the prior `href="#"` placeholders. No personal credential verification URLs were supplied; add only owner-approved real verification destinations.
-- External destination validity: the Task 13 GitHub personal profile opened successfully and links to the current LinkedIn slug; automated retrieval of LinkedIn itself was blocked. Remaining project GitHub, Figma and demo destinations, and email delivery, have not been live-checked.
-- Three.js loading strategy: the current import map uses a CDN. Keep the dependency optional or select a locally hosted strategy only if deployment constraints require it.
+- Contact form delivery: no backend or form service is configured. The form is an explicitly labelled email-app handoff, not site-mediated delivery.
+- Certificate verification links: personal verification URLs were not supplied; dead placeholder actions are not restored and unverified certification claims remain withheld.
+- External destination validity: the Task 13 GitHub personal profile opened and links to the current LinkedIn slug; automated retrieval of LinkedIn itself was blocked. Other project GitHub, Figma and demo destinations are not fully live-audited.
+- Three.js uses a CDN import map but is optional to core operation after cross-task hardening; CDN availability is still required for its decorative scene.
+- CV freshness and browser-level responsive/accessibility behavior remain release checks; see [HERO.md](HERO.md) and task-specific verification notes.
