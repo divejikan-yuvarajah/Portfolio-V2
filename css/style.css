@@ -2065,9 +2065,226 @@ section[id] {
     margin-top: var(--space-4);
 }
 
+/* Task 11 — leadership and community */
+.community-section {
+    padding-block: var(--section-padding-block);
+    background: var(--color-bg-page);
+}
+
+.community-eyebrow,
+.community-label {
+    color: var(--color-action-primary);
+    font: var(--font-weight-semibold) var(--font-size-xs) / 1.5 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.community-eyebrow {
+    margin: 0 0 var(--space-2);
+    text-align: center;
+}
+
+.community-section > .container > .section-title {
+    margin-bottom: var(--space-4);
+}
+
+.community-intro {
+    max-width: 66ch;
+    margin: 0 auto var(--space-12);
+    color: var(--color-text-body);
+    text-align: center;
+}
+
+.community-feature {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-4) var(--space-6);
+    align-items: center;
+    padding: clamp(var(--space-6), 4vw, var(--space-8));
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-top: 3px solid var(--color-action-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.community-feature-heading {
+    min-width: 0;
+}
+
+.community-label {
+    margin: 0 0 var(--space-2);
+    color: var(--color-text-body);
+}
+
+.community-feature h3,
+.community-role-card h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-bold) clamp(1.35rem, 2.5vw, 1.75rem) / var(--line-height-tight) var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.community-feature h3 span,
+.community-role-card h3 span {
+    color: var(--color-text-body);
+    font: inherit;
+}
+
+.community-role {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    margin: 0;
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-action-hover);
+    background: var(--color-accent-wash);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    overflow-wrap: anywhere;
+}
+
+.community-feature > .community-role {
+    justify-self: end;
+}
+
+.community-summary {
+    grid-column: 1 / -1;
+    max-width: 72ch;
+    margin: 0;
+    color: var(--color-text-body);
+}
+
+.community-leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+}
+
+.community-role-card {
+    min-width: 0;
+    padding: clamp(var(--space-5), 3vw, var(--space-6));
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.community-role-card h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.community-role-card > .community-role {
+    margin-top: var(--space-4);
+}
+
+.community-involvement {
+    margin-top: var(--space-12);
+    padding: clamp(var(--space-5), 4vw, var(--space-8));
+    background: var(--color-bg-alt);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.community-involvement-heading {
+    margin-bottom: var(--space-5);
+}
+
+.community-involvement-heading > .community-label {
+    margin-bottom: var(--space-2);
+}
+
+.community-involvement-heading h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-semibold) clamp(1.25rem, 2.4vw, 1.6rem) / var(--line-height-tight) var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.community-involvement-grid {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.8fr);
+    gap: var(--space-4);
+}
+
+.community-involvement-card {
+    min-width: 0;
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.community-involvement-card h4 {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-primary);
+    font: var(--font-weight-semibold) var(--font-size-base) / var(--line-height-tight) var(--font-heading);
+}
+
+.community-name-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.community-name-list li {
+    display: inline-flex;
+    min-height: 2.5rem;
+    max-width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-secondary);
+    background: var(--color-surface-subtle);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-sm);
+    overflow-wrap: anywhere;
+}
+
+.community-name-list li span {
+    color: var(--color-text-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+.community-note {
+    margin: var(--space-4) 0 0;
+    color: var(--color-text-body);
+    font-size: var(--font-size-xs);
+}
+
 @media (max-width: 760px) {
     .venture-grid {
         grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .community-leadership-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .community-involvement-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .community-feature {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .community-feature > .community-role {
+        justify-self: start;
     }
 }
 
