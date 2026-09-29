@@ -36,7 +36,7 @@ Portfolio_V2/
 └── docs/                      # Audit and migration documents (added in this task)
 ```
 
-No other application pages were found. `index.html` contains eight top-level sections: Hero, About, Skills, Projects, Experience, Education, Certifications, and Contact. The Projects section now has a four-card featured collection, four recent compact cards, and nine retained archive cards. Project copy, links, categories, status, and order are authored once in HTML; the small `projects.js` module adds category filtering without rendering duplicate data. Skills, experience, education, certifications, navigation, contact links, and footer are also authored directly in HTML.
+No other application pages were found. `index.html` contains nine top-level sections: Hero, About, Skills, Projects, Achievements, Experience, Education, Certifications, and Contact. The Projects section now has a four-card featured collection, four recent compact cards, and nine retained archive cards. Project copy, links, categories, status, and order are authored once in HTML; the small `projects.js` module adds category filtering without rendering duplicate data. Skills, achievements, experience, education, certifications, navigation, contact links, and footer are also authored directly in HTML.
 
 ## Existing behavior and dependencies
 
@@ -46,6 +46,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 - Skills: six manually authored, always-visible technology groups in `index.html`; Task 06 removed the unsupported rating bars and the obsolete filter module.
 - Projects: 17 manually authored cards in featured, recent, and archive groups, with category filters, four typographic illustrations, retained local archive previews, and selectively verified external destinations. The filtering enhancement is documented in [PROJECTS_GALLERY.md](PROJECTS_GALLERY.md).
 - Experience & Ventures: manually authored Zatroz/Softora current-venture cards and AARNA/HNB previous-employment entries in `index.html`; the existing `#experience` link remains stable. Facts and verification boundaries are documented in [EXPERIENCE_AND_VENTURES.md](EXPERIENCE_AND_VENTURES.md). Education remains a manually authored timeline.
+- Achievements: one featured Cursor Buildathon result and three compact competition results in static HTML, with scoped responsive styles and an evidence ledger in [ACHIEVEMENTS.md](ACHIEVEMENTS.md). The `#achievements` anchor is available without adding a potentially crowded main-navigation link.
 - Certifications: five cards with verification links.
 - Contact: email, LinkedIn, and GitHub links plus a form with required fields.
 - Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.
