@@ -11,7 +11,6 @@ let gsap;
 let ScrollTrigger;
 let media;
 let responsiveContext;
-let introContext;
 let active = false;
 let refreshFrame = 0;
 let effects = [];
@@ -173,8 +172,6 @@ function stopMotion() {
     // constructing a new matcher on every preference toggle allocates new MQL
     // listeners. Revert its public Context instead; refresh reuses the matcher.
     responsiveContext?.revert();
-    introContext?.revert();
-    introContext = null;
     active = false;
     effects = [];
     if (refreshFrame) cancelAnimationFrame(refreshFrame);
@@ -205,15 +202,16 @@ async function startMotion() {
         gsap = window.gsap;
         ScrollTrigger = window.ScrollTrigger;
         if (!registered) { gsap.registerPlugin(ScrollTrigger); registered = true; }
-        // Assign contexts before setup so a partial setup failure can revert all prepared styles.
-        introContext = gsap.context(() => {}, document.body);
-        introContext.add(buildIntro);
         media = gsap.matchMedia();
         // matchMedia creates its own scoped context. Do not nest another gsap.context inside it.
-        media.add({ all: 'all', desktop: '(min-width: 1024px) and (min-height: 760px) and (pointer: fine)',
+        media.add({ all: 'all', desktop: '(min-width: 1024px) and (min-height: 760px) and (pointer: fine) and (hover: hover)',
             reduce: '(prefers-reduced-motion: reduce)' }, context => {
             responsiveContext = context;
             if (!started || context.conditions.reduce || !allowed()) return;
+            // Keep the authored cover fully visible on phones, touch screens and
+            // short windows. Its clip masks are reserved for a spacious desktop.
+            if (context.conditions.desktop) buildIntro();
+            else introUsed = true;
             buildChapters();
             buildSignals();
             buildResultAndClosing();

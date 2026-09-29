@@ -2898,11 +2898,13 @@ select:focus-visible,
         left: var(--layout-gutter);
         display: flex;
         max-height: calc(100vh - var(--navigation-height) - var(--space-8));
-        max-height: calc(100dvh - var(--navigation-height) - var(--space-8));
+        max-height: calc(100dvh - var(--navigation-height) - var(--space-8) - env(safe-area-inset-bottom, 0px));
         flex-direction: column;
         align-items: stretch;
         gap: var(--space-1);
         overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
         padding: var(--space-3);
         border: var(--border-width) solid var(--color-border);
         border-radius: var(--radius-lg);
@@ -3213,7 +3215,7 @@ select:focus-visible,
 .atlas-site .project-link span[aria-hidden], .atlas-work-tile > span:last-child > span { display: inline-block; transition: transform var(--duration-base); }
 .atlas-site .project-link:is(:hover,:focus-visible) span[aria-hidden], .atlas-work-tile:is(:hover,:focus-visible) > span:last-child > span { transform: translate(2px,-2px); }
 .atlas-site [hidden] { display: none !important; }
-@media (min-width: 1024px) and (min-height: 760px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 1024px) and (min-height: 760px) and (pointer: fine) and (hover: hover) and (prefers-reduced-motion: no-preference) {
     .atlas-site .project-illustration { position: sticky; top: calc(var(--navigation-height) + 1.5rem); }
 }
 @media (max-width: 1023px) {
@@ -3260,6 +3262,19 @@ select:focus-visible,
     .atlas-site .learning-grid { gap: 1rem; }
     .atlas-site .contact-title { font-size: clamp(2.2rem,8.7vw,4rem); }
     .atlas-site .contact-layout { padding-top: 2rem; }
+    .atlas-site .project-illustration em { font-size: .75rem; font-style: normal; line-height: 1.5; }
+    .atlas-site .skill-tag-list li, .atlas-site .project-tags li { font-size: .78rem; }
+}
+@media (max-width: 360px) {
+    .atlas-brand-note { display: none; }
+    .atlas-edition { gap: .65rem; letter-spacing: .045em; }
+    .atlas-edition > span:last-child { max-width: 7.25rem; }
+    .atlas-site .hero-title { font-size: clamp(2.45rem, 11.2vw, 2.65rem); }
+    .atlas-site .hero-actions { gap: .5rem; }
+    .atlas-site .hero-action { padding-inline: .55rem; font-size: .82rem; }
+}
+@media (max-height: 540px) and (max-width: 980px) {
+    .atlas-site .project-illustration { position: relative; top: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
     .atlas-site .project-illustration { position: relative; top: auto; }

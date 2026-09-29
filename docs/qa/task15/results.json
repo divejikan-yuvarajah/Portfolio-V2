@@ -1,0 +1,1016 @@
+{
+  "browser": "Edg/154.0.4258.37",
+  "widths": [
+    {
+      "width": 320,
+      "client": 320,
+      "page": 320,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 288,
+        "height": 117.5625,
+        "top": 219.953125,
+        "right": 304,
+        "bottom": 337.515625,
+        "left": 16
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 360,
+      "client": 360,
+      "page": 360,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 328,
+        "height": 120.90625,
+        "top": 219.953125,
+        "right": 344,
+        "bottom": 340.859375,
+        "left": 16
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 375,
+      "client": 375,
+      "page": 375,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 390,
+      "client": 390,
+      "page": 390,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 358,
+        "height": 134.5,
+        "top": 219.953125,
+        "right": 374,
+        "bottom": 354.453125,
+        "left": 16
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 414,
+      "client": 414,
+      "page": 414,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 16.546875,
+        "y": 219.953125,
+        "width": 380.90625,
+        "height": 142.8125,
+        "top": 219.953125,
+        "right": 397.453125,
+        "bottom": 362.765625,
+        "left": 16.546875
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 430,
+      "client": 430,
+      "page": 430,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 17.1875,
+        "y": 219.953125,
+        "width": 395.625,
+        "height": 148.3125,
+        "top": 219.953125,
+        "right": 412.8125,
+        "bottom": 368.265625,
+        "left": 17.1875
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 600,
+      "client": 600,
+      "page": 600,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 24,
+        "y": 219.953125,
+        "width": 552,
+        "height": 206.953125,
+        "top": 219.953125,
+        "right": 576,
+        "bottom": 426.90625,
+        "left": 24
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 768,
+      "client": 753,
+      "page": 753,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 30.71875,
+        "y": 222.9375,
+        "width": 393.8125,
+        "height": 168.171875,
+        "top": 222.9375,
+        "right": 424.53125,
+        "bottom": 391.109375,
+        "left": 30.71875
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 820,
+      "client": 805,
+      "page": 805,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 32,
+        "y": 222.9375,
+        "width": 422,
+        "height": 179.546875,
+        "top": 222.9375,
+        "right": 454,
+        "bottom": 402.484375,
+        "left": 32
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 912,
+      "client": 897,
+      "page": 897,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 32,
+        "y": 222.9375,
+        "width": 474.515625,
+        "height": 199.6875,
+        "top": 222.9375,
+        "right": 506.515625,
+        "bottom": 422.625,
+        "left": 32
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 980,
+      "client": 965,
+      "page": 965,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 32,
+        "y": 231.21875,
+        "width": 513.328125,
+        "height": 214.609375,
+        "top": 231.21875,
+        "right": 545.328125,
+        "bottom": 445.828125,
+        "left": 32
+      },
+      "titleTransform": "none",
+      "menuMax": "796px",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 1024,
+      "client": 1009,
+      "page": 1009,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 32,
+        "y": 222.9375,
+        "width": 538.4375,
+        "height": 227.328125,
+        "top": 222.9375,
+        "right": 570.4375,
+        "bottom": 450.265625,
+        "left": 32
+      },
+      "titleTransform": "none",
+      "menuMax": "none",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 1280,
+      "client": 1265,
+      "page": 1265,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 32,
+        "y": 222.9375,
+        "width": 672,
+        "height": 284.109375,
+        "top": 222.9375,
+        "right": 704,
+        "bottom": 507.046875,
+        "left": 32
+      },
+      "titleTransform": "none",
+      "menuMax": "none",
+      "formFont": "16px",
+      "offscreen": false
+    },
+    {
+      "width": 1440,
+      "client": 1425,
+      "page": 1425,
+      "h1": 1,
+      "projects": 17,
+      "hero": {
+        "x": 72.5,
+        "y": 222.9375,
+        "width": 672,
+        "height": 319.65625,
+        "top": 222.9375,
+        "right": 744.5,
+        "bottom": 542.59375,
+        "left": 72.5
+      },
+      "titleTransform": "none",
+      "menuMax": "none",
+      "formFont": "16px",
+      "offscreen": false
+    }
+  ],
+  "shortViewports": [
+    {
+      "viewport": "844x390",
+      "width": 844,
+      "height": 390,
+      "page": 829,
+      "client": 829,
+      "sticky": "relative"
+    },
+    {
+      "viewport": "1280x600",
+      "width": 1280,
+      "height": 600,
+      "page": 1265,
+      "client": 1265,
+      "sticky": "relative"
+    },
+    {
+      "viewport": "720x500",
+      "width": 720,
+      "height": 500,
+      "page": 705,
+      "client": 705,
+      "sticky": "relative"
+    },
+    {
+      "viewport": "1024x568",
+      "width": 1024,
+      "height": 568,
+      "page": 1009,
+      "client": 1009,
+      "sticky": "relative"
+    }
+  ],
+  "phoneHeights": [
+    {
+      "width": 375,
+      "height": 568,
+      "page": 375,
+      "client": 375,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "sticky": "relative"
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "page": 375,
+      "client": 375,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "sticky": "relative"
+    },
+    {
+      "width": 375,
+      "height": 740,
+      "page": 375,
+      "client": 375,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "sticky": "relative"
+    },
+    {
+      "width": 375,
+      "height": 760,
+      "page": 375,
+      "client": 375,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "sticky": "relative"
+    },
+    {
+      "width": 375,
+      "height": 900,
+      "page": 375,
+      "client": 375,
+      "hero": {
+        "x": 16,
+        "y": 219.953125,
+        "width": 343,
+        "height": 129.328125,
+        "top": 219.953125,
+        "right": 359,
+        "bottom": 349.28125,
+        "left": 16
+      },
+      "sticky": "relative"
+    }
+  ],
+  "mobileMenu320x568": {
+    "open": "true",
+    "max": 384,
+    "scroll": 384,
+    "links": 7,
+    "visible": true
+  },
+  "menuOutsideAndSelection": {
+    "open": "false",
+    "hash": "#contact"
+  },
+  "contact": {
+    "invalid": "true",
+    "status": "Please review the highlighted fields.",
+    "email": "mailto:divejuthe@gmail.com",
+    "links": [
+      "https://www.linkedin.com/in/divejikan-yuvarajah-401526279/",
+      "https://github.com/divejikan-yuvarajah"
+    ],
+    "cv": "images/My_CV.pdf"
+  },
+  "touchTargets": [
+    {
+      "label": "Explore My Projects\n            ",
+      "width": 166,
+      "height": 71
+    },
+    {
+      "label": "Let's Connect",
+      "width": 166,
+      "height": 71
+    },
+    {
+      "label": "Download CV \u2193",
+      "width": 127,
+      "height": 44
+    },
+    {
+      "label": "View case study \u2192",
+      "width": 164,
+      "height": 44
+    },
+    {
+      "label": "Project page \u2197",
+      "width": 134,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "View case study \u2192",
+      "width": 164,
+      "height": 44
+    },
+    {
+      "label": "Team preview \u2197",
+      "width": 143,
+      "height": 44
+    },
+    {
+      "label": "Team repository \u2197",
+      "width": 159,
+      "height": 44
+    },
+    {
+      "label": "View case study \u2192",
+      "width": 164,
+      "height": 44
+    },
+    {
+      "label": "View case study \u2192",
+      "width": 164,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "Live demo \u2197",
+      "width": 119,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "Live demo \u2197",
+      "width": 119,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 96,
+      "height": 44
+    },
+    {
+      "label": "LinkedIn \u2197",
+      "width": 118,
+      "height": 44
+    },
+    {
+      "label": "GitHub \u2197",
+      "width": 107,
+      "height": 44
+    },
+    {
+      "label": "Prepare Email \u2197",
+      "width": 343,
+      "height": 54
+    }
+  ],
+  "sectionHashes": [
+    "hero",
+    "about",
+    "skills",
+    "projects",
+    "achievements",
+    "experience",
+    "community",
+    "education",
+    "certifications",
+    "contact"
+  ],
+  "keyboardJourney": [
+    {
+      "id": "",
+      "href": "#main-content",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "#hero",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "mobile-menu",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "#projects",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "#contact",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "images/My_CV.pdf",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "#projects",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "#projects",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "BUTTON",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "SUMMARY",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/flowpilot-ai/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://flowpilotai-opal.vercel.app/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/FlowPilotAI",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "SUMMARY",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/cortex/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://cortex-gamma-teal.vercel.app/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/abdullllbasith/Cortex",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "SUMMARY",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/mediguardian-ai/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": null,
+      "tag": "SUMMARY",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/infraos/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/JevFlow",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://v0-hirequeue-job-platform.vercel.app/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/Jarvex-JavaFXBased-ChatBot",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/StockFlow-InventoryManagementSystem",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/NextGPA-_Smart-GPA-tracking-Web-App",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/SriLanka_Road_Accident_Analysis_Project",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://divejikan-yuvarajah.github.io/Barbershop-Website/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah/Portfolio-V2",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/flowpilot-ai/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://buildathon.cursorsrilanka.com/winners",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "projects/mediguardian-ai/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://www.softora.lk/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "mailto:divejuthe@gmail.com",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://www.linkedin.com/in/divejikan-yuvarajah-401526279/",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "",
+      "href": "https://github.com/divejikan-yuvarajah",
+      "tag": "A",
+      "visible": true
+    },
+    {
+      "id": "contact-name",
+      "href": null,
+      "tag": "INPUT",
+      "visible": true
+    },
+    {
+      "id": "contact-email",
+      "href": null,
+      "tag": "INPUT",
+      "visible": true
+    },
+    {
+      "id": "contact-message",
+      "href": null,
+      "tag": "TEXTAREA",
+      "visible": true
+    }
+  ],
+  "filteredMotion": {
+    "cards": 1,
+    "scrub": 1
+  },
+  "caseRoutes375and768": [
+    {
+      "width": 375,
+      "slug": "flowpilot-ai",
+      "h1": 1,
+      "page": 375,
+      "client": 375,
+      "illustration": true,
+      "title": "FlowPilot AI",
+      "css": true
+    },
+    {
+      "width": 375,
+      "slug": "cortex",
+      "h1": 1,
+      "page": 375,
+      "client": 375,
+      "illustration": true,
+      "title": "CORTEX",
+      "css": true
+    },
+    {
+      "width": 375,
+      "slug": "mediguardian-ai",
+      "h1": 1,
+      "page": 375,
+      "client": 375,
+      "illustration": true,
+      "title": "MediGuardian AI",
+      "css": true
+    },
+    {
+      "width": 375,
+      "slug": "infraos",
+      "h1": 1,
+      "page": 375,
+      "client": 375,
+      "illustration": true,
+      "title": "INFRAOS",
+      "css": true
+    },
+    {
+      "width": 768,
+      "slug": "flowpilot-ai",
+      "h1": 1,
+      "page": 753,
+      "client": 753,
+      "illustration": true,
+      "title": "FlowPilot AI",
+      "css": true
+    },
+    {
+      "width": 768,
+      "slug": "cortex",
+      "h1": 1,
+      "page": 753,
+      "client": 753,
+      "illustration": true,
+      "title": "CORTEX",
+      "css": true
+    },
+    {
+      "width": 768,
+      "slug": "mediguardian-ai",
+      "h1": 1,
+      "page": 753,
+      "client": 753,
+      "illustration": true,
+      "title": "MediGuardian AI",
+      "css": true
+    },
+    {
+      "width": 768,
+      "slug": "infraos",
+      "h1": 1,
+      "page": 753,
+      "client": 753,
+      "illustration": true,
+      "title": "INFRAOS",
+      "css": true
+    }
+  ],
+  "touchTablet1024": {
+    "coarse": true,
+    "hover": false,
+    "sticky": "relative",
+    "canvas": false
+  },
+  "noJavaScript": {
+    "h1": 1,
+    "projects": 17,
+    "hero": 129.328125
+  },
+  "reducedMotion": {
+    "motionAssets": 0,
+    "canvas": false,
+    "h1": 319.65625
+  },
+  "forcedColors": {
+    "active": true,
+    "page": 375,
+    "client": 375,
+    "h1": 129.328125,
+    "signal": "none"
+  },
+  "saveData": {
+    "canvas": false,
+    "motionAssets": 0,
+    "h1": 129.328125,
+    "projects": 17
+  },
+  "lowCore": {
+    "canvas": false,
+    "motionAssets": 0,
+    "h1": 129.328125,
+    "projects": 17
+  },
+  "blockedGSAP": {
+    "h1": 129.328125,
+    "projects": 17,
+    "filterHidden": false,
+    "formHidden": false
+  },
+  "blockedThree": {
+    "h1": 129.328125,
+    "projects": 17,
+    "canvas": false
+  },
+  "phoneMotion": {
+    "gsap": "3.15.0",
+    "heroTransform": "none",
+    "heroClip": "clip",
+    "canvas": false,
+    "scrub": 0
+  },
+  "desktopMotion": {
+    "gsap": "3.15.0",
+    "scrollTrigger": "3.15.0",
+    "scrub": 4,
+    "sticky": "sticky"
+  },
+  "liveReducedMotion": {
+    "scrub": 0,
+    "enhanced": false,
+    "hero": "none"
+  },
+  "restoredMotion": {
+    "scrub": 4,
+    "hero": "none"
+  },
+  "backForwardRestore": {
+    "home": true,
+    "navigation": "back_forward",
+    "enhanced": true,
+    "scrub": 4
+  },
+  "result": "PASS"
+}
