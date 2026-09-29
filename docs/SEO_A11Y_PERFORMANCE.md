@@ -36,6 +36,21 @@ Inspected `index.html`, each of the four generated case-study routes, and `404.h
 | INFRAOS | `INFRAOS — Project case study | Yuvarajah Divejikan`; in-development university infrastructure-coordination concept, details remain unverified | Default indexable | Unique article metadata / `WebPage` | Not set |
 | 404 | `Page not found | Yuvarajah Divejikan`; page-not-found guidance | `noindex` | Not required | Not set |
 
+### Final metadata inventory (Task 16)
+
+The final static audit inventory is also available in [`static-audit.json`](qa/task16/static-audit.json). The homepage and four project routes are indexable by default; no `noindex` directive is emitted on those five pages. Canonicals remain unset pending the owner-confirmed deployment host.
+
+| Page | Exact title | Exact description | Robots | OG type / title | Twitter card | Canonical / JSON-LD |
+|---|---|---|---|---|---|---|
+| Home | `Yuvarajah Divejikan | AI/ML Software Developer & Tech Founder` | `Explore the software, applied AI projects, technical interests, and experience of Yuvarajah Divejikan, an AI/ML-focused software developer and tech founder.` | Default indexable | `website` / same as title | `summary` | Deferred / `Person` |
+| FlowPilot AI | `FlowPilot AI — Project case study | Yuvarajah Divejikan` | `A fact-checked case study of FlowPilot AI's SME finance workflows, sandbox integrations and my reported team contribution.` | Default indexable | `article` / `FlowPilot AI — Project case study` | `summary` | Deferred / `WebPage` |
+| CORTEX | `CORTEX — Project case study | Yuvarajah Divejikan` | `A case study of CORTEX, the collaborator team's AI business operating system, with verified links and clear contribution boundaries.` | Default indexable | `article` / `CORTEX — Project case study` | `summary` | Deferred / `WebPage` |
+| MediGuardian AI | `MediGuardian AI — Project case study | Yuvarajah Divejikan` | `A qualified case study of MediGuardian AI, a health-memory competition prototype—not a diagnostic service or verified clinical product.` | Default indexable | `article` / `MediGuardian AI — Project case study` | `summary` | Deferred / `WebPage` |
+| INFRAOS | `INFRAOS — Project case study | Yuvarajah Divejikan` | `INFRAOS is an in-development university project concept for infrastructure coordination; implementation details remain unverified.` | Default indexable | `article` / `INFRAOS — Project case study` | `summary` | Deferred / `WebPage` |
+| 404 | `Page not found | Yuvarajah Divejikan` | `This portfolio page could not be found. Return to the project gallery to browse available work.` | `noindex` | Not set | Not set | None / none |
+
+The Open Graph descriptions on each indexable page match the page's exact description shown above. Open Graph URLs/images are not emitted because no public site origin or absolute image URL is verified. The homepage Twitter title/description match its page title/description; each case Twitter title is the same as its Open Graph title and each Twitter description matches the page description. The 404 route stays outside any future sitemap.
+
 ## Changes implemented
 
 ### Search metadata and structured data
