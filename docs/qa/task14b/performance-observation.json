@@ -1,0 +1,22 @@
+{
+  "environment": "Edg/154.0.4258.37",
+  "notes": "Headless Edge with --disable-gpu; software rendering is not a real-device FPS/Lighthouse benchmark. Two-second idle samples after initial load.",
+  "samples": [
+    {
+      "scenario": "existing Three.js enabled",
+      "sampleSeconds": 2,
+      "taskDurationSeconds": 1.5505,
+      "scriptDurationSeconds": 0.0223,
+      "initialLoadCLS": 0.03476814165897199,
+      "runtimeErrors": []
+    },
+    {
+      "scenario": "decorative Three.js import blocked",
+      "sampleSeconds": 2,
+      "taskDurationSeconds": 0.0295,
+      "scriptDurationSeconds": 0.0047,
+      "initialLoadCLS": 0.034750832486919056,
+      "runtimeErrors": []
+    }
+  ]
+}

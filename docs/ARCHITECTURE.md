@@ -135,3 +135,9 @@ The Task 01 palette proposal is implemented as the foundation in Task 02. The cu
 ## Audit limits
 
 The audit was based on repository files and local static inspection. It did not verify external URLs, open the site in a browser, validate behavior on real devices, inspect PDF content, or run assistive-technology checks. Those checks belong in implementation and release review after the redesign is built.
+
+## Task 14B — Digital Atlas refinement
+
+The static architecture remains unchanged. The homepage now uses an editorial twelve-column composition, nine numbered chapter rails, four alternating flagship features and an original reusable SVG motif sheet (`images/atlas-motifs.svg`). A scoped Digital Atlas section in the existing stylesheet refines layout without adding another theme or framework. The case-study generator adds the same edition line and motifs; its factual JSON is unchanged.
+
+`motion.js` replaces blanket reveal groups with labelled Hero/chapter/result/closing timelines and four bounded decorative desktop scrub effects. See [CREATIVE_DIRECTION.md](CREATIVE_DIRECTION.md), [MOTION_SYSTEM.md](MOTION_SYSTEM.md) and [QA](qa/task14b/README.md). The independent navbar/filter/contact/Three.js ownership boundaries remain intact.

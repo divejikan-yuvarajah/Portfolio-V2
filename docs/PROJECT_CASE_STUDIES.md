@@ -53,3 +53,8 @@ The full field-by-field claim and source notes are maintained in `data/case-stud
 `python scripts/generate_case_studies.py --check` verifies generated documents are synchronized. Static HTML/link validation and direct HTTP requests can verify output paths and resource responses, but do not prove browser rendering, screen-reader behavior, responsive appearance, external product functionality, or the claims in a project's promotional material. No visual screenshot testing or assistive-technology run is claimed where a browser is unavailable.
 
 Task 09 and broader migration are out of scope. When adding a future case study, first verify the project source and attribution, add a stable gallery slug and only then extend generator order/data and related-page validation. Avoid adding a framework or router for these four static routes.
+
+## Task 14B — Shared editorial language
+
+The generator now emits an atlas edition line and references the original shared SVG motif sheet. The body opts into the refined shared navbar/container styles, and `case-studies.css` adds precise frames, larger type and ruled metadata. All four routes were regenerated from `scripts/generate_case_studies.py`; `data/case-studies.json` is unchanged. Case studies remain static and load no GSAP assets. See [Task 14B QA](qa/task14b/README.md) for direct-route checks and responsive evidence.
+The generator now validates the homepage contribution disclosure against the canonical role text in the JSON. Update both the disclosure and its source together when an approved attribution changes; --check rejects a mismatch.

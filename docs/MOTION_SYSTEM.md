@@ -1,58 +1,55 @@
-# Motion System — Task 14
+# Motion System — Digital Atlas (Task 14B)
 
-## Runtime and dependency
+## Runtime and dependencies
 
-The home page uses GSAP core **3.15.0** and its ScrollTrigger plugin at the same pinned version. `js/animations.js` is a small, failure-safe lazy entry that imports `js/motion.js`; the motion module loads the exact files sequentially from cdnjs:
+`js/animations.js` remains the failure-safe lazy entry to **one** coordinator, `js/motion.js`. The coordinator loads GSAP **3.15.0** and ScrollTrigger **3.15.0** sequentially from:
 
 - `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js`
 - `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js`
 
-Both scripts must load and expose their browser APIs before `gsap.registerPlugin(ScrollTrigger)` runs. Registration occurs once per page module. No package, build step, import-map alias or premium plugin is used. The GSAP repository identifies 3.15.0 as its current CDN version; cdnjs lists the same release under its Standard “No Charge” GreenSock License. The owner should review the [GSAP license](https://gsap.com/standard-license/) if project usage changes. If either asset fails or times out after eight seconds, the catch path stops setup; content and core modules stay usable.
+Each browser API must report the pinned version before setup. Each asset has an eight-second failure timeout. Plugins register once; asset promises are reused across preference changes and BFCache restoration. Core navigation, category filtering, contact and optional Three.js initialize independently. No framework, smoother, package installation or build step was added. The owner's untracked npm files are not used by the page.
 
-## Inventory and property ownership
+SplitText and Flip were reviewed but are **not loaded**. The Hero has three authored semantic line wrappers, so responsive DOM splitting is unnecessary. The ordinary inline text remains a coherent heading for assistive technology. Category filters continue using instant native `hidden` states; Flip would add complexity without improving access. Original SVG path strokes use core GSAP, without DrawSVG or another plugin.
 
-`js/motion.js` owns a small set of one-time entrances. ScrollTrigger starts below-fold groups near `top 85%`; movement is limited to `y` and opacity/visibility. Staggers are short and capped to small, named groups.
+## Motion inventory
 
-| Area | Targets | Motion |
-|---|---|---|
-| Hero | Eyebrow, title, role, summary, actions, CV link and visual wrapper | Brief 8px vertical settle only when assets load within 1.2 seconds of setup and the page remains at the top. The Hero never starts hidden. |
-| About | Eyebrow, title, copy, project link and focus items | One section-triggered reveal group. |
-| Technical Expertise | Header and six category cards | Short stagger. |
-| Projects | Gallery heading, featured-grid container and recent-grid container | Three small one-shot groups. Cards keep their own filter/hidden state and never receive individual ScrollTriggers; the nine-card archive stays static. Filter changes dispatch `portfolio:projects-filtered`; the motion module coalesces a ScrollTrigger refresh to one animation frame. Filter state stays in `projects.js`. |
-| Achievements | Intro, featured Cursor result and supporting result cards | One modest stagger; labels and results are never changed or counted. |
-| Experience | Intro, group headings, venture cards and previous-employment items | One reading-order stagger. |
-| Leadership & Community | Intro, featured role, role cards and involvement cards | One reading-order stagger. |
-| Education and Credentials | Intro and cards | Short card groups. Dates and labels remain ordinary visible text. |
-| Contact | Heading, contact details and initialized handoff form | Small one-shot reveal; form state and email handoff are not animated or modified. |
-| Header, footer and case studies | None | Stay static to protect anchor offsets, mobile-menu state and direct case-study loading. |
+| Moment / trigger | Target and properties | Timing | Fallback | Owner |
+| --- | --- | --- | --- | --- |
+| First visit at page top, no hash, assets ready within 1.2s | Hero line `yPercent`, portrait `clipPath`, frame labels and supporting copy `x`, modest supporting opacity; small navbar-inner `y` | One labelled timeline: identity / builder / invitation; ~1s total, power3.out | Late loading/deep links skip intro; original content paints immediately | motion.js intro context |
+| Chapter rail enters at top 85% | Chapter rule `scaleX`, title inner span horizontal clip / 12px x | .7s; label index | Visible static heading/rule | motion.js media context |
+| Expertise / previous employment row enters | Only its decorative line `scaleX` | .65s power2.out | Full rule; all text stays visible | motion.js media context |
+| Short atlas signal enters | SVG strokeDashoffset and terminal point scale | 1s path, .25s terminal; label route | Complete static SVG path | motion.js media context |
+| Featured project passes viewport, desktop >=1024px, height >=760px, fine pointer | Decorative inner SVG yPercent -5 to 5 and number x 0 to 12 | scrub .45; label passage; no pin | Static art; ordinary vertical document flow | motion.js media context |
+| Featured Cursor result enters at top 80% | Title clip and placement label 22px x | .75s; label result | Entire poster readable | motion.js media context |
+| Contact heading enters at top 85% | Two semantic line wrappers yPercent | .75s, .09 stagger; label invitation | Static closing question | motion.js media context |
+| Link hover / keyboard focus | Arrow translates 2px; borders/colors | Existing 150–220ms tokens | Focus ring and labels remain | CSS |
+| Case studies / archive cards / contact inputs | No GSAP animation | None | Always static | Their existing modules |
 
-Animations clear their temporary inline `opacity`, `visibility` and `transform` after completion, allowing existing CSS focus and hover treatments to own those states. Hover feedback stays in CSS. No GSAP animation writes navigation attributes, project filter state, form state, layout dimensions or Three.js canvas properties.
+All text targets clear temporary transform/clip/opacity after their one-time entrances. The new chapter, rule and poster system **replaces** Task 14's MOTION_GROUPS. It does not layer another observer over them. The custom cursor stays removed.
 
-## Legacy motion and cursor
+## Layout, filters and native navigation
 
-The former `IntersectionObserver` reveal watched `.fade-in`, but the current page had no `.fade-in` elements. Its CSS also hid targets only after adding a root class. Task 14 removes that observer and its hidden-state CSS rather than letting two systems control opacity/transform. Static markup is now the no-animation state.
+Four alternating vertical featured panels retain FlowPilot AI → CORTEX → MediGuardian AI → INFRAOS. Only the decorative visual column may be CSS-sticky on tall desktop layouts. There is no horizontally translated link deck, pin spacer, wheel interception or artificial scroll distance. Mobile, short viewports and reduced motion use static visual columns. The project text/actions always stay in normal flow, including when contribution details expand.
 
-The custom cursor was also removed. It started a new 500ms Web Animations API effect on every mousemove and duplicated the native pointer without adding useful information. The system cursor remains available on every pointer type; no pointer listener or GSAP mouse tween replaces it.
+`projects.js` alone sets card/group `hidden` and button state. Its existing `portfolio:projects-filtered` event disables hidden cards' decorative triggers, enables visible ones and queues one geometry refresh per animation frame. The motion module never writes display, `hidden`, tabindex or ARIA state. Fonts, image loads and contribution `toggle` events also request coalesced refresh. ScrollTrigger handles viewport resize.
 
-## Reduced motion, performance and lifecycle
+`navigation.js` alone owns menu/active links; `contact.js` owns validation and the explicit email-app handoff; `three-scene.js` alone owns its optional particle rendering. GSAP has no continuous focal-area loop and does not manipulate the canvas. Existing section IDs, native anchors and direct case-study routes are retained.
 
-- `prefers-reduced-motion` is checked before loading GSAP. A live preference change reverts the owned GSAP context, kills its ScrollTriggers, clears temporary styles and leaves affected content visible. Turning motion back on does not replay targets already prepared/revealed during that session.
-- If `navigator.connection.saveData` is true, or a supported `hardwareConcurrency` reports two or fewer logical processors, motion setup is skipped. A supported connection change is observed.
-- Initial content has no opacity/visibility hiding in CSS. JS disabled, a blocked module, missing ScrollTrigger, CDN errors/timeouts, and reduced motion all leave content readable. Core navigation, project filtering, contact handoff and the independent optional Three.js import continue initializing.
-- The coordinator registers one `pagehide` teardown and handles BFCache `pageshow`. Its `gsap.context()` owns the local timelines/triggers; project-filter, font/load and preference listeners are removed when motion stops. Repeated `initMotion()` calls do not duplicate setup.
-- ScrollTrigger refreshes after fonts/page load and once per animation frame after gallery filtering. ScrollTrigger handles resize refresh. No pins, scrub, scroll hijack, parallax, repeating timeline, extra `will-change`, counter or continuous GSAP loop is present.
-- The case-study pages continue using only their existing CSS/navigation assets; the home page does not change the CV, contact disclosure, project content or direct links.
+## Responsive lifecycle and accessibility
 
-## Verification record
+- Check `prefers-reduced-motion`, save-data and supported <=2 logical-core hints before fetching assets.
+- The intro uses a scoped `gsap.context()` assigned before construction, allowing partial failure to revert immediately. `gsap.matchMedia()` owns its own scoped contexts for chapters and desktop effects; no nested contexts or deprecated ScrollTrigger.matchMedia.
+- Live reduced-motion changes revert all locally owned contexts, restore prepared styles, remove active triggers and keep core interactions available. No global killAll operation is used.
+- A WeakSet records prepared one-time entrances. A responsive rebuild or preference restoration leaves those elements static instead of replaying them. Desktop-only decorative scrub effects may be recreated, without duplication.
+- Pagehide removes owned DOM refresh/preference listeners and reverts the intro and responsive Context. One GSAP media matcher is retained for the page instance; its two query listeners are allocated once, including across BFCache restores. `gsap.matchMediaRefresh()` reuses it on restoration or connection changes. This avoids the listener accumulation observed when repeatedly constructing matchers in GSAP 3.15. The callback refuses setup while the page is inactive. Font readiness callbacks are harmless when motion is inactive.
+- Meaningful content is never hidden in baseline CSS. Motion adds no aria-hidden to text, changes no focus, and never hides an interactive card. The line masks enclose only display text; actions do not wait for a reveal.
+- Constrained/touch layouts have no pointer-following effect. Native system cursor remains. Forced-colors restores a solid Hero heading and removes decorative SVG.
+- No performance/FPS/Lighthouse claim is made. The observed initial desktop trigger count is bounded; final measurements and actual test results are recorded in the QA report.
 
-Automated checks run for Task 14:
+## Adding a future motion target
 
-- `node --check` on every `js/*.js` file — passed.
-- `python scripts/generate_case_studies.py --check` — passed; generated case-study output is current.
-- `git -c core.whitespace=cr-at-eol diff --check` — passed.
-- `tinycss2` stylesheet parse of `css/style.css` and `css/tokens.css` — passed with no parse errors.
-- HTMLParser audit of the home page and four project/404 routes — scanned five pages; no missing local link or script targets. Each page has one `<h1>`.
-- Node runtime simulation — passed for successful pinned-asset loading, one-time plugin registration, coalesced project-filter refresh, reduced-motion context revert, and GSAP core load failure fallback.
-- Static reference audit — no legacy `.fade-in`, custom-cursor or `motion-effects-enabled` references remain in HTML, CSS or JS.
+Use an inner decorative/text wrapper with one property owner, keeping its semantic parent and actions static. Choose a one-shot labelled timeline or a bounded decorative scrub only when it clarifies the composition. Add it within the coordinator's scoped media context, use `canEnter` for one-time entrances, and clear temporary styles. Do not add a second loader, observer or per-scroll refresh loop. Update this inventory and run the existing static plus browser QA.
 
-The GSAP and ScrollTrigger 3.15.0 cdnjs URLs returned HTTP 200 during setup verification. This checks asset reachability only, not animation rendering. An interactive browser was unavailable, so viewport checks at 320/375/768/1024/1440px, short-height desktop, keyboard-only walkthrough, screen-reader review, live OS reduced-motion toggling, filtered-gallery visual review, contact handoff, and rendered Three.js comparison remain unrun. No Lighthouse or performance metric is claimed. Direct routes/local references and existing CV path were statically checked; interactive browser behavior still needs owner QA.
+## Verification
+
+See [Task 14B QA](qa/task14b/README.md) and its screenshot/result artifacts for the actual browser and static checks. Sources and art-direction decisions are documented in [CREATIVE_DIRECTION.md](CREATIVE_DIRECTION.md). This implementation does not verify CV freshness, fabricate missing project screenshots, or independently validate external product claims.

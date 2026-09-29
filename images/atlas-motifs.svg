@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Original abstract editorial diagrams; these do not depict product UI. -->
+  <symbol id="flowpilot-ai" viewBox="0 0 400 300">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M0 240H100L160 180H235L315 100H400M0 265H110L170 205H245L325 125H400M0 215H90L150 155H225L305 75H400"/>
+      <circle cx="235" cy="180" r="7"/><circle cx="315" cy="100" r="7"/>
+      <path d="M100 0V300M200 0V300M300 0V300" stroke-dasharray="2 8"/>
+    </g>
+  </symbol>
+  <symbol id="cortex" viewBox="0 0 400 300">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="70" y="20" width="160" height="160"/><rect x="140" y="90" width="160" height="160"/>
+      <rect x="210" y="160" width="120" height="120"/><path d="M20 100H380M20 200H380M200 0V300" stroke-dasharray="3 7"/>
+      <rect x="140" y="90" width="90" height="90" fill="currentColor" fill-opacity=".12"/>
+    </g>
+  </symbol>
+  <symbol id="mediguardian-ai" viewBox="0 0 400 300">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M70 260V40H260V260M100 260V65H285V260M130 260V90H310V260M160 130H260M160 155H235M160 180H260M160 205H215"/>
+      <circle cx="310" cy="70" r="27"/><path d="M310 56V84M296 70H324"/>
+    </g>
+  </symbol>
+  <symbol id="infraos" viewBox="0 0 400 300">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M20 240L190 70L380 240M60 240L190 110L340 240M100 240L190 150L300 240M140 240L190 190L260 240M20 240H380M190 20V280M40 170H360"/>
+      <path d="M20 30H380M20 280H380M40 10V290M360 10V290" stroke-dasharray="3 7"/>
+    </g>
+  </symbol>
+</svg>

@@ -81,6 +81,7 @@
     --space-2: 0.5rem;
     --space-3: 0.75rem;
     --space-4: 1rem;
+    --space-5: 1.25rem;
     --space-6: 1.5rem;
     --space-8: 2rem;
     --space-12: 3rem;
@@ -90,6 +91,12 @@
 
     /* Layout and geometry */
     --layout-container: 75rem;
+    /* Digital Atlas: editorial geometry shared by homepage and case studies. */
+    --atlas-container: 84rem;
+    --atlas-gap: clamp(1.25rem, 3vw, 3rem);
+    --atlas-display: clamp(2.75rem, 7.4vw, 6.9rem);
+    --atlas-heading: clamp(2.1rem, 4.5vw, 4.2rem);
+    --atlas-radius: 2px;
     --layout-reading-measure: 72ch;
     --layout-gutter: clamp(1rem, 4vw, 2rem);
     --navigation-height: 4.5rem;

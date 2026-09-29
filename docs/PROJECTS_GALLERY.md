@@ -79,3 +79,10 @@ Each card retains the stable project title and `data-project-card` marker; addin
 - Checked repository/demo pages noted above on 2026-09-28; unavailable destinations are omitted.
 - The current CV PDF is present, but no local PDF text extraction utility or library was available; it was not used to substantiate project claims.
 - Browser/device visual inspection and assistive-technology testing were unavailable in this execution; see the Task 07 completion report and command results for static checks.
+
+## Task 14B — Digital Atlas presentation
+
+The same 17 projects now use four alternating editorial flagship features, followed by the intact recent/archive collections. Each flagship includes a native details disclosure containing its existing case-study contribution/attribution text. Typographic posters use the original `images/atlas-motifs.svg` sheet and retain the visible no-screenshot disclosure. The featured order, sources, categories and links are unchanged.
+
+The vertical layout keeps all links in normal flow. Only decorative visual columns stick on tall desktop layouts, and only their inner artwork/number scrub. Hidden cards never animate into display; contribution toggles and filter changes request a coalesced motion refresh. This supersedes Task 14's whole-grid entrance treatment.
+The case-study generator also checks that each homepage contribution disclosure exactly matches the corresponding role text in data/case-studies.json, preventing silent attribution drift.
