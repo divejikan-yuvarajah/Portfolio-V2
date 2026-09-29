@@ -230,6 +230,9 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
     <meta property="og:title" content="{e(title)} — Project case study">
     <meta property="og:description" content="{e(description)}">
     <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{e(title)} — Project case study">
+    <meta name="twitter:description" content="{e(description)}">
     <script type="application/ld+json">{schema}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -251,7 +254,7 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
             </div>
         </nav>
     </header>
-    <main id="case-study-main" class="case-study-page">
+    <main id="case-study-main" class="case-study-page" tabindex="-1">
         <div class="container">
             <div class="atlas-edition"><span>Digital Atlas / Project study</span><span>{e(feature_index)}</span></div>
             <nav class="case-breadcrumb" aria-label="Breadcrumb">
@@ -316,7 +319,7 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
 def render_404() -> str:
     return '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F8FAFC"><title>Page not found | Yuvarajah Divejikan</title><meta name="description" content="This portfolio page could not be found. Return to the project gallery to browse available work."><meta name="robots" content="noindex"><link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/case-studies.css"></head>
-<body><a class="skip-link" href="#not-found-main">Skip to main content</a><main id="not-found-main" class="case-not-found"><div class="container"><p class="case-eyebrow">404 · PAGE NOT FOUND</p><h1>This project page isn't here.</h1><p>The address may have changed, or this case study has not been published.</p><a class="case-action" href="index.html#projects">Return to Projects <span aria-hidden="true">→</span></a></div></main></body></html>\n'''
+<body><a class="skip-link" href="#not-found-main">Skip to main content</a><main id="not-found-main" class="case-not-found" tabindex="-1"><div class="container"><p class="case-eyebrow">404 · PAGE NOT FOUND</p><h1>This project page isn't here.</h1><p>The address may have changed, or this case study has not been published.</p><a class="case-action" href="index.html#projects">Return to Projects <span aria-hidden="true">→</span></a></div></main></body></html>\n'''
 
 
 def outputs() -> dict[Path, str]:
