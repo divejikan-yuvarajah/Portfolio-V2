@@ -106,6 +106,11 @@ def read_gallery() -> dict[str, dict[str, Any]]:
             raise ValueError(f"Gallery card {slug} is missing title, status, or summary")
 
         tags = [text_content(item) for item in descendants(tag_lists[0], tag="li")] if tag_lists else []
+        contribution_notes = [
+            node for node in descendants(content, tag="details")
+            if "project-contribution" in classes(node)
+        ]
+        contribution_paragraphs = descendants(contribution_notes[0], tag="p") if contribution_notes else []
         links = []
         for anchor in descendants(article, tag="a"):
             href = anchor.attrs.get("href") or ""
@@ -126,6 +131,7 @@ def read_gallery() -> dict[str, dict[str, Any]]:
             "categories": (article.attrs.get("data-categories") or "").split(),
             "tags": tags,
             "links": links,
+            "contributionNote": text_content(contribution_paragraphs[0]) if contribution_paragraphs else "",
         }
 
     if list(projects) != PAGE_ORDER:
@@ -232,7 +238,7 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/case-studies.css">
 </head>
-<body class="case-study-document">
+<body class="case-study-document atlas-site">
     <a class="skip-link" href="#case-study-main">Skip to case study</a>
     <header class="site-header">
         <nav class="navbar" aria-label="Primary navigation">
@@ -247,6 +253,7 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
     </header>
     <main id="case-study-main" class="case-study-page">
         <div class="container">
+            <div class="atlas-edition"><span>Digital Atlas / Project study</span><span>{e(feature_index)}</span></div>
             <nav class="case-breadcrumb" aria-label="Breadcrumb">
                 <ol><li><a href="../../index.html#hero">Home</a></li><li><a href="../../index.html#projects">Projects</a></li><li aria-current="page">{e(title)}</li></ol>
             </nav>
@@ -261,6 +268,7 @@ def render_page(slug: str, project: dict[str, Any], data: dict[str, Any], all_pr
                     {render_actions(project)}
                 </div>
                 <figure class="case-illustration case-illustration--{e(slug)}">
+                    <svg class="atlas-poster-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><use href="../../images/atlas-motifs.svg#{e(slug)}"/></svg>
                     <p class="case-illustration-label">{e(feature_index)}</p>
                     <strong aria-hidden="true">{e(title)}</strong>
                     <figcaption>Typographic illustration · no verified product screenshot is available in this repository.</figcaption>
@@ -317,6 +325,8 @@ def outputs() -> dict[Path, str]:
     if list(case_data) != PAGE_ORDER:
         raise ValueError(f"Case-study JSON order must be {PAGE_ORDER}; found {list(case_data)}")
     for slug, data in case_data.items():
+        if gallery[slug]["contributionNote"] != data["role"]["text"]:
+            raise ValueError(f"Gallery contribution for {slug} must match its approved case-study role text")
         for related in data.get("relatedSlugs", []):
             if related not in case_data or related == slug:
                 raise ValueError(f"Invalid related project {related!r} on {slug}")

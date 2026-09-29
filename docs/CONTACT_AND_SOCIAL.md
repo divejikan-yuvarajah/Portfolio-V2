@@ -37,3 +37,7 @@ Static tests can check markup, links, selector structure, field constraints and 
 - A contact-handler simulation passed for valid mailto URL construction, whitespace-only name rejection, and an oversized URL fallback with the full message retained.
 - Local HTTP smoke requests returned 200 for the homepage, contact styles/scripts, CV and all four case-study routes. `scripts/generate_case_studies.py --check` reported current output, and `git -c core.whitespace=cr-at-eol diff --check` passed.
 - No package manifest or configured build/test runner exists. No browser was available, so rendered checks at 320, 375, 768, 1024, 1440px, 200% zoom, keyboard/screen reader behavior, and an actual email-app launch were not run. No delivery or mail-sent claim is made.
+
+## Task 14B — Closing composition
+
+Digital Atlas introduces the large closing question, terminal signal path and ruled email/social/form layout. The original direct destinations, validation module and explicit email-app handoff disclosure are unchanged. The previously undefined `--space-5` token is now present, restoring reliable form spacing. Browser QA checked invalid-input feedback and keyboard access without opening an email client or sending a message; see [Task 14B QA](qa/task14b/README.md).

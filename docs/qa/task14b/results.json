@@ -1,0 +1,89 @@
+[
+  {
+    "width": 320,
+    "clientWidth": 305,
+    "pageWidth": 305,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 375,
+    "clientWidth": 360,
+    "pageWidth": 360,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 390,
+    "clientWidth": 375,
+    "pageWidth": 375,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 768,
+    "clientWidth": 753,
+    "pageWidth": 753,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 1024,
+    "clientWidth": 1009,
+    "pageWidth": 1009,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 1280,
+    "clientWidth": 1265,
+    "pageWidth": 1265,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "width": 1440,
+    "clientWidth": 1425,
+    "pageWidth": 1425,
+    "h1": 1,
+    "projects": 17
+  },
+  {
+    "additionalLayouts": "844x390 landscape, 1280x600 short desktop, 720x500 CSS viewport (200%-equivalent layout)"
+  },
+  {
+    "preferenceStress": "four restore/reduce cycles; 4/0 triggers",
+    "listenersBefore": 87,
+    "listenersAfter": 87
+  },
+  {
+    "keyboardStops": 54,
+    "keyboard": "Tab journey reached every flagship case-study link and all contact inputs without offscreen focus"
+  },
+  {
+    "historyReturnedHome": true,
+    "bfcacheUsed": true
+  },
+  {
+    "deepLinks": "all ten original section IDs land below the sticky header"
+  },
+  {
+    "activeHistoryRestore": {
+      "persisted": true,
+      "enhanced": true,
+      "triggers": 4,
+      "assets": 2
+    }
+  },
+  {
+    "constrainedSignals": "simulated two-core and save-data environments skip GSAP but retain core UI"
+  },
+  {
+    "motionLoaded": {
+      "gsap": "3.15.0",
+      "scrollTrigger": "3.15.0",
+      "triggers": 25
+    },
+    "checks": "filters, validation, four routes at 375/1440, menu Escape, JS-disabled, blocked CDN/WebGL imports, live reduced motion"
+  }
+]

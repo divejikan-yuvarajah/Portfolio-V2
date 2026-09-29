@@ -118,3 +118,9 @@ For later section tasks, use these tokens to style the existing markup or a smal
 - Color contrast calculations: cobalt action against white is approximately 5.2:1; slate body text against white approximately 7.6:1; navy against white approximately 17.9:1; slate muted text against white approximately 4.8:1. Arctic blue on white is approximately 2.5:1 and is reserved for decorative use.
 - `git diff --check` must be run with Git's `cr-at-eol` whitespace rule because the tracked HTML/CSS/JS files use CRLF line endings: `git -c core.whitespace=cr-at-eol diff --check` passed.
 - Browser-based rendering, console inspection, keyboard navigation, and screenshots at 320, 375, 768, 1024, and 1440px were unavailable in this environment; no browser executable or browser surface was available. These remain a manual visual QA item.
+
+## Task 14B — Digital Atlas extension
+
+Digital Atlas preserves the Porcelain Arctic palette and type families while introducing `--atlas-container`, `--atlas-gap`, `--atlas-display`, `--atlas-heading` and `--atlas-radius`. These control the twelve-column editorial cover, large chapter type and precise frames. `--space-5` now supplies the previously referenced 20px spacing step, fixing missing contact-form gaps.
+
+Chapter indices and labels use JetBrains Mono; display statements use Manrope; content and controls retain Inter. A single navy achievement poster supplies an intentional inverse moment. Original SVG motifs are decorative and typographic illustrations stay explicitly labelled. The native cursor and visible keyboard focus remain standard. See [CREATIVE_DIRECTION.md](CREATIVE_DIRECTION.md) for section composition and [MOTION_SYSTEM.md](MOTION_SYSTEM.md) for motion ownership and fallbacks.

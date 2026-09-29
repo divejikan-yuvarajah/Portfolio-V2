@@ -103,3 +103,11 @@
 - Three.js uses a CDN import map but is optional to core operation after cross-task hardening; CDN availability is still required for its decorative scene.
 - Homepage motion loads pinned GSAP core and ScrollTrigger from cdnjs. CDN blocking means the optional entrances are skipped; it does not affect core functionality.
 - CV freshness and browser-level responsive/accessibility behavior remain release checks; see [HERO.md](HERO.md) and task-specific verification notes.
+
+## Task 14B — Digital Atlas creative enhancement
+
+- Reworked still-state composition across the cover, chapters, flagship projects, result poster, ventures, community, education and closing contact section.
+- Replaced Task 14 blanket reveals with labelled GSAP timelines, SVG/rule drawing and four desktop decorative scroll effects. Chose ordinary vertical project panels with bounded sticky visuals over horizontal pinning.
+- Updated generator-owned case-study framing and original SVG motifs without changing case-study facts or routes.
+- Added repeatable local headless-browser checks and before/after evidence. See [Task 14B QA](qa/task14b/README.md) for actual results and remaining owner review.
+- Task 15 remains out of scope; no merge or deployment is part of this task.

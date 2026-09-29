@@ -563,3 +563,23 @@
         transition: none;
     }
 }
+
+/* Digital Atlas case studies: same facts and route structure, editorial framing. */
+.case-study-document .atlas-edition { margin-bottom: 1.5rem; }
+.case-study-document .case-hero { grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: var(--atlas-gap); }
+.case-study-document .case-hero h1 { font-size: clamp(2.75rem,6.6vw,6.2rem); letter-spacing: -.065em; }
+.case-study-document .case-illustration { position: relative; isolation: isolate; overflow: clip; min-height: 28rem; border-radius: 0; box-shadow: none; background: var(--color-accent-soft); }
+.case-study-document .case-illustration > :not(svg) { position: relative; z-index: 1; }
+.case-study-document .case-illustration figcaption { color: var(--color-text-body); }
+.case-study-document .case-illustration--cortex { background: var(--color-bg-alt); }
+.case-study-document .case-illustration--mediguardian-ai { background: var(--color-surface); }
+.case-study-document .case-illustration--infraos { background: var(--color-surface-subtle); }
+.case-study-document :is(.case-facts,.case-section--alternate,.case-feature,.related-case,.case-action,.case-media-note) { border-radius: var(--atlas-radius); box-shadow: none; }
+.case-study-document .case-facts { padding: 1.5rem 0; border-inline: 0; background: none; }
+.case-study-document .case-section h2 { font-size: clamp(2rem,3.6vw,3rem); letter-spacing: -.045em; }
+.case-study-document .case-feature { border: 0; border-top: 1px solid var(--color-border-strong); background: none; padding: 1.5rem 0; }
+.case-study-document .case-content { max-width: 66rem; }
+@media (max-width: 760px) {
+    .case-study-document .case-hero { grid-template-columns: minmax(0,1fr); }
+    .case-study-document .case-illustration { min-height: 23rem; }
+}
