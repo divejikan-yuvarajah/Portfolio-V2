@@ -13,12 +13,14 @@ Task 03 replaces the legacy `MISTER.` bar with an accessible, responsive navigat
 | Projects | `#projects` |
 | Experience | `#experience` |
 | Education | `#education` |
-| Certifications | `#certifications` |
+| Credentials | `#certifications` |
 | Contact | `#contact` |
 
 Each link has a matching section ID. The section list is intentionally derived from the current HTML rather than future roadmap items. When sections are added, update the markup and this table together; navigation targets without a matching element are ignored by active-state handling.
 
 Task 09 retains the `#experience` target while changing its heading to “Experience & Ventures”; the existing navbar label and active-section behavior remain unchanged.
+
+Task 12 retains both education anchors and changes the navbar's “Certifications” label to “Credentials” to match the `Credentials & Continuous Learning` section. The `#certifications` target remains stable for direct links and active-section tracking.
 
 ## Responsive and interaction behavior
 

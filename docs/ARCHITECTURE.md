@@ -45,10 +45,11 @@ No other application pages were found. `index.html` contains ten top-level secti
 - About: biography and four profile/interest badges.
 - Skills: six manually authored, always-visible technology groups in `index.html`; Task 06 removed the unsupported rating bars and the obsolete filter module.
 - Projects: 17 manually authored cards in featured, recent, and archive groups, with category filters, four typographic illustrations, retained local archive previews, and selectively verified external destinations. The filtering enhancement is documented in [PROJECTS_GALLERY.md](PROJECTS_GALLERY.md).
-- Experience & Ventures: manually authored Zatroz/Softora current-venture cards and AARNA/HNB previous-employment entries in `index.html`; the existing `#experience` link remains stable. Facts and verification boundaries are documented in [EXPERIENCE_AND_VENTURES.md](EXPERIENCE_AND_VENTURES.md). Education remains a manually authored timeline.
+- Experience & Ventures: manually authored Zatroz/Softora current-venture cards and AARNA/HNB previous-employment entries in `index.html`; the existing `#experience` link remains stable. Facts and verification boundaries are documented in [EXPERIENCE_AND_VENTURES.md](EXPERIENCE_AND_VENTURES.md).
+- Education and credentials: three reverse-chronological formal education entries remain in static markup at `#education`. `#certifications` preserves the existing anchor but now presents completed courses and learning programmes separately from professional certifications; no professional certification has an independently verified award record in the supplied materials. Decisions are documented in [EDUCATION_AND_CREDENTIALS.md](EDUCATION_AND_CREDENTIALS.md).
 - Achievements: one featured Cursor Buildathon result and three compact competition results in static HTML, with scoped responsive styles and an evidence ledger in [ACHIEVEMENTS.md](ACHIEVEMENTS.md). The `#achievements` anchor is available without adding a potentially crowded main-navigation link.
 - Leadership & Community: manually authored AWS Student Builder Group, TATD and TDUSA roles plus distinct membership and CV-listed volunteer affiliation groups in `index.html`; scoped styles use Porcelain Arctic tokens. The `#community` anchor is not added to the main navbar. Source and wording boundaries are recorded in [LEADERSHIP_AND_COMMUNITY.md](LEADERSHIP_AND_COMMUNITY.md).
-- Certifications: five cards with verification links.
+- Credentials: four provider-based course/learning groups with no placeholder verification links or unverified credential IDs.
 - Contact: email, LinkedIn, and GitHub links plus a form with required fields.
 - Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.
 - JavaScript dependencies: Three.js 0.160.0 is loaded as an ES module from `unpkg.com` through an inline import map. The page also requests Google Fonts remotely. There are no installed project dependencies.
@@ -57,7 +58,7 @@ No other application pages were found. `index.html` contains ten top-level secti
 
 ### Content, styles, and maintainability
 
-- At the Task 01 baseline, `index.html` was about 1,010 lines and combined content, presentation, and behavior; the Hero typewriter code and CSS were inline. Task 04 replaced that Hero behavior with static accessible copy and moved its presentation into shared styles. Project and certification styles remain embedded in their sections.
+- At the Task 01 baseline, `index.html` was about 1,010 lines and combined content, presentation, and behavior; the Hero typewriter code and CSS were inline. Task 04 replaced that Hero behavior with static accessible copy and moved its presentation into shared styles. Project styles remain embedded in their sections; Tasks 11 and 12 keep community, education, and credential rules scoped in `css/style.css`.
 - The document still has many inline style attributes (Task 01 counted 64) and project card actions repeat spacing/font declarations. Continue extracting these only as their sections are implemented.
 - Task 01 observed `style.css` owning theme values and shared/section rules. Task 02 introduced `tokens.css` as the palette/scale source of truth and left section styling in `style.css`; legacy names remain as compatibility aliases. `.skill-icon` is still declared twice, and breakpoints remain distributed across 992, 900, 768, 600, and 480 pixels.
 - Several selectors appear to be leftovers or overlap current structures, including `.skill-card`, `.skill-list`, `.services-grid`, `.project-image`, and `.project-overlay`; verify actual usage before removal.
@@ -70,7 +71,7 @@ No other application pages were found. `index.html` contains ten top-level secti
 - The CV target exists in the repository and its anchor uses the `download` attribute. This static audit did not open the PDF in a browser.
 - Task 01 found that project image failures requested remote `via.placeholder.com` fallbacks. Task 07 removed those requests and retained the nine local gallery previews; new flagship projects use labelled typographic illustrations.
 - Task 01 found a leading space in the ReNova Figma `href` and a `YOUR_GITHUB_LINK` placeholder. Task 07 omits unavailable ReNova destinations and replaces the portfolio placeholder with the current repository origin.
-- All five certification “Verify” links use `href="#"`, so they do not identify verification destinations.
+- The Task 01 audit found five certification “Verify” links using `href="#"`; Task 12 removed those placeholders and withheld certification claims that could not be verified from the available credential evidence.
 - The project links are hardcoded external GitHub/Figma/demo URLs. Their live availability and ownership were not verified over the network.
 - The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
 - External profile links use `target="_blank"` without an explicit `rel="noopener noreferrer"`.

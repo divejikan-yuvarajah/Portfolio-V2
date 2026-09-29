@@ -76,10 +76,17 @@
 - The legacy filter bar and numeric proficiency displays were removed. Six semantic categories are visible by default, so the content remains available without JavaScript and needs no filter-state interaction.
 - Technology labels are curated from the existing skill inventory, project metadata, and the portfolio's own Three.js/WebGL implementation. Unsupported ratings and unverified candidate technologies are omitted. See [TECHNICAL_EXPERTISE.md](TECHNICAL_EXPERTISE.md) for the evidence map and update guidance.
 
+### Task 12 — Education & Credentials
+
+- `#education` presents three CV-listed formal education entries in reverse chronology; the undergraduate degree is marked In progress. The school name follows the local CV spelling `T/T/Vipulanada College` pending confirmation of its preferred English spelling.
+- `#certifications` remains the anchor, while the navigation label is now Credentials. It presents CV-listed completed courses and learning programmes, not an empty professional-certification panel.
+- The former placeholder verification links, unverified credential IDs, Diploma duplicate, unsupported learning dates and the unverifiable Google Analytics certification claim were removed. No professional certification is published without an award record or a real verification URL.
+- See [EDUCATION_AND_CREDENTIALS.md](EDUCATION_AND_CREDENTIALS.md) for source notes and maintenance rules.
+
 ## Known decisions and blockers to resolve before relevant implementation
 
 - Contact form delivery: no backend or form service is configured in the current repository.
 - Portfolio repository link: one project has a literal `YOUR_GITHUB_LINK` placeholder.
-- Certificate verification links: all five currently point to `#`.
+- Credential verification: Task 12 removed the prior `href="#"` placeholders. No personal credential verification URLs were supplied; add only owner-approved real verification destinations.
 - External destination validity: GitHub, Figma, demo, LinkedIn, and email destinations have not been live-checked.
 - Three.js loading strategy: the current import map uses a CDN. Keep the dependency optional or select a locally hosted strategy only if deployment constraints require it.

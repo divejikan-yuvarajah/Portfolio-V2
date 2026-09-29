@@ -2316,61 +2316,183 @@ section[id] {
     }
 }
 
-.timeline {
-    position: relative;
-    max-width: 800px;
+/* Task 12 — formal education and verified learning */
+.education-section,
+.credentials-section {
+    padding-block: var(--section-padding-block);
+}
+
+.education-section {
+    background: var(--color-bg-alt);
+    border-block: var(--border-width) solid var(--color-border);
+}
+
+.credentials-section {
+    background: var(--color-bg-page);
+}
+
+.education-eyebrow,
+.credentials-eyebrow,
+.learning-provider {
+    color: var(--color-action-primary);
+    font: var(--font-weight-semibold) var(--font-size-xs) / 1.5 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.education-eyebrow,
+.credentials-eyebrow {
+    margin: 0 0 var(--space-2);
+    text-align: center;
+}
+
+.education-section .section-title,
+.credentials-section .section-title {
+    margin-bottom: var(--space-4);
+}
+
+.education-intro,
+.credentials-intro {
+    max-width: 68ch;
+    margin: 0 auto var(--space-8);
+    color: var(--color-text-body);
+    text-align: center;
+}
+
+.education-list {
+    display: grid;
+    max-width: 68rem;
+    gap: var(--space-4);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.education-card {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(11rem, 0.34fr) minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: center;
+    padding: clamp(var(--space-5), 3vw, var(--space-8));
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.education-card--current {
+    border-left: 3px solid var(--color-action-primary);
+}
+
+.education-meta {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-3);
+}
+
+.education-period {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+    color: var(--color-text-secondary);
+    font: var(--font-weight-medium) var(--font-size-sm) / var(--line-height-body) var(--font-mono);
+}
+
+.education-status,
+.learning-kind {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    margin: 0;
+    padding: var(--space-1) var(--space-3);
+    color: var(--color-text-secondary);
+    background: var(--color-surface-subtle);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    overflow-wrap: anywhere;
+}
+
+.education-status--current {
+    color: var(--color-action-hover);
+    background: var(--color-accent-soft);
+}
+
+.education-detail {
+    min-width: 0;
+}
+
+.education-detail h3,
+.learning-card h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-semibold) clamp(1.15rem, 2.4vw, 1.5rem) / var(--line-height-tight) var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.education-institution {
+    margin: var(--space-2) 0 0;
+    color: var(--color-text-body);
+    overflow-wrap: anywhere;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+    max-width: 68rem;
     margin: 0 auto;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: var(--color-border-strong);
+.learning-card {
+    min-width: 0;
+    padding: clamp(var(--space-5), 3vw, var(--space-6));
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
 }
 
-.timeline-item {
-    padding-left: 2rem;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -6px;
-    top: 0;
-    width: 14px;
-    height: 14px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    box-shadow: var(--glow-cyan);
-}
-
-.timeline-date {
-    font-family: var(--font-mono);
-    color: var(--color-action-hover);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
-}
-
-.timeline-content h4 {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.timeline-content p {
+.learning-provider {
+    margin: 0 0 var(--space-3);
     color: var(--color-text-body);
-    font-size: 0.95rem;
+}
+
+.learning-card h3 {
+    font-size: var(--font-size-xl);
+}
+
+.learning-kind {
+    margin-top: var(--space-4);
+    color: var(--color-action-hover);
+    background: var(--color-accent-wash);
+}
+
+.learning-secondary-title {
+    margin: var(--space-5) 0 0;
+    color: var(--color-text-secondary);
+    font: var(--font-weight-semibold) var(--font-size-base) / var(--line-height-tight) var(--font-heading);
+}
+
+.learning-detail {
+    margin: var(--space-2) 0 0;
+    color: var(--color-text-body);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 700px) {
+    .education-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-4);
+    }
+
+    .learning-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 
@@ -2497,7 +2619,6 @@ footer {
 .glass-card,
 .skill-card,
 .project-card,
-.timeline-content,
 .contact-form {
     color: var(--color-text-primary);
     background-color: var(--color-surface);
