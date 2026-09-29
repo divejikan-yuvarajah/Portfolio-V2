@@ -2,12 +2,14 @@ import { initAnimations } from './animations.js';
 import { initNavigation } from './navigation.js';
 import { initProjects } from './projects.js';
 import { initContact } from './contact.js';
+import { initAtlasInteractions } from './atlas-interactions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initNavigation();
     initProjects();
     initContact();
+    initAtlasInteractions();
 
     // The full-viewport particle field is desktop decoration. Avoid loading its
     // renderer on touch/small/short screens, reduced-motion and constrained links.

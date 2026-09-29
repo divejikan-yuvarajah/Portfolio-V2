@@ -1,5 +1,13 @@
 # Motion System — Digital Atlas (Task 14B)
 
+## Task 16B additive motion layer
+
+`js/atlas-interactions.js` owns only decorative UI feedback: rAF-coalesced scroll progress, an `IntersectionObserver` highlight on the chapter's decorative number, and a fine-pointer light position on the hero/poster backgrounds. It changes no navigation ARIA, project filter state, contact state, focus order, or content visibility. It checks reduced motion live, removes observers/listeners on pagehide and restores them on pageshow.
+
+`js/atlas-gsap-extensions.js` exports `buildAtlasPolishMotion(gsap, canEnter)`. `js/motion.js` calls it from its existing `gsap.matchMedia()` callback after the existing chapter and signal choreography. Its bounded one-shot transforms target only chapter index tiles, decorative project display lettering, and venture wordmarks. The existing chapter rules/titles, Hero line masks, poster SVG scrub, closing sequence, GSAP/ScrollTrigger loader, preference checks, BFCache teardown and refresh owner are unchanged. MatchMedia context reversion handles breakpoint and reduced-motion teardown; no second loader, registration, observer or persistent animation loop was added.
+
+The progress indicator is CSS transformed by the interaction owner; it is not an additional ScrollTrigger. Pointer lights are CSS custom properties on decorative artwork only, and are detached for coarse pointers/reduced motion. The extension adds a bounded number of one-shot triggers only for targets allowed by `canEnter`; browser trigger-count and lifecycle measurements were NOT RUN in this environment.
+
 ## Runtime and dependencies
 
 `js/animations.js` remains the failure-safe lazy entry to **one** coordinator, `js/motion.js`. The coordinator loads GSAP **3.15.0** and ScrollTrigger **3.15.0** sequentially from:

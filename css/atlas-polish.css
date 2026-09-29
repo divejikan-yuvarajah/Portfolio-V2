@@ -1,0 +1,193 @@
+/* Digital Atlas refinement — scoped to the existing static portfolio. */
+.atlas-site {
+    --atlas-reading-width: 76rem;
+    --atlas-column-gap: clamp(1rem, 2.1vw, 2rem);
+    --atlas-section-space: clamp(4.75rem, 9vw, 8.5rem);
+    --atlas-spot-x: 50%;
+    --atlas-spot-y: 50%;
+    --atlas-spot-opacity: 0;
+}
+
+.atlas-site .container {
+    width: min(calc(100% - 3rem), var(--atlas-reading-width));
+}
+
+.atlas-scroll-progress {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 30;
+    display: block;
+    height: 2px;
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent;
+}
+
+.atlas-scroll-progress__fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--color-action-primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.atlas-site .site-header { position: sticky; }
+.atlas-site .hero-layout { gap: var(--atlas-column-gap); }
+.atlas-site .hero-visual {
+    isolation: isolate;
+    padding: clamp(.65rem, 1.2vw, 1rem);
+    background-image:
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    background-position: center;
+}
+.atlas-site .hero-visual::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--atlas-spot-opacity);
+    background: radial-gradient(ellipse 16rem 14rem at var(--atlas-spot-x) var(--atlas-spot-y), rgb(96 165 250 / .22), transparent 72%);
+}
+.atlas-site .hero-portrait { position: relative; z-index: 0; }
+.atlas-site .hero-portrait::after {
+    content: '';
+    position: absolute;
+    inset: .65rem;
+    border: 1px solid rgb(248 250 252 / .7);
+    pointer-events: none;
+}
+
+.atlas-site main > section:not(#hero) { padding-block: var(--atlas-section-space); }
+.atlas-site main > section[id] > .container { position: relative; }
+.atlas-site .atlas-chapter {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(7rem, auto) minmax(2rem, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.atlas-site .atlas-index {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    aspect-ratio: 1;
+    border: 1px solid var(--color-border-strong);
+    color: var(--color-action-primary);
+    font: 500 .72rem/1 var(--font-mono);
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.atlas-site .atlas-index.is-current {
+    color: var(--color-text-inverse);
+    background: var(--color-action-primary);
+    border-color: var(--color-action-primary);
+}
+.atlas-site .atlas-rule { min-width: 0; }
+.atlas-site :is(.section-title, .about-title, .contact-title) { text-wrap: balance; }
+.atlas-site .about-focus-list { margin-top: clamp(2rem, 7vw, 6rem); }
+
+.atlas-site .skill-category-card {
+    grid-template-columns: 2.5rem minmax(10rem, 1.05fr) minmax(14rem, 1.45fr) minmax(15rem, 1.35fr);
+    align-items: baseline;
+}
+.atlas-site .skill-category-card p { max-width: 42ch; }
+.atlas-site .skill-tag-list { align-content: start; }
+
+.atlas-site .projects-featured-grid { gap: clamp(3.5rem, 8vw, 7rem); }
+.atlas-site .projects-section .project-card--featured {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    align-items: center;
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+}
+.atlas-site .projects-section .project-card--featured:nth-child(even) { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+.atlas-site .project-illustration {
+    --atlas-spot-x: 50%;
+    --atlas-spot-y: 50%;
+    isolation: isolate;
+    border: 1px solid var(--color-border);
+    background-image: radial-gradient(ellipse 16rem 14rem at var(--atlas-spot-x) var(--atlas-spot-y), rgb(96 165 250 / .2), transparent 72%);
+}
+.atlas-site .project-illustration::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: .65rem;
+    border: 1px solid rgb(37 99 235 / .16);
+    pointer-events: none;
+}
+.atlas-site .project-illustration--cortex::after { border-color: rgb(15 23 42 / .18); }
+.atlas-site .project-illustration--mediguardian::after { border-color: rgb(37 99 235 / .14); }
+.atlas-site .project-illustration--infraos::after { border-color: rgb(15 23 42 / .14); }
+.atlas-site .project-illustration > strong { text-wrap: balance; }
+.atlas-site .project-card--featured .project-content { padding-inline: 0; }
+.atlas-site .project-card--featured .project-content > p:not(.project-status) { max-width: 58ch; }
+.atlas-site .project-filters { gap: .65rem; }
+.atlas-site .project-filter-button { min-height: 2.75rem; padding-inline: 1rem; }
+.atlas-site .project-card--compact,
+.atlas-site .project-card--archive { min-height: 100%; }
+
+.atlas-site .achievement-feature { display: grid; align-items: center; }
+.atlas-site .venture-company { text-wrap: balance; }
+.atlas-site .contact-layout { align-items: start; }
+.atlas-site .site-footer { border-top: 1px solid var(--color-border); }
+.atlas-site :is(a, button, input, textarea, summary):focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 4px;
+}
+
+@media (min-width: 1024px) and (pointer: fine) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .atlas-site .hero-visual:hover { --atlas-spot-opacity: 1; }
+    .atlas-site .project-illustration:hover { border-color: var(--color-accent-arctic); }
+}
+
+@media (max-width: 1023px) {
+    .atlas-site { --atlas-section-space: clamp(4rem, 8vw, 6rem); }
+    .atlas-site .skill-category-card { grid-template-columns: 2rem minmax(9rem, 1fr) minmax(12rem, 1fr); }
+    .atlas-site .skill-category-card .skill-tag-list { grid-column: 2 / -1; }
+    .atlas-site .projects-section .project-card--featured,
+    .atlas-site .projects-section .project-card--featured:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        column-gap: 1.5rem;
+    }
+    .atlas-site .projects-section .project-card--featured:nth-child(even) .project-illustration { order: 2; }
+}
+
+@media (max-width: 700px) {
+    .atlas-site .container { width: min(calc(100% - 2rem), var(--atlas-reading-width)); }
+    .atlas-site { --atlas-section-space: 4.25rem; }
+    .atlas-site .hero-visual { padding: .55rem; background-size: 1.5rem 1.5rem; }
+    .atlas-site .atlas-chapter { grid-template-columns: 2rem minmax(6rem, auto) minmax(1rem, 1fr); gap: .7rem; }
+    .atlas-site .atlas-index { width: 1.85rem; }
+    .atlas-site .projects-section .project-card--featured,
+    .atlas-site .projects-section .project-card--featured:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+    .atlas-site .projects-section .project-card--featured:nth-child(even) .project-illustration { order: 0; }
+    .atlas-site .project-illustration { min-height: clamp(18rem, 76vw, 22rem); }
+    .atlas-site .project-filters { display: flex; flex-wrap: wrap; }
+    .atlas-site .project-filter-button { min-height: 2.75rem; }
+    .atlas-site .site-footer .container { gap: 1.25rem; }
+}
+
+@media (max-width: 380px) {
+    .atlas-site .hero-action { min-width: 0; font-size: .78rem; }
+    .atlas-site .skill-category-card { grid-template-columns: 1.35rem minmax(0, 1fr); column-gap: .85rem; }
+    .atlas-site .skill-category-card p,
+    .atlas-site .skill-category-card .skill-tag-list { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .atlas-scroll-progress__fill { transform: none; }
+    .atlas-site .atlas-index,
+    .atlas-site .project-illustration,
+    .atlas-site .hero-visual { transition: none; }
+}
+
+@media (forced-colors: active) {
+    .atlas-scroll-progress__fill { background: Highlight; }
+    .atlas-site .atlas-index.is-current { color: HighlightText; background: Highlight; border-color: Highlight; }
+    .atlas-site .hero-visual { background: Canvas; }
+    .atlas-site .hero-visual::after,
+    .atlas-site .project-illustration::after { display: none; }
+}
