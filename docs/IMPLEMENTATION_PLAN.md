@@ -83,10 +83,16 @@
 - The former placeholder verification links, unverified credential IDs, Diploma duplicate, unsupported learning dates and the unverifiable Google Analytics certification claim were removed. No professional certification is published without an award record or a real verification URL.
 - See [EDUCATION_AND_CREDENTIALS.md](EDUCATION_AND_CREDENTIALS.md) for source notes and maintenance rules.
 
+### Task 13 — Contact & Social Integration
+
+- The contact area now uses a collaboration-focused layout and the existing Porcelain Arctic tokens. Direct email, LinkedIn and GitHub links work without JavaScript; the optional form becomes visible only when its mailto handoff handler initializes.
+- The form prepares an email for the visitor to review and send in their mail application. It does not deliver, store or track messages. A long encoded handoff is rejected with a direct-email fallback instead of silently truncating the message.
+- The footer provides the portfolio identity and compact Home, Projects, Contact and Back to top anchors. Detailed behaviour and verification limits are in [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
+
 ## Known decisions and blockers to resolve before relevant implementation
 
-- Contact form delivery: no backend or form service is configured in the current repository.
+- Contact form delivery: no backend or form service is configured. The current form is an explicitly labelled email-app handoff, not site-mediated delivery.
 - Portfolio repository link: one project has a literal `YOUR_GITHUB_LINK` placeholder.
 - Credential verification: Task 12 removed the prior `href="#"` placeholders. No personal credential verification URLs were supplied; add only owner-approved real verification destinations.
-- External destination validity: GitHub, Figma, demo, LinkedIn, and email destinations have not been live-checked.
+- External destination validity: the Task 13 GitHub personal profile opened successfully and links to the current LinkedIn slug; automated retrieval of LinkedIn itself was blocked. Remaining project GitHub, Figma and demo destinations, and email delivery, have not been live-checked.
 - Three.js loading strategy: the current import map uses a CDN. Keep the dependency optional or select a locally hosted strategy only if deployment constraints require it.

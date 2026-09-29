@@ -50,7 +50,7 @@ No other application pages were found. `index.html` contains ten top-level secti
 - Achievements: one featured Cursor Buildathon result and three compact competition results in static HTML, with scoped responsive styles and an evidence ledger in [ACHIEVEMENTS.md](ACHIEVEMENTS.md). The `#achievements` anchor is available without adding a potentially crowded main-navigation link.
 - Leadership & Community: manually authored AWS Student Builder Group, TATD and TDUSA roles plus distinct membership and CV-listed volunteer affiliation groups in `index.html`; scoped styles use Porcelain Arctic tokens. The `#community` anchor is not added to the main navbar. Source and wording boundaries are recorded in [LEADERSHIP_AND_COMMUNITY.md](LEADERSHIP_AND_COMMUNITY.md).
 - Credentials: four provider-based course/learning groups with no placeholder verification links or unverified credential IDs.
-- Contact: email, LinkedIn, and GitHub links plus a form with required fields.
+- Contact: Porcelain Arctic collaboration section with direct email/social links and a progressively enhanced email-app handoff form; no message-delivery service or backend is configured. Footer navigation returns to Home, Projects, and Contact.
 - Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.
 - JavaScript dependencies: Three.js 0.160.0 is loaded as an ES module from `unpkg.com` through an inline import map. The page also requests Google Fonts remotely. There are no installed project dependencies.
 
@@ -73,8 +73,8 @@ No other application pages were found. `index.html` contains ten top-level secti
 - Task 01 found a leading space in the ReNova Figma `href` and a `YOUR_GITHUB_LINK` placeholder. Task 07 omits unavailable ReNova destinations and replaces the portfolio placeholder with the current repository origin.
 - The Task 01 audit found five certification “Verify” links using `href="#"`; Task 12 removed those placeholders and withheld certification claims that could not be verified from the available credential evidence.
 - The project links are hardcoded external GitHub/Figma/demo URLs. Their live availability and ownership were not verified over the network.
-- The contact form has no `action`, `method`, `name` attributes, or JavaScript submit listener in this repository. Required fields provide browser validation, but no message delivery behavior is implemented here; the Send Message control must not be represented as a working submission flow until a destination is provided.
-- External profile links use `target="_blank"` without an explicit `rel="noopener noreferrer"`.
+- Task 13 replaces the inert contact form with a client-side mailto compose handoff, explicit validation and clear delivery instructions. It does not transmit or store messages; direct email and social links remain usable without JavaScript. See [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
+- Task 13 social links opening new tabs include `rel="noopener noreferrer"`; preserve this when adding external contact destinations.
 - The import map pins Three.js to version 0.160.0 and depends on CDN availability/network access. Task 02 added a reduced-motion static-render path; unsupported WebGL is still not handled. `targetX`, `targetY`, and a `THREE.Clock` are unused. A dense all-pairs particle distance check runs every animation frame.
 - Task 01 baseline finding (resolved in Task 03): the mobile toggle was a clickable `div` without button semantics or keyboard behavior. Current navigation details and verification limits are in [NAVIGATION.md](NAVIGATION.md).
 - Task 02 added visible `:focus-visible` styles and CSS/Three.js reduced-motion behavior; no browser/assistive-technology run has confirmed the result. The reveal observer still has no fallback if `IntersectionObserver` is unavailable and can leave elements hidden unless the observer runs.

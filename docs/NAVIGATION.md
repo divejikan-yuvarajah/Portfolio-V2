@@ -22,6 +22,8 @@ Task 09 retains the `#experience` target while changing its heading to “Experi
 
 Task 12 retains both education anchors and changes the navbar's “Certifications” label to “Credentials” to match the `Credentials & Continuous Learning` section. The `#certifications` target remains stable for direct links and active-section tracking.
 
+Task 13 preserves `#contact` for the sticky navbar and Hero CTA. Contact and footer links use native anchors, including a footer Home/Back to top link to `#hero`; standalone case-study pages retain their existing root-safe `../../index.html#contact` links.
+
 ## Responsive and interaction behavior
 
 - The header is sticky in normal document flow, with a compact translucent white surface and a quiet bottom border. It does not cover the initial Hero or resize when scrolling.
