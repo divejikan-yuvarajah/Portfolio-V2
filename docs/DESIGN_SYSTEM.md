@@ -74,7 +74,7 @@ Fonts are requested from Google Fonts with local fallbacks and swap behavior. Th
 
 `--space-1/2/3/4/6/8/12/16/20/24` provide a 4px-based scale from 4px through 96px. `--layout-container` is 75rem; `--layout-gutter` is fluid from 1rem to 2rem. `--section-padding-block` uses a fluid clamp and reduces on narrower screens. Radius tokens range from `--radius-sm` through `--radius-xl` and `--radius-pill`. Use `--shadow-sm/md/lg` for light elevation and `--shadow-focus` for keyboard focus. Avoid introducing stronger shadows for routine cards.
 
-Layer tokens are `--z-background`, `--z-base`, `--z-content`, `--z-sticky`, `--z-navigation`, `--z-overlay`, and `--z-cursor`. The existing canvas remains fixed behind page content and ignores pointer input; the nav/menu/cursor keep intentional higher stacking positions.
+Layer tokens are `--z-background`, `--z-base`, `--z-content`, `--z-sticky`, `--z-navigation`, `--z-overlay`, and `--z-cursor` (the last is retained as a compatibility token). The canvas remains fixed behind page content and ignores pointer input; navigation/menu layers stay above it. Task 14 removed the custom cursor.
 
 ## Shared primitives in the current vanilla architecture
 
@@ -96,7 +96,7 @@ These primitives do not change the current section order or interaction model. N
 - Navigation links, `.btn` actions, and skill filter buttons have a 44px minimum target where the current markup supports it. Revisit remaining inline-styled controls when their section is implemented.
 - `:focus-visible` receives a 3px cobalt outline and offset. Never remove a native outline without an equivalent keyboard indicator.
 - Cobalt on white has been statically calculated at approximately 5.2:1; white text on cobalt uses the same ratio. Body slate and navy exceed 4.5:1 on white. Arctic blue on white is below body-text contrast and remains decorative. These are color-pair calculations, not a full rendered contrast audit.
-- `prefers-reduced-motion: reduce` disables CSS animations and transitions, disables smooth scrolling, and exposes elements otherwise hidden for reveal animations. The decorative, `aria-hidden` Three.js canvas renders one static frame instead of starting its continuous loop and redraws after resize. Coarse/touch pointers do not show the custom cursor.
+- `prefers-reduced-motion: reduce` disables CSS transitions and smooth scrolling. Homepage GSAP motion also skips setup initially and reverts its owned inline styles if the preference changes while open. Content is visible by default. The decorative, `aria-hidden` Three.js canvas renders one static frame instead of starting its continuous loop and redraws after resize.
 - `overflow-x: clip` prevents decorative orbit effects from widening the page; check focus visibility and actual rendered overflow at the required viewport widths when browser preview is available.
 
 ## Dos and don'ts
@@ -107,7 +107,7 @@ These primitives do not change the current section order or interaction model. N
 
 ## Extension guidance
 
-For later section tasks, use these tokens to style the existing markup or a small compatible section. Do not use this foundation as approval to change portfolio copy, links, project order, route structure, navbar behavior, or forms. Any React/Vite/GSAP or other dependency decision remains separate and requires its documented owner-approval gate. Update this file when a new semantic role is added, preserving old aliases until the affected legacy selectors are migrated.
+For later section tasks, use these tokens to style the existing markup or a small compatible section. Do not use this foundation as approval to change portfolio copy, links, project order, route structure, navbar behavior, or forms. Task 14 adds pinned GSAP/ScrollTrigger only for optional homepage motion under the approved task prompt; future dependencies still require their documented owner-approval gate. Update this file when a new semantic role is added, preserving old aliases until the affected legacy selectors are migrated.
 
 ## Task 02 verification record
 

@@ -28,7 +28,7 @@ The local `images/profile_new.jpeg` is retained, displayed in a softly framed po
 
 The typewriter and its inline script/style were removed in favor of a stable visible role heading. This avoids an empty role during loading, duplicate timers, and motion-dependent identity. Hero text is no longer hidden behind the global reveal observer, so it remains readable with JavaScript disabled. Decorative shapes are CSS-only and do not enter the accessibility tree. The portrait has stable intrinsic dimensions; actions are semantic links with existing focus styling and at least 44px targets.
 
-The portrait has only a restrained hover scale; no entrance, floating, pulsing, orbiting, or parallax loop remains. The design system's reduced-motion rules suppress its transition. The existing decorative Three.js canvas, shared navigation, and non-Hero reveal behavior were left in place.
+Task 04 removed the typewriter and persistent portrait effects. Task 14 adds a brief, transform-only Hero sequence when the optional GSAP assets load promptly at the top of the page; late loads skip that sequence, and the reduced-motion preference skips/reverts all GSAP motion. The Hero copy and links remain visible from initial render. No floating, pulsing, orbiting or parallax loop is used.
 
 ## Verification record
 

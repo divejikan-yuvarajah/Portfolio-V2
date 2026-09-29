@@ -89,10 +89,17 @@
 - The form prepares an email for the visitor to review and send in their mail application. It does not deliver, store or track messages. A long encoded handoff is rejected with a direct-email fallback instead of silently truncating the message.
 - The footer provides the portfolio identity and compact Home, Projects, Contact and Back to top anchors. Detailed behavior and verification limits are in [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
 
+### Task 14 — GSAP Animations & Interactions
+
+- A lazy, version-pinned GSAP 3.15.0 + ScrollTrigger coordinator adds short, one-time entrances to below-the-fold content. Hero movement is transform-only and skipped when motion loads late; navigation and standalone case-study pages remain static.
+- The unused `.fade-in` observer and cursor-dot Web Animations loop were removed. Static markup/CSS remains visible if JavaScript, GSAP, ScrollTrigger or WebGL is unavailable. Reduced-motion changes and supported save-data/low-core signals stop and revert owned motion.
+- Project filter changes request a single animation-frame-coalesced ScrollTrigger refresh; filter state remains owned by `projects.js`. See [MOTION_SYSTEM.md](MOTION_SYSTEM.md) for lifecycle and checks.
+
 ## Known decisions and outstanding items
 
 - Contact form delivery: no backend or form service is configured. The form is an explicitly labelled email-app handoff, not site-mediated delivery.
 - Certificate verification links: personal verification URLs were not supplied; dead placeholder actions are not restored and unverified certification claims remain withheld.
 - External destination validity: the Task 13 GitHub personal profile opened and links to the current LinkedIn slug; automated retrieval of LinkedIn itself was blocked. Other project GitHub, Figma and demo destinations are not fully live-audited.
 - Three.js uses a CDN import map but is optional to core operation after cross-task hardening; CDN availability is still required for its decorative scene.
+- Homepage motion loads pinned GSAP core and ScrollTrigger from cdnjs. CDN blocking means the optional entrances are skipped; it does not affect core functionality.
 - CV freshness and browser-level responsive/accessibility behavior remain release checks; see [HERO.md](HERO.md) and task-specific verification notes.

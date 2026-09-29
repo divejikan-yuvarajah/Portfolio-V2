@@ -32,6 +32,10 @@ export function initProjects() {
                 ? `Showing all ${visibleCount} projects`
                 : `Showing ${visibleCount} ${label} ${visibleCount === 1 ? 'project' : 'projects'}`;
         }
+
+        document.dispatchEvent(new CustomEvent('portfolio:projects-filtered', {
+            detail: { filter, visibleCount },
+        }));
     };
 
     buttons.forEach((button) => {

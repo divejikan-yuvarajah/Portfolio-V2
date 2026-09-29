@@ -15,7 +15,8 @@ Portfolio_V2/
 ├── js/
 │   ├── main.js                # Startup boundary for current modules
 │   ├── navigation.js          # Accessible menu behavior and active section state (Task 03)
-│   ├── animations.js          # Custom pointer and IntersectionObserver reveals
+│   ├── animations.js          # Failure-safe lazy entry for optional motion
+│   ├── motion.js              # Pinned GSAP/ScrollTrigger loader, reveals and lifecycle
 │   ├── projects.js            # Progressive category filtering for HTML project cards (Task 07)
 │   ├── case-study.js          # Reuses shared navigation on standalone project pages (Task 08)
 │   └── three-scene.js         # Three.js particle field and resize/mouse interaction
@@ -51,8 +52,8 @@ No other application pages were found. `index.html` contains ten top-level secti
 - Leadership & Community: manually authored AWS Student Builder Group, TATD and TDUSA roles plus distinct membership and CV-listed volunteer affiliation groups in `index.html`; scoped styles use Porcelain Arctic tokens. The `#community` anchor is not added to the main navbar. Source and wording boundaries are recorded in [LEADERSHIP_AND_COMMUNITY.md](LEADERSHIP_AND_COMMUNITY.md).
 - Credentials: four provider-based course/learning groups with no placeholder verification links or unverified credential IDs.
 - Contact: Porcelain Arctic collaboration section with direct email/social links and a progressively enhanced email-app handoff form; no message-delivery service or backend is configured. Footer navigation returns to Home, Projects, and Contact.
-- Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.
-- JavaScript dependencies: Three.js 0.160.0 is loaded as an ES module from `unpkg.com` through an inline import map. The page also requests Google Fonts remotely. There are no installed project dependencies.
+- Visual behavior: optional GSAP/ScrollTrigger one-shot reveals on the homepage, restrained CSS hover states, and an optional canvas-backed Three.js particle network. The four case-study routes stay static and do not load GSAP.
+- JavaScript dependencies: Three.js 0.160.0 loads as an ES module from `unpkg.com` through an inline import map. The homepage loads GSAP 3.15.0 and ScrollTrigger 3.15.0 from pinned cdnjs URLs only when motion is allowed. Google Fonts are requested remotely. There is no package manifest or build-time dependency.
 
 ## Findings
 
@@ -74,6 +75,7 @@ No other application pages were found. `index.html` contains ten top-level secti
 - The Task 01 audit found five certification verification actions using `href="#"`; cross-task updates replaced those dead links with explicit “Verification URL unavailable” notes, and Task 12 withheld certification claims that could not be verified from available credential evidence.
 - The project links are hardcoded external GitHub/Figma/demo URLs. Their live availability and ownership were not verified over the network.
 - Task 13 replaces the inert contact form with a client-side mailto compose handoff, explicit validation and clear delivery instructions. It does not transmit or store messages; direct email and social links remain usable without JavaScript. See [CONTACT_AND_SOCIAL.md](CONTACT_AND_SOCIAL.md).
+- Task 14 replaces the unused `.fade-in`/IntersectionObserver and custom cursor code with a single optional GSAP coordinator. Content has no hidden-by-default reveal styles; reduced motion, low-power/save-data preferences, and CDN failure leave it readable. See [MOTION_SYSTEM.md](MOTION_SYSTEM.md).
 - External links that open in a new tab include `rel="noopener noreferrer"`; the current site-wide markup check found no exceptions.
 - The import map pins Three.js to version 0.160.0 and depends on CDN availability/network access. Cross-task hardening dynamically loads this optional scene and removes its canvas if the CDN or WebGL setup fails, so core interactions can initialize. The scene also has a reduced-motion static-render path. `targetX`, `targetY`, and `THREE.Clock` are unused, and a dense all-pairs particle distance check runs every animation frame.
 - Task 01 baseline finding (resolved in Task 03): the mobile toggle was a clickable `div` without button semantics or keyboard behavior. Current navigation details and verification limits are in [NAVIGATION.md](NAVIGATION.md).
