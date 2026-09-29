@@ -583,3 +583,47 @@
     .case-study-document .case-hero { grid-template-columns: minmax(0,1fr); }
     .case-study-document .case-illustration { min-height: 23rem; }
 }
+
+/* Task 16B: align direct case-study routes with the homepage's Atlas grid. */
+.case-study-document .site-header { position: sticky; top: 0; z-index: 20; }
+.case-study-document .case-study-page { width: 100%; margin-inline: 0; }
+.case-study-document .case-study-page > .container { width: min(calc(100% - 3rem), 76rem); max-width: none; margin-inline: auto; }
+.case-study-document .atlas-edition { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: .9rem; }
+.case-study-document .case-breadcrumb { margin-block: 1.25rem; }
+.case-study-document .case-hero { align-items: center; padding-block: clamp(2rem, 5vw, 4.5rem); }
+.case-study-document .case-hero h1 { max-width: 11ch; text-wrap: balance; }
+.case-study-document .case-eyebrow,
+.case-study-document .case-project-index,
+.case-study-document .case-facts dt { font-family: var(--font-mono); letter-spacing: .06em; }
+.case-study-document .case-illustration { border: 1px solid var(--color-border); }
+.case-study-document .case-content { width: min(100%, 66rem); }
+.case-study-document .case-facts { gap: clamp(1rem, 3vw, 2.5rem); }
+.case-study-document .case-facts dd { text-wrap: pretty; }
+.case-study-document .case-section { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.case-study-document .related-case-grid { align-items: stretch; }
+.case-study-document .case-footer { margin-top: clamp(3rem, 7vw, 6rem); border-top: 1px solid var(--color-border); }
+.case-study-document :is(.case-action, .related-case a) { min-height: 2.75rem; }
+.case-study-document :is(a, button, summary):focus-visible { outline: 3px solid var(--color-focus-ring); outline-offset: 4px; }
+
+@media (max-width: 760px) {
+    .case-study-document .case-study-page > .container { width: min(calc(100% - 2rem), 76rem); }
+    .case-study-document .case-hero { gap: 1.5rem; padding-block: 1.5rem 2rem; }
+    .case-study-document .case-hero h1 { max-width: 12ch; }
+    .case-study-document .case-illustration { min-height: clamp(18rem, 72vw, 23rem); }
+    .case-study-document .case-facts { gap: 1rem; }
+}
+
+@media (max-width: 380px) {
+    .case-study-document .case-study-page > .container { width: calc(100% - 1.5rem); }
+    .case-study-document .atlas-edition { align-items: flex-start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .case-study-document .related-case,
+    .case-study-document .case-action { transition: none; }
+}
+
+@media (forced-colors: active) {
+    .case-study-document .case-illustration { border: 1px solid CanvasText; }
+    .case-study-document :is(.case-illustration svg, .case-media-art) { forced-color-adjust: auto; }
+}

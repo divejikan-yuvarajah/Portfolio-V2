@@ -1,5 +1,13 @@
 # Digital Atlas — Task 14B
 
+## Task 16B alignment and motion refinement
+
+The Task 16B pass keeps the existing field-guide direction and Porcelain Arctic tokens, then tightens the shared reading width and section rhythm. The chapter rail now uses a repeatable index / metadata / rule grid; skills and project spreads receive content-fit columns; flagship art receives a restrained registration frame and optional ambient pointer light. Case-study routes use matching reading widths, facts spacing and focus outlines. A thin scroll-progress line communicates document position without replacing native scroll.
+
+The refinement is additive and scoped to `.atlas-site`. Existing project records, illustration evidence notes, filters, direct routes, content, and section order remain the source of truth. No generic portrait, fabricated project imagery, new dependency, horizontal pinning, or automatic section rearrangement was introduced. Narrow layouts collapse to one editorial reading axis; tablets retain split columns only where their minimum content widths fit.
+
+See [UI_ALIGNMENT_MOTION_REFINEMENT.md](UI_ALIGNMENT_MOTION_REFINEMENT.md) for the exact file map, ownership, responsive checks and evidence limits. The four starter implementation files described by the Task 16B prompt were not present in the repository or Downloads; the authored modules follow their documented contracts and the existing codebase was used as the source of truth.
+
 ## Approved base and change map
 
 Baseline: `origin/main` at `83c2ce5`, including Task 14 (`9c9ddef`). Work branch: `task/14b-digital-atlas-redesign`. The untracked package manifest, lockfile, installed modules and supplied brief are owner files and are not part of this change. The site remains static HTML, CSS and browser ES modules.

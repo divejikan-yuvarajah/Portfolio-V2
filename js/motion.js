@@ -1,3 +1,5 @@
+import { buildAtlasPolishMotion } from './atlas-gsap-extensions.js';
+
 const GSAP_VERSION = '3.15.0';
 const CDN_ROOT = `https://cdnjs.cloudflare.com/ajax/libs/gsap/${GSAP_VERSION}`;
 const assetPromises = new Map();
@@ -214,6 +216,7 @@ async function startMotion() {
             else introUsed = true;
             buildChapters();
             buildSignals();
+            buildAtlasPolishMotion(gsap, canEnter);
             buildResultAndClosing();
             if (context.conditions.desktop) buildFeaturedWork();
             queueRefresh();
