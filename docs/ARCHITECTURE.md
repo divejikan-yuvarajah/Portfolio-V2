@@ -45,7 +45,7 @@ No other application pages were found. `index.html` contains eight top-level sec
 - About: biography and four profile/interest badges.
 - Skills: six manually authored, always-visible technology groups in `index.html`; Task 06 removed the unsupported rating bars and the obsolete filter module.
 - Projects: 17 manually authored cards in featured, recent, and archive groups, with category filters, four typographic illustrations, retained local archive previews, and selectively verified external destinations. The filtering enhancement is documented in [PROJECTS_GALLERY.md](PROJECTS_GALLERY.md).
-- Experience and Education: manually authored timeline entries.
+- Experience & Ventures: manually authored Zatroz/Softora current-venture cards and AARNA/HNB previous-employment entries in `index.html`; the existing `#experience` link remains stable. Facts and verification boundaries are documented in [EXPERIENCE_AND_VENTURES.md](EXPERIENCE_AND_VENTURES.md). Education remains a manually authored timeline.
 - Certifications: five cards with verification links.
 - Contact: email, LinkedIn, and GitHub links plus a form with required fields.
 - Visual behavior: CSS reveal effects in the content sections, custom pointer, static Hero portrait treatment, and a canvas-backed Three.js particle network.

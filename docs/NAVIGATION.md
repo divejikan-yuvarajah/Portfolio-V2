@@ -18,6 +18,8 @@ Task 03 replaces the legacy `MISTER.` bar with an accessible, responsive navigat
 
 Each link has a matching section ID. The section list is intentionally derived from the current HTML rather than future roadmap items. When sections are added, update the markup and this table together; navigation targets without a matching element are ignored by active-state handling.
 
+Task 09 retains the `#experience` target while changing its heading to “Experience & Ventures”; the existing navbar label and active-section behavior remain unchanged.
+
 ## Responsive and interaction behavior
 
 - The header is sticky in normal document flow, with a compact translucent white surface and a quiet bottom border. It does not cover the initial Hero or resize when scrolling.

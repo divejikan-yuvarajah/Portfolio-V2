@@ -1522,6 +1522,325 @@ section[id] {
     padding: var(--section-padding);
 }
 
+/* Task 09 — Experience & Ventures */
+.experience-ventures {
+    padding-block: var(--section-padding-block);
+    background: var(--color-bg-alt);
+    border-block: var(--border-width) solid var(--color-border);
+}
+
+.experience-ventures .container {
+    min-width: 0;
+}
+
+.experience-eyebrow,
+.experience-kicker,
+.venture-label {
+    color: var(--color-action-primary);
+    font: var(--font-weight-semibold) var(--font-size-xs) / 1.5 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.experience-eyebrow {
+    margin: 0 0 var(--space-2);
+    text-align: center;
+}
+
+.experience-ventures .section-title {
+    margin-bottom: var(--space-4);
+}
+
+.experience-intro {
+    max-width: 68ch;
+    margin: 0 auto;
+    color: var(--color-text-body);
+    text-align: center;
+}
+
+.experience-group {
+    margin-top: clamp(var(--space-12), 7vw, var(--space-16));
+}
+
+.experience-group-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.experience-group-heading h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-semibold) clamp(1.35rem, 2.8vw, 1.75rem) / var(--line-height-tight) var(--font-heading);
+}
+
+.experience-kicker {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.venture-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+}
+
+.venture-card {
+    min-width: 0;
+    padding: clamp(var(--space-6), 3vw, var(--space-8));
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+}
+
+.venture-card:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.venture-card-heading,
+.employment-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.venture-label {
+    margin: 0 0 var(--space-2);
+    color: var(--color-text-subtle);
+}
+
+.venture-company {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-bold) clamp(1.5rem, 3vw, 2rem) / var(--line-height-tight) var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.venture-status {
+    display: inline-flex;
+    min-height: 2rem;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    color: var(--color-success);
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.venture-status span {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex: 0 0 auto;
+    background: var(--color-success);
+    border-radius: 50%;
+}
+
+.venture-role {
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--color-action-hover);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    overflow-wrap: anywhere;
+}
+
+.venture-summary,
+.employment-summary {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--color-text-body);
+}
+
+.venture-responsibilities,
+.employment-responsibilities {
+    display: grid;
+    gap: var(--space-2);
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.venture-responsibilities li,
+.employment-responsibilities li {
+    position: relative;
+    padding-left: var(--space-6);
+    color: var(--color-text-secondary);
+}
+
+.venture-responsibilities li::before,
+.employment-responsibilities li::before {
+    position: absolute;
+    top: 0.7em;
+    left: var(--space-1);
+    width: 0.375rem;
+    height: 0.375rem;
+    background: var(--color-action-primary);
+    border-radius: 50%;
+    content: "";
+}
+
+.venture-services {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: var(--border-width) solid var(--color-border-subtle);
+}
+
+.venture-services h5 {
+    margin: 0 0 var(--space-3);
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.venture-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.venture-tags li {
+    max-width: 100%;
+    padding: var(--space-1) var(--space-3);
+    color: var(--color-text-secondary);
+    background: var(--color-surface-subtle);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    overflow-wrap: anywhere;
+}
+
+.venture-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+    color: var(--color-action-primary);
+    font-weight: var(--font-weight-semibold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+.venture-link:hover {
+    color: var(--color-action-hover);
+}
+
+.employment-list {
+    position: relative;
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0 0 0 var(--space-8);
+    list-style: none;
+}
+
+.employment-list::before {
+    position: absolute;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.375rem;
+    width: 2px;
+    background: var(--color-border-strong);
+    content: "";
+}
+
+.employment-item {
+    position: relative;
+    min-width: 0;
+}
+
+.employment-marker {
+    position: absolute;
+    top: var(--space-6);
+    left: calc(-1 * var(--space-8) + 1px);
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--color-bg-alt);
+    border: 2px solid var(--color-action-primary);
+    border-radius: 50%;
+}
+
+.employment-entry {
+    min-width: 0;
+    padding: var(--space-6) var(--space-6);
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.employment-heading h4 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--font-weight-semibold) var(--font-size-xl) / var(--line-height-tight) var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.employment-role {
+    margin: var(--space-1) 0 0;
+    color: var(--color-text-body);
+}
+
+.employment-date {
+    margin: 0;
+    color: var(--color-text-subtle);
+    font: var(--font-weight-medium) var(--font-size-sm) / var(--line-height-body) var(--font-mono);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.employment-responsibilities {
+    margin-top: var(--space-4);
+}
+
+@media (max-width: 760px) {
+    .venture-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .experience-group-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .venture-card {
+        padding: var(--space-6);
+    }
+
+    .venture-card-heading,
+    .employment-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+
+    .employment-entry {
+        padding: var(--space-4);
+    }
+
+    .employment-date {
+        text-align: left;
+        white-space: normal;
+    }
+}
+
 .timeline {
     position: relative;
     max-width: 800px;
