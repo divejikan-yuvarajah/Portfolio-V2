@@ -61,3 +61,36 @@ Use an inner decorative/text wrapper with one property owner, keeping its semant
 ## Verification
 
 See [Task 14B QA](qa/task14b/README.md) and its screenshot/result artifacts for the actual browser and static checks. Sources and art-direction decisions are documented in [CREATIVE_DIRECTION.md](CREATIVE_DIRECTION.md). This implementation does not verify CV freshness, fabricate missing project screenshots, or independently validate external product claims.
+
+## Task 16C — Living Systems Atlas motion
+
+This section supersedes the prior Task 14B/16B visual inventory where the same target changed. Task 16C retains **one** CDN loader, one GSAP coordinator, native scrolling and the existing failure fallback. Only GSAP core and ScrollTrigger are loaded. Plugins are intentionally not used: the Hero has authored line wrappers (SplitText adds no value), native `hidden` filtering needs no Flip state transition, and separate SVG route motifs are not safe/meaningful MorphSVG targets. Core path-dash animation and CSS route art meet the other moments without MotionPath or DrawSVG. Existing easing families (`power2`/`power3`) are used instead of an additional CustomEase plugin.
+
+| Chapter / trigger | Targets and properties | Timing / lifecycle | Fallback |
+|---|---|---|---|
+| Hero, initial top visit only, no hash; wide, tall fine-pointer desktop; GSAP available before the 1.2s startup cutoff | One labelled `BOOT → HEADLINE → FRAME → IDENTITY → INVITATION` timeline: editorial line `yPercent`, portrait `clipPath`, registration text/identity/copy `x` and supporting opacity, route `scaleX`, CTA group `y` | Authored positions; total approximately 1.2–1.5s. One run per page instance; prepared styles clear at completion. | Entire Hero is visible on first paint and on touch/narrow/short/deep-link/late-load/reduced-motion/CDN failure |
+| Chapter enters, including About through Contact | Chapter rule `scaleX`; inner title clip and small `x` offset | One labelled one-shot timeline at `top 85%`, `.7s`, `power3.out` | HTML heading and rule remain visible |
+| Expertise / employment row enters | Decorative row rule `scaleX` | `.65s`, `power2.out`, one-shot | Static rule and content |
+| Signal / original route enters | SVG path `strokeDashoffset`; terminal circle `scale` | Signal path `1s` and point `.25s`; other route clip `.72s`; one-shot | Complete inline/external SVG remains static |
+| Achievement poster enters | Result heading clip; featured-result placement `x` | `.75s`, result label at `top 80%` | Full static poster text |
+| Observatory route and stories | Observatory route path dash; one `ScrollTrigger.create` per flagship story selects scene/index/caption; a paused `.28s` state timeline gives stage a slight `y` reset | Path `.8s`; project trigger range `top 58%` to `bottom 42%`; state update on enter/enterBack. No pin and no scrub. | Default FlowPilot scene and all stories remain readable. Tablet has non-sticky stage; phones do not create these triggers. Filtering disables hidden-card triggers and selects the first visible featured project. |
+| Contact closing title enters | Authored closing line wrappers `yPercent` | `.75s` with `.09s` stagger, one-shot at `top 85%` | Static title |
+| Fine pointer enters primary Hero/contact action | `gsap.quickTo()` drives capped `x` and `y` transforms (maximum 5px and 4px) | `.3s` `power3.out`; listeners only in spacious desktop media context; removed and transforms cleared on reversion | Native pointer/touch, unchanged focus/hover affordance |
+| Chapter side rail current location | No GSAP; IntersectionObserver toggles `aria-current` | Current section nearest viewport center | Links still work without observer; no false state |
+
+No animation is needed to operate project filters, navigation, contact validation, email handoff, CV download, disclosure details, direct hashes or case-study links. The Observatory `figure` and scene list are `aria-hidden`; it duplicates visible story names, so the changes are decorative. GSAP never sets `hidden`, display, focus order or interactive ARIA state.
+
+`gsap.matchMedia()` contexts own the Hero, chapter, path, result, Observatory and pointer interactions. Reduced motion skips the media callback, while CSS disables scene/rail transitions. Existing blocked-CDN and ScrollTrigger paths leave the authored default state visible. An optional Three.js error remains isolated to its own module. `ScrollSmoother`, pinning, a custom cursor, SplitText, Flip, MorphSVG, MotionPath, CustomEase and any new dependency were not introduced.
+
+### Task 16C validation record
+
+- `git -c core.whitespace=cr-at-eol diff --check`: PASS.
+- `node --check` for all 10 `js/*.js` files: PASS.
+- `tinycss2` syntax parse for `css/living-systems-atlas.css` and `css/case-studies.css`: PASS; zero parse errors.
+- XML parse of `images/living-systems-routes.svg`: PASS; all six referenced route symbols are present.
+- `python scripts/generate_case_studies.py --check`: PASS; all five generated/static page outputs are current.
+- `python scripts/audit_site.py`: PASS; six inspected HTML pages, 0 local reference/import/metadata errors and 0 warnings. The audit also found the local CV has a valid PDF signature.
+- Browser rendering and interaction matrix: **NOT RUN**. A localhost site responds on port 8765, but this environment had no browser CDP surface on port 9222; a hidden Edge launch did not expose its debugging endpoint. Therefore no Task16C screenshot, actual viewport overflow/alignment, keyboard interaction, live reduced-motion, filters, history, contact-app launch, failed-CDN or Three.js-failure result is claimed. Existing Task15/14B browser evidence is historical and is not reused as Task16C evidence.
+- Performance/FPS/Lighthouse/Core Web Vitals: **NOT MEASURED**. Static architecture preserves native scroll and loads only existing GSAP core/ScrollTrigger enhancement; the full-resolution local hero PNG is 14,115,325 bytes in the current worktree and remains a release-time optimization concern.
+
+The Observatory trigger count and transitions have source-level coverage only, not browser runtime verification. See [LIVING_SYSTEMS_ATLAS.md](LIVING_SYSTEMS_ATLAS.md) for responsive chapter design and ownership.

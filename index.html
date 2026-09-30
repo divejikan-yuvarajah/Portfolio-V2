@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/atlas-polish.css">
+    <link rel="stylesheet" href="css/living-systems-atlas.css">
 </head>
 
 <body class="atlas-site">
@@ -69,14 +70,26 @@
         </span>
     </header>
 
- 
+    <nav class="living-system-rail" aria-label="Living Systems chapter navigation" data-system-rail>
+        <a href="#hero"><span>00</span><span class="living-rail-label">Identity</span></a>
+        <a href="#about"><span>01</span><span class="living-rail-label">Profile</span></a>
+        <a href="#skills"><span>02</span><span class="living-rail-label">Capability</span></a>
+        <a href="#projects"><span>03</span><span class="living-rail-label">Systems</span></a>
+        <a href="#achievements"><span>04</span><span class="living-rail-label">Results</span></a>
+        <a href="#experience"><span>05</span><span class="living-rail-label">Ventures</span></a>
+        <a href="#community"><span>06</span><span class="living-rail-label">Community</span></a>
+        <a href="#education"><span>07</span><span class="living-rail-label">Foundation</span></a>
+        <a href="#certifications"><span>08</span><span class="living-rail-label">Learning</span></a>
+        <a href="#contact"><span>09</span><span class="living-rail-label">Connect</span></a>
+    </nav>
+
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <main id="main-content" tabindex="-1">
    
         <section id="hero" class="hero-section" aria-labelledby="hero-title">
             <div class="container">
-                <div class="atlas-edition"><span>Digital Atlas <span aria-hidden="true">/</span> Portfolio 2026</span><span>Ideas → Systems → Impact</span></div>
+                <div class="atlas-edition"><span>Living Systems Atlas <span aria-hidden="true">/</span> Portfolio 2026</span><span>Ideas → Systems → Impact</span></div>
             </div>
             <div class="container hero-layout">
                 <div class="hero-content">
@@ -109,14 +122,11 @@
                 <div class="hero-visual">
                     <div class="atlas-portrait-registration" aria-hidden="true"><span>FIG. 01</span><span>THE BUILDER</span></div>
                     <figure class="hero-portrait">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="images/profile-640.webp 640w, images/profile-960.webp 960w, images/profile-1280.webp 1280w"
-                                sizes="(max-width: 700px) calc(100vw - 2rem), (max-width: 1023px) 40vw, 28vw">
-                            <img src="images/profile_new.jpeg" alt="Portrait of Yuvarajah Divejikan"
-                                width="3081" height="3072" fetchpriority="high" decoding="async">
-                        </picture>
+                        <img src="images/profile_new.png" alt="Portrait of Yuvarajah Divejikan"
+                            width="3712" height="3292" fetchpriority="high" decoding="async">
                     </figure>
+                    <svg class="living-route-diagram hero-route-diagram" viewBox="0 0 640 220" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-hero"/></svg>
+                    <span class="hero-route-coordinate" aria-hidden="true">NODE / 01<br>BUILD SYSTEMS</span>
                     <div class="atlas-identity-caption"><span>Yuvarajah Divejikan</span><span>Software · AI/ML</span></div>
                     <a class="atlas-work-tile" href="#projects"><span class="atlas-metadata">Selected work / 01—04</span><span>Explore the systems <span aria-hidden="true">↗</span></span></a>
                 </div>
@@ -134,6 +144,12 @@
                         <p class="about-copy">I’m Divejikan, a BICT (Hons) undergraduate at South Eastern University of Sri Lanka, focused on software engineering and practical AI. I enjoy turning real problems into usable products, from full-stack applications and workflow automation to intelligent tools that make complex work simpler.</p>
                         <p class="about-copy">As Founder &amp; CEO of Zatroz and Co-Founder &amp; Technical Lead at Softora, I connect product thinking with hands-on engineering. I’m especially interested in agentic AI, retrieval-augmented generation, and digital tools that help businesses, SMEs, and public services solve everyday problems.</p>
                         <a class="about-project-link" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+                    </div>
+
+                    <div class="about-system-direction">
+                        <p class="living-micro-label">DIRECTION / 01—04</p>
+                        <svg class="living-route-diagram about-route-diagram" viewBox="0 0 720 112" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-about"/></svg>
+                        <ol><li>Software engineering</li><li>Applied AI</li><li>Agentic systems</li><li>Product building</li></ol>
                     </div>
 
                     <ul class="about-focus-list" aria-label="Professional focus">
@@ -156,6 +172,13 @@
                             <div>
                                 <h3>Technology with purpose</h3>
                                 <p>Interested in useful tools for businesses, communities, and public services.</p>
+                            </div>
+                        </li>
+                        <li class="about-focus-item">
+                            <span class="about-focus-index" aria-hidden="true">04</span>
+                            <div>
+                                <h3>Entrepreneurship</h3>
+                                <p>Connecting product direction with hands-on technical leadership.</p>
                             </div>
                         </li>
                     </ul>
@@ -265,61 +288,67 @@
 
                 <div class="project-group" data-project-group>
                     <h3 class="project-group-title">Featured projects</h3>
-                    <div class="projects-featured-grid">
+                    <div class="project-observatory" data-project-observatory data-active-project="flowpilot-ai">
+                        <ol class="observatory-index" aria-hidden="true">
+                            <li data-observatory-index="flowpilot-ai" class="is-active"><span>01</span></li>
+                            <li data-observatory-index="cortex"><span>02</span></li>
+                            <li data-observatory-index="mediguardian-ai"><span>03</span></li>
+                            <li data-observatory-index="infraos"><span>04</span></li>
+                        </ol>
+                        <figure class="observatory-stage" aria-hidden="true">
+                            <span class="observatory-stage-label">PROJECT OBSERVATORY <span>·</span> SELECTED SYSTEM</span>
+                            <div class="observatory-scene is-active" data-observatory-scene="flowpilot-ai"><svg viewBox="0 0 400 300" focusable="false"><use href="images/atlas-motifs.svg#flowpilot-ai"/></svg><strong>FlowPilot <span>AI</span></strong><small>FINANCE / ROUTE / RECOVERY</small></div>
+                            <div class="observatory-scene" data-observatory-scene="cortex"><svg viewBox="0 0 400 300" focusable="false"><use href="images/atlas-motifs.svg#cortex"/></svg><strong>CORTEX</strong><small>OPERATIONS / MODULES / SIGNALS</small></div>
+                            <div class="observatory-scene" data-observatory-scene="mediguardian-ai"><svg viewBox="0 0 400 300" focusable="false"><use href="images/atlas-motifs.svg#mediguardian-ai"/></svg><strong>MediGuardian</strong><small>RECORD / SOURCE / CARE</small></div>
+                            <div class="observatory-scene" data-observatory-scene="infraos"><svg viewBox="0 0 400 300" focusable="false"><use href="images/atlas-motifs.svg#infraos"/></svg><strong>INFRAOS</strong><small>INFRASTRUCTURE / COORDINATION</small></div>
+                            <svg class="observatory-route" viewBox="0 0 400 52" focusable="false"><path class="observatory-route-path" d="M4 26H120L151 8H247L280 42H396" pathLength="1"/><circle cx="120" cy="26" r="3"/><circle cx="247" cy="8" r="3"/><circle cx="280" cy="42" r="3"/></svg>
+                            <figcaption class="observatory-caption"><span>ACTIVE SYSTEM</span><strong data-observatory-title>FlowPilot AI</strong><span data-observatory-count>01 / 04</span></figcaption>
+                            <span class="observatory-frame-mark" aria-hidden="true">FIG. 03 <span>FIELD / 2026</span></span>
+                        </figure>
+                        <div class="projects-featured-grid">
                         <article class="project-card project-card--featured project-card--wide" data-project-card data-categories="ai finance fullstack web" data-case-study-slug="flowpilot-ai" id="work-flowpilot-ai">
-                            <div class="project-illustration project-illustration--flowpilot">
-                                <span class="atlas-project-index" aria-hidden="true">01 / 04</span><svg class="atlas-poster-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><use href="images/atlas-motifs.svg#flowpilot-ai"/></svg>
-                                <span>SELECTED PROJECT · FINTECH</span><strong aria-hidden="true">FlowPilot<span> AI</span></strong><small>Cash-flow intelligence for SMEs</small><em>Typographic illustration · not a product screenshot</em>
-                            </div>
-                            <div class="project-content">
+                            <div class="project-content" data-system-index="01 / FINANCE">
                                 <p class="project-status">Built · Buildathon project</p><h4>FlowPilot AI</h4>
                                 <p>Financial health and cash-flow intelligence for Sri Lankan SMEs, including stress testing and payment-recovery workflows.</p>
                                 <ul class="project-tags" aria-label="FlowPilot AI technologies and focus"><li>AI</li><li>FinTech</li><li>Full-stack</li><li>Seylan APIs</li></ul>
+                                <p class="project-visual-note">Project diagram is illustrative; it is not a product screenshot.</p>
                                 <details class="project-contribution"><summary>Contribution &amp; attribution</summary><p>The supplied portfolio brief identifies my role as team lead with product and architecture input and frontend work around the AI CFO dashboard. The public repository&#x27;s team table uses placeholder names, so I cannot map its module list to me independently.</p></details>
                                 <div class="project-actions"><a class="project-link" href="projects/flowpilot-ai/">View case study <span aria-hidden="true">→</span></a><a class="project-link project-link--secondary" href="https://flowpilotai-opal.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open FlowPilot AI public project page (opens in a new tab)">Project page <span aria-hidden="true">↗</span></a><a class="project-link project-link--secondary" href="https://github.com/divejikan-yuvarajah/FlowPilotAI" target="_blank" rel="noopener noreferrer" aria-label="View FlowPilot AI source repository (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a></div>
                             </div>
                         </article>
                         <article class="project-card project-card--featured" data-project-card data-categories="ai fullstack web" data-case-study-slug="cortex" id="work-cortex">
-                            <div class="project-illustration project-illustration--cortex">
-                                <span class="atlas-project-index" aria-hidden="true">02 / 04</span><svg class="atlas-poster-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><use href="images/atlas-motifs.svg#cortex"/></svg>
-                                <span>PRODUCT SYSTEM · ENTERPRISE</span><strong aria-hidden="true">CORTEX</strong><small>Business management OS</small><em>Typographic illustration · not a product screenshot</em>
-                            </div>
-                            <div class="project-content">
+                            <div class="project-content" data-system-index="02 / OPERATIONS">
                                 <p class="project-status">Collaborator project · public preview</p><h4>CORTEX</h4>
                                 <p>An AI-powered business operating system described in a collaborator's public repository. The repository and preview belong to the wider project team.</p>
                                 <ul class="project-tags" aria-label="CORTEX technologies and focus"><li>AI</li><li>Enterprise</li><li>Full-stack</li></ul>
+                                <p class="project-visual-note">Project diagram is illustrative; it is not a product screenshot.</p>
                                 <p class="project-source-note">The public preview includes unverified promotional claims; this portfolio does not repeat them.</p>
                                 <details class="project-contribution"><summary>Contribution &amp; attribution</summary><p>CORTEX is represented by a public repository owned by collaborator Abdul Basith and a team preview. The materials available for this audit do not assign specific modules to me, so this case study describes the documented team system without claiming individual feature ownership.</p></details>
                                 <div class="project-actions"><a class="project-link" href="projects/cortex/">View case study <span aria-hidden="true">→</span></a><a class="project-link project-link--secondary" href="https://cortex-gamma-teal.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open the CORTEX team preview (opens in a new tab)">Team preview <span aria-hidden="true">↗</span></a><a class="project-link project-link--secondary" href="https://github.com/abdullllbasith/Cortex" target="_blank" rel="noopener noreferrer" aria-label="View the collaborator team's CORTEX repository (opens in a new tab)">Team repository <span aria-hidden="true">↗</span></a></div>
                             </div>
                         </article>
                         <article class="project-card project-card--featured" data-project-card data-categories="ai fullstack web" data-case-study-slug="mediguardian-ai" id="work-mediguardian-ai">
-                            <div class="project-illustration project-illustration--mediguardian">
-                                <span class="atlas-project-index" aria-hidden="true">03 / 04</span><svg class="atlas-poster-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><use href="images/atlas-motifs.svg#mediguardian-ai"/></svg>
-                                <span>HEALTHTECH · PROTOTYPE</span><strong aria-hidden="true">MediGuardian</strong><small>AI health memory &amp; safety</small><em>Typographic illustration · not a product screenshot</em>
-                            </div>
-                            <div class="project-content">
+                            <div class="project-content" data-system-index="03 / HEALTH MEMORY">
                                 <p class="project-status">Prototype · deployment unverified</p><h4>MediGuardian AI</h4>
                                 <p>A health-memory prototype for extracting medical documents, asking questions with source references and supporting doctor referrals.</p>
                                 <ul class="project-tags" aria-label="MediGuardian AI technologies and focus"><li>AI</li><li>HealthTech</li><li>RAG</li></ul>
+                                <p class="project-visual-note">Project diagram is illustrative; it is not a product screenshot.</p>
                                 <p class="project-disclaimer">A project prototype, not a diagnostic service or substitute for professional care.</p>
                                 <details class="project-contribution"><summary>Contribution &amp; attribution</summary><p>The supplied project brief identifies me as team lead with primary AI-architecture responsibility. No accessible source repository was available to validate specific code ownership, so this remains a qualified, owner-provided attribution.</p></details>
                                 <div class="project-actions"><a class="project-link" href="projects/mediguardian-ai/">View case study <span aria-hidden="true">→</span></a></div>
                             </div>
                         </article>
                         <article class="project-card project-card--featured project-card--wide" data-project-card data-categories="ai fullstack civic web" data-case-study-slug="infraos" id="work-infraos">
-                            <div class="project-illustration project-illustration--infraos">
-                                <span class="atlas-project-index" aria-hidden="true">04 / 04</span><svg class="atlas-poster-art" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><use href="images/atlas-motifs.svg#infraos"/></svg>
-                                <span>IN DEVELOPMENT · CIVICTECH</span><strong aria-hidden="true">INFRAOS</strong><small>Infrastructure intelligence &amp; coordination</small><em>Typographic illustration · not a product screenshot</em>
-                            </div>
-                            <div class="project-content">
+                            <div class="project-content" data-system-index="04 / INFRASTRUCTURE">
                                 <p class="project-status">In development</p><h4>INFRAOS</h4>
                                 <p>A national infrastructure coordination platform concept focused on shared project visibility and interagency planning. Capabilities remain in development.</p>
                                 <ul class="project-tags" aria-label="INFRAOS technologies and focus"><li>Full-stack</li><li>CivicTech</li><li>AI concept</li></ul>
+                                <p class="project-visual-note">Project diagram is illustrative; it is not a product screenshot.</p>
                                 <details class="project-contribution"><summary>Contribution &amp; attribution</summary><p>The supplied brief identifies INFRAOS as a university project in development but does not establish my individual module ownership. The repository URL could not be retrieved for this audit, so no feature is attributed to me as completed work.</p></details>
                                 <div class="project-actions"><a class="project-link" href="projects/infraos/">View case study <span aria-hidden="true">→</span></a></div>
                             </div>
                         </article>
+                        </div>
                     </div>
                 </div>
 
@@ -367,6 +396,7 @@
                 <p class="achievements-intro">A few milestones earned by turning ideas into working systems under real competition constraints.</p>
 
                 <article class="achievement-feature" aria-labelledby="buildathon-title">
+                    <svg class="living-route-diagram achievement-route-diagram" viewBox="0 0 440 180" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-result"/></svg>
                     <div class="achievement-feature-copy">
                         <p class="achievement-kicker">Featured result <span aria-hidden="true">/</span> May 2026</p>
                         <h3 id="buildathon-title">Cursor Colombo 24H Buildathon</h3>
@@ -420,6 +450,7 @@
                 <p class="experience-eyebrow">Professional journey</p>
                 <h2 class="section-title" id="experience-title"><span class="atlas-title-text">Experience &amp; Ventures</span></h2>
                 <p class="experience-intro">Building technology ventures and applying software engineering to practical business challenges, alongside previous professional operations experience.</p>
+                <svg class="living-route-diagram ventures-route-diagram" viewBox="0 0 720 180" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-ventures"/></svg>
 
                 <section class="experience-group" aria-labelledby="current-ventures-title">
                     <div class="experience-group-heading">
@@ -524,6 +555,7 @@
                 <p class="community-eyebrow">Beyond the code</p>
                 <h2 class="section-title" id="community-title"><span class="atlas-title-text">Leadership &amp; Community</span></h2>
                 <p class="community-intro">I value the communities behind great technology. Alongside building software, I contribute to student tech initiatives and organizations that bring people together.</p>
+                <svg class="living-route-diagram community-route-diagram" viewBox="0 0 760 240" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-community"/></svg>
 
                 <article class="community-feature" aria-labelledby="aws-sbg-title">
                     <div class="community-feature-heading">
@@ -664,6 +696,7 @@
                     <p class="contact-eyebrow">Let's connect</p>
                     <h2 class="contact-title" id="contact-title"><span class="atlas-mask"><span class="atlas-closing-line">Have something</span></span> <span class="atlas-mask"><span class="atlas-closing-line">worth building<span class="atlas-stop">?</span></span></span></h2>
                     <p class="contact-intro">I'm open to software engineering opportunities, AI collaborations, meaningful projects and conversations about building useful technology.</p>
+                    <svg class="living-route-diagram contact-route-diagram" viewBox="0 0 900 190" aria-hidden="true" focusable="false"><use href="images/living-systems-routes.svg#route-contact"/></svg>
                 </div>
 
                 <div class="contact-layout">

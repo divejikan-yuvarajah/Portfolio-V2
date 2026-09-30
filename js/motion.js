@@ -1,4 +1,5 @@
 import { buildAtlasPolishMotion } from './atlas-gsap-extensions.js';
+import { setAtlasObservatoryProject } from './atlas-interactions.js';
 
 const GSAP_VERSION = '3.15.0';
 const CDN_ROOT = `https://cdnjs.cloudflare.com/ajax/libs/gsap/${GSAP_VERSION}`;
@@ -15,7 +16,9 @@ let media;
 let responsiveContext;
 let active = false;
 let refreshFrame = 0;
-let effects = [];
+let observatoryTriggers = [];
+let observatoryStage;
+let observatoryTransition;
 let hooksInstalled = false;
 let pageShowInstalled = false;
 
@@ -61,12 +64,22 @@ function queueRefresh() {
 }
 
 function refreshProjects() {
-    // Only decorative descendants move. Native hidden/focus state belongs to projects.js.
-    effects.forEach(({ card, timeline }) => {
-        if (card.hidden) timeline.scrollTrigger.disable(true);
-        else timeline.scrollTrigger.enable(false, false);
+    // projects.js remains the sole owner of card/group hidden state and filter buttons.
+    observatoryTriggers.forEach(({ card, trigger }) => {
+        if (card.hidden || card.closest('[hidden]')) trigger.disable(true);
+        else trigger.enable(false, false);
     });
+    const visible = [...document.querySelectorAll('.project-card--featured')]
+        .filter(card => !card.hidden && !card.closest('[hidden]'));
+    const current = visible.find(card => card.dataset.caseStudySlug === observatoryStage?.dataset.activeProject);
+    if (visible.length) setObservatoryProject(current?.dataset.caseStudySlug || visible[0].dataset.caseStudySlug, false);
     queueRefresh();
+}
+
+function setObservatoryProject(slug, transition = true) {
+    if (!observatoryStage || !slug) return;
+    setAtlasObservatoryProject(slug);
+    if (transition && observatoryTransition) observatoryTransition.restart();
 }
 
 function canEnter(element) {
@@ -82,15 +95,18 @@ function buildIntro() {
     const lines = document.querySelectorAll('.atlas-hero-line');
     if (!lines.length) return;
     const tl = gsap.timeline({ defaults: { ease: 'power3.out', clearProps: 'transform,opacity,clipPath' } });
-    tl.addLabel('identity', 0)
-        .from('.navbar .container', { y: -6, duration: .35 }, 'identity')
-        .from(lines, { yPercent: 105, duration: .75, stagger: .09 }, 'identity')
-        .addLabel('builder', .12)
-        .from('.hero-portrait', { clipPath: 'inset(0 0 100% 0)', duration: .85 }, 'builder')
-        .from('.atlas-portrait-registration, .atlas-identity-caption', { x: 12, duration: .65, stagger: .08 }, 'builder')
-        .addLabel('invitation', .3)
-        .from('.hero-name, .hero-role, .hero-summary', { x: 10, opacity: .65, duration: .55, stagger: .05 }, 'invitation')
-        .from('.hero-actions, .hero-cv-link', { x: 8, duration: .45, stagger: .05 }, 'invitation');
+    tl.addLabel('BOOT', 0)
+        .from('.atlas-edition, .hero-eyebrow', { y: 8, opacity: .6, duration: .3, stagger: .04 }, 'BOOT')
+        .addLabel('HEADLINE', .08)
+        .from(lines, { yPercent: 105, duration: .62, stagger: .075 }, 'HEADLINE')
+        .addLabel('FRAME', .2)
+        .from('.hero-portrait', { clipPath: 'inset(0 0 100% 0)', duration: .72 }, 'FRAME')
+        .from('.atlas-portrait-registration, .atlas-identity-caption', { x: 10, duration: .46, stagger: .06 }, 'FRAME+=0.08')
+        .from('.hero-route-diagram', { scaleX: 0, transformOrigin: 'left center', duration: .55 }, 'FRAME+=0.14')
+        .addLabel('IDENTITY', .46)
+        .from('.hero-name, .hero-role, .hero-summary', { x: 8, opacity: .68, duration: .42, stagger: .035 }, 'IDENTITY')
+        .addLabel('INVITATION', .72)
+        .from('.hero-actions, .hero-cv-link', { y: 7, duration: .36, stagger: .04 }, 'INVITATION');
 }
 
 function buildChapters() {
@@ -124,6 +140,18 @@ function buildSignals() {
                 { strokeDashoffset: 0, duration: 1, ease: 'power2.inOut', clearProps: 'strokeDasharray,strokeDashoffset' }, 'route')
             .from(point, { scale: 0, transformOrigin: 'center', duration: .25, clearProps: 'transform', ease: 'power2.out' }, 'route+=0.75');
     });
+    document.querySelectorAll('.living-route-diagram:not(.hero-route-diagram)').forEach(route => {
+        if (!canEnter(route)) return;
+        gsap.from(route, { clipPath: 'inset(0 100% 0 0)', duration: .72, ease: 'power2.inOut', clearProps: 'clipPath',
+            scrollTrigger: { trigger: route, start: 'top 88%', once: true } });
+    });
+    const observatoryRoute = document.querySelector('.observatory-route-path');
+    if (observatoryRoute && canEnter(observatoryRoute)) {
+        gsap.fromTo(observatoryRoute, { strokeDasharray: 1, strokeDashoffset: 1 }, {
+            strokeDashoffset: 0, duration: .8, ease: 'power2.inOut', clearProps: 'strokeDasharray,strokeDashoffset',
+            scrollTrigger: { trigger: observatoryStage || document.querySelector('[data-project-observatory]'), start: 'top 82%', once: true }
+        });
+    }
 }
 
 function buildResultAndClosing() {
@@ -144,19 +172,62 @@ function buildResultAndClosing() {
     }
 }
 
-function buildFeaturedWork() {
-    document.querySelectorAll('.project-card--featured').forEach(card => {
-        const art = card.querySelector('.atlas-poster-art');
-        const index = card.querySelector('.atlas-project-index');
-        if (!art || card.hidden) return;
-        const timeline = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: {
-            trigger: card, start: 'top bottom', end: 'bottom top', scrub: .45, invalidateOnRefresh: true,
-        } });
-        timeline.addLabel('passage', 0)
-            .fromTo(art, { yPercent: -5 }, { yPercent: 5, duration: 1 }, 'passage')
-            .fromTo(index, { x: 0 }, { x: 12, duration: 1 }, 'passage');
-        effects.push({ card, timeline });
+function buildProjectObservatory() {
+    observatoryStage = document.querySelector('[data-project-observatory]');
+    if (!observatoryStage) return;
+    const stories = [...observatoryStage.querySelectorAll('.project-card--featured')];
+    observatoryTransition = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } })
+        .fromTo(observatoryStage, { y: 5 }, { y: 0, duration: .28, clearProps: 'transform' });
+
+    // Exactly one state trigger per featured project; text/actions stay in document flow.
+    stories.forEach(card => {
+        const trigger = ScrollTrigger.create({
+            trigger: card,
+            start: 'top 58%',
+            end: 'bottom 42%',
+            invalidateOnRefresh: true,
+            onEnter: () => { setObservatoryProject(card.dataset.caseStudySlug); },
+            onEnterBack: () => { setObservatoryProject(card.dataset.caseStudySlug); }
+        });
+        observatoryTriggers.push({ card, trigger });
     });
+
+    const hashId = decodeURIComponent(location.hash.slice(1));
+    const linkedStory = stories.find(card => card.id === hashId);
+    const centerStory = stories.find(card => {
+        const bounds = card.getBoundingClientRect();
+        return bounds.top <= innerHeight * .55 && bounds.bottom >= innerHeight * .42;
+    });
+    setObservatoryProject((linkedStory || centerStory || stories.find(card => !card.hidden))?.dataset.caseStudySlug, false);
+}
+
+function buildMagneticActions() {
+    const targets = [...document.querySelectorAll('.hero-action-primary, .contact-submit')];
+    const cleanup = [];
+    targets.forEach(target => {
+        const moveX = gsap.quickTo(target, 'x', { duration: .3, ease: 'power3.out' });
+        const moveY = gsap.quickTo(target, 'y', { duration: .3, ease: 'power3.out' });
+        let bounds;
+        const onEnter = () => { bounds = target.getBoundingClientRect(); };
+        const onMove = event => {
+            if (!bounds) return;
+            const dx = (event.clientX - (bounds.left + bounds.width / 2)) * .12;
+            const dy = (event.clientY - (bounds.top + bounds.height / 2)) * .12;
+            moveX(Math.max(-5, Math.min(5, dx)));
+            moveY(Math.max(-4, Math.min(4, dy)));
+        };
+        const onLeave = () => { bounds = null; moveX(0); moveY(0); };
+        target.addEventListener('pointerenter', onEnter, { passive: true });
+        target.addEventListener('pointermove', onMove, { passive: true });
+        target.addEventListener('pointerleave', onLeave, { passive: true });
+        cleanup.push(() => {
+            target.removeEventListener('pointerenter', onEnter);
+            target.removeEventListener('pointermove', onMove);
+            target.removeEventListener('pointerleave', onLeave);
+            gsap.set(target, { clearProps: 'transform' });
+        });
+    });
+    return () => cleanup.forEach(remove => remove());
 }
 
 function installHooks() {
@@ -175,7 +246,7 @@ function stopMotion() {
     // listeners. Revert its public Context instead; refresh reuses the matcher.
     responsiveContext?.revert();
     active = false;
-    effects = [];
+    observatoryTriggers = [];
     if (refreshFrame) cancelAnimationFrame(refreshFrame);
     refreshFrame = 0;
     document.removeEventListener('portfolio:projects-filtered', refreshProjects);
@@ -206,21 +277,29 @@ async function startMotion() {
         if (!registered) { gsap.registerPlugin(ScrollTrigger); registered = true; }
         media = gsap.matchMedia();
         // matchMedia creates its own scoped context. Do not nest another gsap.context inside it.
-        media.add({ all: 'all', desktop: '(min-width: 1024px) and (min-height: 760px) and (pointer: fine) and (hover: hover)',
+        media.add({ all: 'all', desktopCreative: '(min-width: 1024px) and (min-height: 760px) and (pointer: fine) and (hover: hover)',
+            tablet: '(min-width: 701px) and (max-width: 1023px) and (min-height: 600px)',
             reduce: '(prefers-reduced-motion: reduce)' }, context => {
             responsiveContext = context;
             if (!started || context.conditions.reduce || !allowed()) return;
             // Keep the authored cover fully visible on phones, touch screens and
             // short windows. Its clip masks are reserved for a spacious desktop.
-            if (context.conditions.desktop) buildIntro();
+            if (context.conditions.desktopCreative) buildIntro();
             else introUsed = true;
             buildChapters();
             buildSignals();
             buildAtlasPolishMotion(gsap, canEnter);
             buildResultAndClosing();
-            if (context.conditions.desktop) buildFeaturedWork();
+            if (context.conditions.desktopCreative || context.conditions.tablet) buildProjectObservatory();
+            const removeMagneticActions = context.conditions.desktopCreative ? buildMagneticActions() : null;
             queueRefresh();
-            return () => { effects = []; };
+            return () => {
+                observatoryTriggers = [];
+                observatoryTransition = null;
+                observatoryStage = null;
+                setAtlasObservatoryProject('flowpilot-ai');
+                removeMagneticActions?.();
+            };
         }, document.body);
         active = true;
         document.documentElement.classList.add('motion-enhanced');
