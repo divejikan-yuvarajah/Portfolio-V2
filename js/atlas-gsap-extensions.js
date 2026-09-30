@@ -14,8 +14,7 @@ export function buildAtlasPolishMotion(gsap, canEnter) {
         });
     };
 
-    // The existing coordinator owns chapter rules/titles, poster SVG scrubs and Hero masks.
+    // The coordinator owns chapter rules/titles, the Observatory and Hero masks.
     makeEntrance('main > section[id] .atlas-index', { y: 8, scale: .92, duration: .45 });
-    makeEntrance('.project-illustration > strong', { y: 14, duration: .65, start: 'top 92%' });
     makeEntrance('.venture-company', { x: -12, duration: .65 });
 }

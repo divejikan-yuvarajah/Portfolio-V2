@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="route-hero" viewBox="0 0 640 220">
+    <path d="M18 186H156C207 186 207 44 267 44H354C402 44 400 153 452 153H622" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <path d="M18 202H96M544 28H622M590 153l-12-9m12 9-12 9" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="156" cy="186" r="5" fill="currentColor"/><circle cx="354" cy="44" r="5" fill="currentColor"/><circle cx="452" cy="153" r="5" fill="currentColor"/>
+  </symbol>
+  <symbol id="route-about" viewBox="0 0 720 112">
+    <path d="M10 56H160L204 20H354L398 92H548L590 56H710" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <circle cx="160" cy="56" r="4" fill="currentColor"/><circle cx="354" cy="20" r="4" fill="currentColor"/><circle cx="548" cy="92" r="4" fill="currentColor"/>
+  </symbol>
+  <symbol id="route-result" viewBox="0 0 440 180">
+    <path d="M15 150H112L154 108H246L291 62H425" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <path d="M412 51l13 11-13 11" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="112" cy="150" r="5" fill="currentColor"/><circle cx="246" cy="108" r="5" fill="currentColor"/><circle cx="425" cy="62" r="5" fill="currentColor"/>
+  </symbol>
+  <symbol id="route-ventures" viewBox="0 0 720 180">
+    <path d="M16 90H190C235 90 235 34 280 34H440C486 34 486 146 532 146H704" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <circle cx="190" cy="90" r="5" fill="currentColor"/><circle cx="440" cy="34" r="5" fill="currentColor"/><circle cx="532" cy="146" r="5" fill="currentColor"/>
+  </symbol>
+  <symbol id="route-community" viewBox="0 0 760 240">
+    <path d="M22 195H156L225 126H362L432 57H574L650 133H738M225 126V32M432 57V208M574 57V20" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <circle cx="156" cy="195" r="6" fill="currentColor"/><circle cx="225" cy="126" r="6" fill="currentColor"/><circle cx="362" cy="126" r="6" fill="currentColor"/><circle cx="432" cy="57" r="6" fill="currentColor"/><circle cx="574" cy="57" r="6" fill="currentColor"/><circle cx="650" cy="133" r="6" fill="currentColor"/>
+  </symbol>
+  <symbol id="route-contact" viewBox="0 0 900 190">
+    <path d="M12 144H212L270 86H430L492 144H654L712 44H888" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+    <path d="M872 31l16 13-16 13" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="212" cy="144" r="5" fill="currentColor"/><circle cx="430" cy="86" r="5" fill="currentColor"/><circle cx="654" cy="144" r="5" fill="currentColor"/><circle cx="712" cy="44" r="5" fill="currentColor"/>
+  </symbol>
+</svg>

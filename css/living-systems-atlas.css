@@ -1,0 +1,243 @@
+/* Living Systems Atlas — one scoped, progressive editorial layer. */
+.atlas-site {
+    --living-grid-gap: clamp(1rem, 2.1vw, 2rem);
+    --living-rule: var(--color-border-strong);
+    --living-display: clamp(3rem, 8.7vw, 8.25rem);
+}
+
+.living-route-diagram { display: block; overflow: visible; color: var(--color-action-primary); pointer-events: none; }
+.living-route-diagram use { vector-effect: non-scaling-stroke; }
+.living-micro-label { color: var(--color-action-primary); font: 500 .66rem/1.5 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.atlas-site .atlas-chapter { position: relative; isolation: isolate; }
+.atlas-site .atlas-chapter::after { content: ''; position: absolute; z-index: -1; left: .3rem; top: 100%; width: 1px; height: clamp(1.4rem, 2vw, 2.2rem); background: linear-gradient(var(--living-rule), transparent); }
+.atlas-site main > section:nth-of-type(odd):not(#hero) { background: linear-gradient(90deg, rgb(245 244 240 / .55), transparent 72%); }
+.atlas-site main > section:not(#hero) > .container { max-width: var(--atlas-container); }
+
+/* Secondary chapter rail: visual orientation only; primary nav remains unchanged. */
+.living-system-rail { display: none; }
+@media (min-width: 1440px) {
+    .living-system-rail {
+        position: fixed;
+        z-index: 15;
+        inset: 50% clamp(1rem, calc((100vw - 94rem) / 2), 4rem) auto auto;
+        display: grid;
+        gap: .55rem;
+        transform: translateY(-50%);
+    }
+    .living-system-rail a {
+        position: relative;
+        display: grid;
+        width: 2.25rem;
+        min-height: 2.25rem;
+        place-items: center;
+        color: var(--color-text-subtle);
+        border: 1px solid transparent;
+        font: 500 .61rem/1 var(--font-mono);
+        text-decoration: none;
+        transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+    }
+    .living-system-rail a:hover,
+    .living-system-rail a:focus-visible,
+    .living-system-rail a[aria-current="location"] {
+        color: var(--color-action-primary);
+        background: var(--color-surface);
+        border-color: var(--color-border-strong);
+    }
+    .living-rail-label {
+        position: absolute;
+        right: calc(100% + .65rem);
+        padding: .35rem .5rem;
+        color: var(--color-text-primary);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        font: 500 .62rem/1.2 var(--font-mono);
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(4px);
+        transition: opacity .18s ease, transform .18s ease, visibility .18s;
+    }
+    .living-system-rail a:is(:hover,:focus-visible) .living-rail-label { opacity: 1; visibility: visible; transform: translateX(0); }
+}
+
+/* Cover: portrait, modular route and metadata share one registration frame. */
+.atlas-site .hero-section { position: relative; padding-bottom: clamp(4rem, 8vw, 8rem); }
+.atlas-site #bg-canvas { opacity: .08; }
+.atlas-site .hero-layout { align-items: center; }
+.atlas-site .hero-content { position: relative; z-index: 1; }
+.atlas-site .hero-eyebrow { display: flex; align-items: center; gap: .75rem; font: 500 .72rem/1.5 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
+.atlas-site .hero-eyebrow > span:first-child { width: 2.4rem; height: 1px; background: var(--color-action-primary); }
+.atlas-site .hero-title { font-size: var(--living-display); line-height: .88; letter-spacing: -.078em; }
+.atlas-site .hero-title .atlas-outline { -webkit-text-stroke-width: 1px; }
+.atlas-site .hero-name { margin-top: clamp(1rem, 2vw, 1.75rem); font-size: clamp(1.15rem, 1.8vw, 1.6rem); }
+.atlas-site .hero-visual { position: relative; isolation: isolate; padding: clamp(.75rem, 1.2vw, 1.1rem); border: 1px solid var(--color-border-strong); background-color: var(--color-bg-alt); background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 1.4rem 1.4rem; }
+.atlas-site .hero-visual::before { width: 4.2rem; height: 4.2rem; top: -.6rem; right: -.6rem; border-width: 1px; }
+.atlas-site .hero-portrait { z-index: 0; border: 0; }
+.atlas-site .hero-portrait img { object-position: center 21%; }
+.hero-route-diagram { position: absolute; z-index: 1; width: 112%; height: auto; left: -18%; bottom: 2.5rem; opacity: .72; }
+.hero-route-coordinate { position: absolute; z-index: 2; top: 47%; right: -3.6rem; color: var(--color-action-primary); font: 500 .58rem/1.55 var(--font-mono); letter-spacing: .06em; }
+.atlas-site .atlas-identity-caption { position: relative; z-index: 2; padding-top: .7rem; border-top: 1px solid var(--color-border-strong); font: 500 .65rem/1.5 var(--font-mono); }
+.atlas-site .atlas-work-tile { position: relative; z-index: 2; }
+
+/* Profile: one visible direction line ties the narrative to its focus list. */
+.atlas-site .about-layout { row-gap: clamp(2rem, 5vw, 4rem); }
+.atlas-site .about-system-direction { grid-column: 1 / -1; grid-row: 2; position: relative; padding: 1.4rem 0 .65rem; border-top: 1px solid var(--living-rule); }
+.about-route-diagram { position: absolute; inset: .35rem 0 auto; width: 100%; height: 3.7rem; opacity: .3; }
+.atlas-site .about-system-direction .living-micro-label { position: relative; margin: 0 0 1rem; }
+.about-system-direction ol { position: relative; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .75rem; padding: 0; margin: 0; list-style: none; }
+.about-system-direction li { max-width: 16ch; color: var(--color-text-primary); font: 600 clamp(.78rem,1.15vw,1rem)/1.35 var(--font-heading); }
+.atlas-site .about-focus-list { grid-row: 1; margin-top: 3rem; }
+.atlas-site .about-focus-item { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: .7rem; }
+.atlas-site .about-focus-index { color: var(--color-action-primary); font: 500 .72rem/1.6 var(--font-mono); }
+
+/* Capability matrix: preserve all reported tags; rules carry the hierarchy. */
+.atlas-site .skills-header { display: grid; grid-template-columns: minmax(0,8fr) minmax(12rem,4fr); align-items: end; column-gap: var(--living-grid-gap); }
+.atlas-site .skills-header > :is(.skills-eyebrow,.skills-title) { grid-column: 1; }
+.atlas-site .skills-header .skills-intro { grid-column: 2; grid-row: 1 / span 2; align-self: end; margin: 0 0 1.5rem; }
+.atlas-site .skill-category-card { grid-template-columns: 2.7rem minmax(10rem,1.05fr) minmax(13rem,1.3fr) minmax(15rem,1.5fr); padding-block: 1.55rem; }
+.atlas-site .skill-category-card::before { font-size: .9rem; }
+.atlas-site .skill-category-card h3 { max-width: 18ch; }
+.atlas-site .skill-tag-list li { min-height: 1.9rem; align-content: center; padding-inline: .58rem; }
+.atlas-site .skill-category-card:hover .atlas-row-rule,
+.atlas-site .skill-category-card:focus-within .atlas-row-rule { opacity: 1; }
+
+/* Project Observatory: one sticky diagram stage, four normal-flow stories. */
+.atlas-site .project-observatory {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0,5fr) minmax(0,7fr);
+    align-items: start;
+    gap: clamp(1rem,2vw,2rem);
+    margin-top: 1.4rem;
+}
+.atlas-site .observatory-index { position: sticky; top: calc(var(--navigation-height) + 2rem); display: grid; gap: .7rem; padding: .8rem 0; margin: 0; border-top: 1px solid var(--living-rule); list-style: none; }
+.observatory-index li { display: grid; width: 2rem; min-height: 2rem; place-items: center; color: var(--color-text-subtle); border: 1px solid var(--color-border); font: 500 .65rem/1 var(--font-mono); transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+.observatory-index li.is-active { color: var(--color-text-inverse); background: var(--color-action-primary); border-color: var(--color-action-primary); }
+.atlas-site .observatory-stage { position: sticky; top: calc(var(--navigation-height) + 1.5rem); display: block; min-width: 0; min-height: clamp(28rem,62vh,43rem); overflow: clip; margin: 0; border: 1px solid var(--color-border-strong); background: var(--color-bg-alt); }
+.observatory-stage::before,
+.observatory-stage::after { content: ''; position: absolute; z-index: 2; width: 1rem; height: 1rem; border-color: var(--color-action-primary); border-style: solid; pointer-events: none; }
+.observatory-stage::before { top: .8rem; left: .8rem; border-width: 1px 0 0 1px; }
+.observatory-stage::after { right: .8rem; bottom: .8rem; border-width: 0 1px 1px 0; }
+.observatory-stage-label,.observatory-frame-mark { position: absolute; z-index: 3; color: var(--color-text-subtle); font: 500 .56rem/1.5 var(--font-mono); letter-spacing: .06em; }
+.observatory-stage-label { top: 1rem; left: 2.35rem; }
+.observatory-stage-label > span { color: var(--color-action-primary); }
+.observatory-frame-mark { top: 1rem; right: 1rem; display: grid; text-align: right; }
+.observatory-scene { position: absolute; inset: 4rem .8rem 6rem; display: grid; align-content: center; justify-items: center; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(10px) scale(.985); transition: opacity .34s ease, transform .48s ease, visibility 0s .48s; }
+.observatory-scene.is-active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); transition: opacity .34s ease, transform .48s cubic-bezier(.2,.7,.2,1); }
+.observatory-scene svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--color-action-primary); opacity: .32; pointer-events: none; }
+.observatory-scene strong { position: relative; color: var(--color-text-primary); font: 800 clamp(2.2rem,5.5vw,5rem)/.95 var(--font-heading); letter-spacing: -.075em; text-align: center; text-wrap: balance; }
+.observatory-scene strong span { color: var(--color-action-primary); }
+.observatory-scene small { position: relative; margin-top: 1.25rem; color: var(--color-text-body); font: 500 .57rem/1.5 var(--font-mono); letter-spacing: .08em; text-align: center; }
+.observatory-route { position: absolute; left: 7%; bottom: 4rem; width: 86%; height: 2.75rem; color: var(--color-action-primary); overflow: visible; }
+.observatory-route path { fill: none; stroke: currentColor; stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.observatory-route circle { fill: currentColor; }
+.observatory-caption { position: absolute; z-index: 2; right: 1.15rem; bottom: 1rem; left: 1.15rem; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: .2rem 1rem; padding-top: .65rem; border-top: 1px solid var(--color-border-strong); }
+.observatory-caption span { color: var(--color-text-subtle); font: 500 .57rem/1.35 var(--font-mono); letter-spacing: .05em; }
+.observatory-caption strong { grid-column: 1; color: var(--color-text-primary); font: 700 1rem/1.2 var(--font-heading); }
+.observatory-caption span:last-child { grid-column: 2; grid-row: 1 / span 2; color: var(--color-action-primary); }
+.atlas-site .projects-featured-grid { display: block; min-width: 0; }
+.atlas-site .projects-section .project-card--featured { display: grid; min-height: clamp(25rem,53vh,40rem); align-content: center; grid-template-columns: minmax(0,1fr); gap: 0; padding: clamp(2rem,5vw,4rem) 0; border-top: 1px solid var(--living-rule); }
+.atlas-site .project-card--featured .project-content { padding: 0; }
+.atlas-site .project-card--featured .project-content h4 { max-width: 13ch; font-size: clamp(2.2rem,4.8vw,4.5rem); text-wrap: balance; }
+.atlas-site .project-card--featured .project-content > p:not(.project-status) { max-width: 52ch; }
+.atlas-site .project-card--featured .project-content::before { display: block; margin-bottom: 1rem; color: var(--color-action-primary); content: attr(data-system-index); font: 500 .67rem/1.4 var(--font-mono); letter-spacing: .07em; }
+.atlas-site .project-visual-note { margin-block: .8rem 1.1rem; color: var(--color-text-subtle); font: 400 .64rem/1.5 var(--font-mono); }
+.atlas-site .project-card--featured .project-actions { gap: .4rem 1rem; }
+.atlas-site .project-card--featured .project-link { min-height: 2.75rem; }
+.atlas-site .project-observatory[hidden] { display: none !important; }
+
+/* Evidence poster, venture route and community network. */
+.atlas-site .achievement-feature { overflow: clip; padding: clamp(2rem,5vw,4.75rem); border-left: 3px solid var(--color-accent-arctic); }
+.achievement-route-diagram { position: absolute; z-index: 0; right: 1rem; bottom: 1rem; width: min(42%,23rem); opacity: .36; }
+.atlas-site .achievement-feature-copy,.atlas-site .achievement-results { position: relative; z-index: 1; }
+.atlas-site .achievement-results { border-left-color: rgb(248 250 252 / .45); }
+.atlas-site .achievement-result-primary { text-wrap: balance; }
+.ventures-route-diagram { width: min(100%,42rem); height: 4rem; margin: -1.6rem 0 2rem auto; opacity: .38; }
+.atlas-site .venture-grid { position: relative; }
+.atlas-site .venture-card { padding-top: 1.4rem; }
+.atlas-site .venture-card--zatroz { border-top-width: 4px; }
+.atlas-site .venture-company { font-size: clamp(2.8rem,6vw,5.6rem); }
+.atlas-site .previous-experience .employment-item { padding-left: 3rem; }
+.community-route-diagram { width: 100%; max-height: 10rem; margin: -1.4rem 0 1.8rem; opacity: .45; }
+.atlas-site .community-feature { position: relative; padding-block: 1.4rem 1.8rem; border-top-width: 4px; }
+.atlas-site .community-feature::after { content: 'NODE / COMMUNITY'; position: absolute; right: 0; top: 1.4rem; color: var(--color-text-subtle); font: 500 .6rem/1.4 var(--font-mono); letter-spacing: .06em; }
+
+/* Foundations, credentials and closing system. */
+.atlas-site .education-list { border-top: 1px solid var(--living-rule); }
+.atlas-site .education-card { position: relative; grid-template-columns: minmax(9rem,1fr) minmax(0,2.2fr); column-gap: var(--living-grid-gap); }
+.atlas-site .education-card::before { content: 'ARCHIVE / 0' counter(education); counter-increment: education; color: var(--color-action-primary); font: 500 .6rem/1.5 var(--font-mono); }
+.atlas-site .education-list { counter-reset: education; }
+.atlas-site .learning-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 clamp(2rem,6vw,6rem); }
+.atlas-site .learning-card { min-height: 9rem; }
+.atlas-site .contact-section { position: relative; overflow: clip; }
+.atlas-site .contact-title { max-width: 11ch; font-size: clamp(3.3rem,8.8vw,8rem); line-height: .92; }
+.contact-route-diagram { width: min(80%,54rem); height: auto; margin: 1rem 0 0 auto; opacity: .48; }
+.atlas-site .contact-layout { position: relative; z-index: 1; }
+.atlas-site .contact-email-link,.atlas-site .contact-submit { min-height: 3rem; }
+.atlas-site .site-footer-inner { border-top: 1px solid var(--living-rule); }
+
+/* Tablet: keep a two-axis observatory without sticky behavior. */
+@media (max-width: 1023px) {
+    .atlas-site .skills-header { grid-template-columns: minmax(0,1fr); }
+    .atlas-site .skills-header .skills-intro { grid-column: 1; grid-row: auto; max-width: 58ch; margin-bottom: 2rem; }
+    .atlas-site .skill-category-card { grid-template-columns: 2rem minmax(9rem,1fr) minmax(12rem,1fr); gap: 1rem; }
+    .atlas-site .skill-category-card .skill-tag-list { grid-column: 2 / -1; }
+    .atlas-site .about-focus-list { grid-row: 1; }
+    .atlas-site .project-observatory { grid-template-columns: 2.4rem minmax(0,4fr) minmax(0,6fr); gap: 1rem; }
+    .atlas-site .observatory-index,.atlas-site .observatory-stage { position: relative; top: auto; }
+    .atlas-site .observatory-stage { position: relative; top: auto; min-height: 28rem; }
+    .atlas-site .project-card--featured { min-height: 26rem; }
+    .observatory-stage-label { max-width: 11rem; }
+    .observatory-frame-mark { display: none; }
+}
+
+/* Phone: static artwork and one content axis; no sticky stage or rail. */
+@media (max-width: 700px) {
+    .atlas-site .hero-title { font-size: clamp(3.2rem,13.5vw,5.8rem); }
+    .hero-route-diagram { width: 105%; left: -12%; bottom: 2rem; opacity: .5; }
+    .hero-route-coordinate { top: auto; right: -.3rem; bottom: 4.3rem; font-size: .52rem; }
+    .atlas-site .about-system-direction { grid-column: 1; grid-row: auto; }
+    .about-system-direction ol { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: .75rem; }
+    .about-route-diagram { top: .5rem; height: 2rem; opacity: .22; }
+    .atlas-site .about-focus-list { grid-row: auto; }
+    .atlas-site .project-observatory { grid-template-columns: minmax(0,1fr); gap: 1rem; }
+    .atlas-site .observatory-index { display: flex; position: absolute; z-index: 3; top: .5rem; left: .5rem; gap: .35rem; padding: 0; border: 0; }
+    .observatory-index li { width: 1.8rem; min-height: 1.8rem; background: var(--color-bg-page); }
+    .atlas-site .observatory-stage { position: relative; top: auto; min-height: clamp(16rem,68vw,22rem); }
+    .observatory-stage-label { top: .9rem; left: .9rem; }
+    .observatory-scene { inset: 3.5rem .5rem 4.6rem; }
+    .observatory-scene strong { font-size: clamp(2rem,9vw,3.6rem); }
+    .observatory-scene small { margin-top: .8rem; font-size: .5rem; }
+    .observatory-route { bottom: 3.35rem; height: 1.8rem; }
+    .observatory-caption { right: .8rem; bottom: .7rem; left: .8rem; }
+    .observatory-frame-mark { display: none; }
+    .atlas-site .projects-section .project-card--featured { min-height: auto; padding-block: 2.2rem; }
+    .atlas-site .project-card--featured .project-content h4 { font-size: clamp(2rem,9vw,3rem); }
+    .achievement-route-diagram { right: .5rem; bottom: .4rem; width: 64%; opacity: .22; }
+    .ventures-route-diagram { height: 2.7rem; margin-block: -1rem 1.5rem; }
+    .community-route-diagram { max-height: 6rem; margin-block: -.7rem 1.2rem; }
+    .atlas-site .community-feature::after { position: static; display: block; margin-top: 1rem; }
+    .atlas-site .education-card { grid-template-columns: minmax(0,1fr); }
+    .atlas-site .education-card::before { margin-bottom: .4rem; }
+    .atlas-site .learning-grid { grid-template-columns: minmax(0,1fr); gap: 1rem; }
+    .contact-route-diagram { width: 100%; margin-top: 1rem; }
+}
+
+@media (max-width: 380px) {
+    .atlas-site .hero-title { font-size: clamp(2.9rem,13.2vw,3.4rem); }
+    .atlas-site .observatory-caption strong { font-size: .9rem; }
+    .observatory-stage-label { max-width: 8.5rem; font-size: .48rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .observatory-scene,.living-system-rail a,.living-rail-label,.observatory-index li { transition: none !important; }
+    .observatory-scene:not(.is-active) { display: none; }
+}
+
+@media (forced-colors: active) {
+    .living-system-rail a[aria-current="location"],.observatory-index li.is-active { color: HighlightText; background: Highlight; border-color: Highlight; }
+    .living-route-diagram,.observatory-route { color: CanvasText; }
+    .observatory-stage { border: 1px solid CanvasText; }
+    .observatory-scene svg { display: none; }
+    .observatory-scene:not(.is-active) { display: none; }
+}

@@ -1,13 +1,45 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(min-width: 1024px) and (pointer: fine) and (hover: hover)');
 
+/** Update only the decorative Observatory state; project filtering owns hidden/ARIA state. */
+export function setAtlasObservatoryProject(slug) {
+    const stage = document.querySelector('[data-project-observatory]');
+    if (!stage || !slug) return;
+    const story = [...stage.querySelectorAll('.project-card--featured')]
+        .find(card => card.dataset.caseStudySlug === slug && !card.hidden && !card.closest('[hidden]'));
+    if (!story) return;
+    stage.dataset.activeProject = slug;
+    stage.querySelectorAll('[data-observatory-scene]').forEach(scene => {
+        scene.classList.toggle('is-active', scene.dataset.observatoryScene === slug);
+    });
+    stage.querySelectorAll('[data-observatory-index]').forEach(index => {
+        index.classList.toggle('is-active', index.dataset.observatoryIndex === slug);
+    });
+    const order = [...stage.querySelectorAll('[data-observatory-index]')]
+        .findIndex(index => index.dataset.observatoryIndex === slug) + 1;
+    const title = story.querySelector('h4')?.textContent.trim() || '';
+    const titleTarget = stage.querySelector('[data-observatory-title]');
+    const countTarget = stage.querySelector('[data-observatory-count]');
+    if (titleTarget) titleTarget.textContent = title;
+    if (countTarget) countTarget.textContent = `${String(order).padStart(2, '0')} / 04`;
+}
+
 export function initAtlasInteractions() {
     const progress = document.querySelector('.atlas-scroll-progress__fill');
-    const chapters = [...document.querySelectorAll('main > section[id] .atlas-chapter')];
-    const lightTargets = [...document.querySelectorAll('.hero-visual, .project-illustration')];
+    const sections = [...document.querySelectorAll('main > section[id]')];
+    const systemRail = document.querySelector('[data-system-rail]');
+    const railLinks = [...(systemRail?.querySelectorAll('a[href^="#"]') || [])];
+    const lightTargets = [...document.querySelectorAll('.hero-visual, .observatory-stage')];
     let frame = 0;
     let observer;
     let active = true;
+    const observatory = document.querySelector('[data-project-observatory]');
+    const syncObservatory = () => {
+        const selected = [...(observatory?.querySelectorAll('.project-card--featured') || [])]
+            .find(card => !card.hidden && !card.closest('[hidden]'));
+        if (selected) setAtlasObservatoryProject(selected.dataset.caseStudySlug);
+    };
+    const onFilter = () => syncObservatory();
 
     const updateProgress = () => {
         frame = 0;
@@ -19,19 +51,29 @@ export function initAtlasInteractions() {
     const scheduleProgress = () => {
         if (!frame && active) frame = window.requestAnimationFrame(updateProgress);
     };
-    const clearCurrent = () => document.querySelectorAll('.atlas-index.is-current').forEach(node => node.classList.remove('is-current'));
-    const setCurrent = entry => {
-        if (!entry.isIntersecting) return;
-        clearCurrent();
-        entry.target.querySelector('.atlas-index')?.classList.add('is-current');
+    const clearCurrent = () => {
+        document.querySelectorAll('.atlas-index.is-current').forEach(node => node.classList.remove('is-current'));
+        railLinks.forEach(link => link.removeAttribute('aria-current'));
     };
-    const observeChapters = () => {
+    const setCurrent = entries => {
+        const visible = entries.filter(entry => entry.isIntersecting);
+        if (!visible.length) return;
+        const current = visible.sort((a, b) => {
+            const center = window.innerHeight / 2;
+            const distance = entry => Math.abs((entry.boundingClientRect.top + entry.boundingClientRect.bottom) / 2 - center);
+            return distance(a) - distance(b);
+        })[0].target;
+        clearCurrent();
+        current.querySelector('.atlas-index')?.classList.add('is-current');
+        systemRail?.querySelector(`a[href="#${CSS.escape(current.id)}"]`)?.setAttribute('aria-current', 'location');
+    };
+    const observeSections = () => {
         observer?.disconnect();
-        if (!('IntersectionObserver' in window) || !chapters.length || !active) return;
-        observer = new IntersectionObserver(entries => entries.forEach(setCurrent), {
-            rootMargin: '-18% 0px -67% 0px', threshold: 0
+        if (!('IntersectionObserver' in window) || !sections.length || !active) return;
+        observer = new IntersectionObserver(setCurrent, {
+            rootMargin: '-42% 0px -42% 0px', threshold: 0
         });
-        chapters.forEach(chapter => observer.observe(chapter));
+        sections.forEach(section => observer.observe(section));
     };
     const onPointerMove = event => {
         if (!active || reduceMotion.matches) return;
@@ -67,6 +109,7 @@ export function initAtlasInteractions() {
         window.removeEventListener('resize', scheduleProgress);
         finePointer.removeEventListener('change', onPreferenceChange);
         reduceMotion.removeEventListener('change', onPreferenceChange);
+        document.removeEventListener('portfolio:projects-filtered', onFilter);
         lightTargets.forEach(target => {
             target.removeEventListener('pointermove', onPointerMove);
             target.removeEventListener('pointerleave', clearSpot);
@@ -81,7 +124,8 @@ export function initAtlasInteractions() {
         window.addEventListener('resize', scheduleProgress, { passive: true });
         finePointer.addEventListener('change', onPreferenceChange);
         reduceMotion.addEventListener('change', onPreferenceChange);
-        observeChapters();
+        document.addEventListener('portfolio:projects-filtered', onFilter);
+        observeSections();
         bindLights();
         scheduleProgress();
     };
@@ -89,10 +133,12 @@ export function initAtlasInteractions() {
     updateProgress();
     window.addEventListener('scroll', scheduleProgress, { passive: true });
     window.addEventListener('resize', scheduleProgress, { passive: true });
-    observeChapters();
+    observeSections();
     bindLights();
+    syncObservatory();
     finePointer.addEventListener('change', onPreferenceChange);
     reduceMotion.addEventListener('change', onPreferenceChange);
+    document.addEventListener('portfolio:projects-filtered', onFilter);
     window.addEventListener('pagehide', onPageHide);
     window.addEventListener('pageshow', onPageShow);
 }

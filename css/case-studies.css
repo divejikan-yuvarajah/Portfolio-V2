@@ -627,3 +627,37 @@
     .case-study-document .case-illustration { border: 1px solid CanvasText; }
     .case-study-document :is(.case-illustration svg, .case-media-art) { forced-color-adjust: auto; }
 }
+
+/* Task 16C: case-study routes use the Living Systems Atlas chapter language. */
+.case-study-document .case-study-page > .container { position: relative; }
+.case-study-document .atlas-edition { color: var(--color-text-subtle); font: 500 .65rem/1.5 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
+.case-study-document .case-breadcrumb { font: 500 .68rem/1.6 var(--font-mono); }
+.case-study-document .case-back-link { min-height: 2.75rem; }
+.case-study-document .case-hero { position: relative; border-top: 1px solid var(--color-border-strong); border-bottom: 1px solid var(--color-border); }
+.case-study-document .case-hero-copy { align-self: center; }
+.case-study-document .case-status { display: inline-flex; align-items: center; gap: .6rem; border-left: 2px solid var(--color-action-primary); padding-left: .65rem; font: 500 .68rem/1.5 var(--font-mono); }
+.case-study-document .case-illustration { background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg,var(--color-border) 1px, transparent 1px); background-size: 1.5rem 1.5rem; }
+.case-study-document .case-illustration::after { content: 'FIG. / SYSTEM MAP'; position: absolute; z-index: 2; top: .8rem; left: .9rem; color: var(--color-text-subtle); font: 500 .57rem/1.4 var(--font-mono); letter-spacing: .07em; }
+.case-study-document .case-illustration > svg { opacity: .28; }
+.case-study-document .case-facts { border-block: 1px solid var(--color-border); }
+.case-study-document .case-facts dt { color: var(--color-action-primary); font-size: .62rem; text-transform: uppercase; }
+.case-study-document .case-section { border-top: 1px solid var(--color-border); }
+.case-study-document .case-section-kicker { letter-spacing: .1em; }
+.case-study-document .case-feature { position: relative; }
+.case-study-document .related-case { min-height: 100%; border-top: 2px solid var(--color-action-primary); }
+.case-study-document .case-footer { padding-block: 1.5rem; }
+
+@media (max-width: 760px) {
+    .case-study-document .case-hero { border-top-width: 1px; }
+    .case-study-document .case-illustration { background-size: 1.2rem 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .case-study-document .case-illustration,
+    .case-study-document .related-case { scroll-behavior: auto; transition: none; }
+}
+
+@media (forced-colors: active) {
+    .case-study-document .case-illustration { background: Canvas; }
+    .case-study-document .case-illustration::after { color: CanvasText; }
+}
